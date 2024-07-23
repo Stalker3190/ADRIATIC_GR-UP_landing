@@ -1,44 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
-    <header>
-        <h1>Название компании</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">О нас</a></li>
-                <li><a href="#services">Услуги</a></li>
-                <li><a href="#contact">Контакты</a></li>
-            </ul>
-        </nav>
-    </header>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="ООО Адриатик Групп - ваш надежный партнер в Сербии">
+        <title data-translate="headerTitle">ООО Адриатик Групп</title>
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="scripts/main.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <img src="images/logo.png" alt="Логотип компании" class="logo">
+            <h1 data-translate="headerTitle">ООО Адриатик Групп</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about" data-translate="navAbout">О нас</a></li>
+                    <li><a href="#services" data-translate="navServices">Услуги</a></li>
+                    <li><a href="#contact" data-translate="navContact">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="language-switcher">
+                <button onclick="switchLanguage('ru')">Русский</button>
+                <button onclick="switchLanguage('sr')">Српски</button>
+            </div>
+        </header>
 
-    <section id="about">
-        <h2>О нас</h2>
-        <p>Информация о компании...</p>
-    </section>
+        <main>
+            <section id="country-selection">
+                <div class="buttons">
+                    <h2 data-translate="countrySelectionTitle">Выберите страну</h2>
+                    <button class="country-button" data-translate="countrySerb" data-country="serbia">Сербия</button>
+                    <button class="country-button" data-translate="countryRus" data-country="russia">Россия</button>
+                    <button class="country-button" data-translate="countryBel" data-country="belarus">Беларусь</button>
+                </div>
+            </section>
 
-    <section id="services">
-        <h2>Услуги</h2>
-        <p>Описание услуг...</p>
-    </section>
+            <section id="map-section">
+                <h2 id="map-title" style="display:none;" data-translate="mapTitle">Карта</h2>
+                <div class="map-container">
+                    <div class="map" id="russia">
+                        <img src="images/russia-map.png" alt="Карта России">
+                        <div class="map-point" style="top: 45%; left: 50%;" data-city="moscow">
+                            <span class="city-label" data-translate="moscow">Москва</span>
+                        </div>
+                    </div>
+                    <div class="map" id="serbia" style="display: none;">
+                        <img src="images/serbia-map.png" alt="Карта Сербии">
+                        <div class="map-point" style="top: 60%; left: 50%;" data-city="belgrade">
+                            <span class="city-label" data-translate="belgrade">Белград</span>
+                        </div>
+                    </div>
+                    <div class="map" id="belarus" style="display: none;">
+                        <img src="images/belarus-map.png" alt="Карта Беларуси">
+                        <div class="map-point" style="top: 40%; left: 50%;" data-city="minsk">
+                            <span class="city-label" data-translate="minsk">Минск</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    <section id="contact">
-        <h2>Контакты</h2>
-        <form action="#" method="post">
-            <label for="name">Имя:</label>
-            <input type="text" id="name" name="name">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
-            <button type="submit">Отправить</button>
-        </form>
-    </section>
+            <section id="about">
+                <h2 data-translate="aboutUsTitle">О нас</h2>
+                <p data-translate="aboutUsText">Наша миссия: обеспечить компаниям ответственного партнёра и посредника в бизнесе консалтинга и логистики...</p>
+            </section>
 
-    <script src="scripts/main.js"></script>
-</body>
+            <section id="services">
+                <h2 data-translate="servicesTitle">Услуги</h2>
+                <ul>
+                    <li data-translate="service1">Агентские услуги</li>
+                    <li data-translate="service2">Экспорт импорт</li>
+                    <li data-translate="service3">Поиск надёжных партнёров в Сербии</li>
+                    <li data-translate="service4">Консультационные услуги поставки товаров на Сербию и из Сербии</li>
+                </ul>
+            </section>
+
+            <section id="contact">
+                <h2 data-translate="contactTitle">Контакты</h2>
+                <div class="contact-info">
+                    <p><i class="fas fa-building"></i> ООО Адриатик Групп</p>
+                    <p><i class="fas fa-phone-alt"></i> Контакт телефон Viber/WhatsApp: +375292815954</p>
+                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:jadran3110@gmail.com">jadran3110@gmail.com</a>, <a href="mailto:adriatikgrupp@mail.ru">adriatikgrupp@mail.ru</a></p>
+                </div>
+            </section>
+        </main>
+
+        <div id="popup" class="popup">
+            <span class="close" id="close">&times;</span>
+            <p id="popup-text"></p>
+            <div id="company-details"></div>
+        </div>
+
+        <script src="scripts/main.js"></script>
+    </body>
 </html>
