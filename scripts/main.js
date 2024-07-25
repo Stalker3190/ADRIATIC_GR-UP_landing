@@ -59,6 +59,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const companyDetails = document.getElementById('company-details');
     const close = document.getElementById('close');
 
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    const navLinks = document.querySelectorAll('.nav ul li a');
+
+    const yearSpan = document.getElementById('current-year');
+
     const companies = {
         moscow: [
             {
@@ -160,6 +166,48 @@ document.addEventListener('DOMContentLoaded', function() {
             companyDetails.appendChild(companyDiv);
         });
     }
+
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('nav-open');
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            // Закрытие меню
+            nav.classList.remove('nav-open');
+
+            // Плавный переход
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+
+    // function toggleMapAndList() {
+    //     const mapSection = document.querySelector('.map-container');
+    //     const companyListSection = document.getElementById('company-list-section');
+
+    //     if (window.innerWidth <= 768) {
+    //         mapSection.style.display = 'none';
+    //         companyListSection.style.display = 'block';
+    //     } else {
+    //         mapSection.style.display = 'block';
+    //         companyListSection.style.display = 'none';
+    //     }
+    // }
+
+    // toggleMapAndList();
+
+    // window.addEventListener('resize', toggleMapAndList);
+
 });
 
 let currentLanguage = 'ru';
@@ -188,6 +236,31 @@ const translations = {
         belgrade: "Белград",
         moscow: "Москва",
         minsk: "Минск",
+        brest: "Брест",
+        grodno: "Гродно",
+        gomel: "Гомель",
+        vitebsk: "Витебск",
+        mogilev: "Могилёв",
+        stPetersburg: "Санкт-Петербург",
+        novosibirsk: "Новосибирск",
+        yekaterinburg: "Екатеринбург",
+        nn: "Нижний Новгород",
+        samara: "Самара",
+        omsk: "Омск",
+        kazan: "Казань",
+        chelyabinsk: "Челябинск",
+        rostov: "Ростов-на-Дону",
+        ufa: "Уфа",
+        volgograd: "Волгоград",
+        kraljevo: "Кралево",
+        zrenjanin: "Зренянин",
+        pirot: "Пирот",
+        sombor: "Сомбор",
+        knjazevac: "Княжевац",
+        ivanica: "Иваница",
+        negotin: "Неготин",
+        zajecar: "Заечар",
+        senica: "Сеница",
         aboutUsTitle: "О нас",
         aboutUsText: "Наша миссия: обеспечить компаниям ответственного партнёра и посредника в бизнесе консалтинга и логистики...",
         servicesTitle: "Услуги",
@@ -198,8 +271,18 @@ const translations = {
         contactTitle: "Контакты",
         contactText: "ООО Адриатик Групп",
         contactPhone: "Контакт телефон Viber/WhatsApp: +375292815954",
-        contactEmail1: "Email: jadran3110@gmail.com",
-        contactEmail2: "Email: adriatikgrupp@mail.ru"
+        advertisementTitle: "Реклама",
+        partnersTitle: "Наши партнёры",
+        blacklistTitle: "Черный список компаний",
+        footerContacts: "Контакты",
+        footerPhone: "Телефон Viber/WhatsApp: +375292815954",
+        footerEmail1: "Email: jadran3110@gmail.com",
+        footerEmail2: "Email: adriatikgrupp@mail.ru",
+        footerLinks: "Полезные ссылки",
+        footerPrivacy: "Политика конфиденциальности",
+        footerTerms: "Условия использования",
+        footerFAQ: "Часто задаваемые вопросы",
+        footerCopy: "© ООО Адриатик Групп. Все права защищены."
     },
     sr: {
         headerTitle: "ADRIATIC GROUP DOO",
@@ -214,6 +297,31 @@ const translations = {
         belgrade: "Beograd",
         moscow: "Moskva",
         minsk: "Minsk",
+        brest: "Brest",
+        grodno: "Grodno",
+        gomel: "Gomel",
+        vitebsk: "Vitebsk",
+        mogilev: "Mogilev",
+        stPetersburg: "Sankt Peterburg",
+        novosibirsk: "Novosibirsk",
+        yekaterinburg: "Jekaterinburg",
+        nn: "Nižnji Novgorod",
+        samara: "Samara",
+        omsk: "Omsk",
+        kazan: "Kazan",
+        chelyabinsk: "Čeljabinsk",
+        rostov: "Rostov na Donu",
+        ufa: "Ufa",
+        volgograd: "Volgograd",
+        kraljevo: "Kraljevo",
+        zrenjanin: "Zrenjanin",
+        pirot: "Pirot",
+        sombor: "Sombor",
+        knjazevac: "Knjaževac",
+        ivanica: "Ivanjica",
+        negotin: "Negotin",
+        zajecar: "Zaječar",
+        senica: "Sjenica",
         aboutUsTitle: "O nama",
         aboutUsText: "Naša misija je da obezbedimo firmama odgovornog partnera i posrednika u poslovanju, konsaltingu i logistici...",
         servicesTitle: "Usluge",
@@ -225,6 +333,18 @@ const translations = {
         contactText: "ADRIATIC GROUP DOO",
         contactPhone: "Kontakt telefon Viber/WhatsApp: +375292815954",
         contactEmail1: "Email: jadran3110@gmail.com",
-        contactEmail2: "Email: adriatikgrupp@mail.ru"
+        contactEmail2: "Email: adriatikgrupp@mail.ru",
+        advertisementTitle: "Reklama",
+        partnersTitle: "Naši partneri",
+        blacklistTitle: "Crna lista kompanija",
+        footerContacts: "Kontakti",
+        footerPhone: "Telefon Viber/WhatsApp: +375292815954",
+        footerLinks: "Korisni linkovi",
+        footerPrivacy: "Politika privatnosti",
+        footerTerms: "Uslovi korišćenja",
+        footerFAQ: "Često postavljana pitanja",
+        footerCopy: "© ADRIATIC GROUP DOO. Sva prava zadržana."
     }
 };
+
+

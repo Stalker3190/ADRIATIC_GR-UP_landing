@@ -8,24 +8,38 @@
         <link rel="stylesheet" href="styles/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <script src="scripts/main.js" defer></script>
+        <title>Лучшие посредник в бизнесе консалтинга и логистики - Адриатик Групп</title>
+<meta name="description" content="Наша миссия: обеспечить компаниям ответственного партнёра и посредника в бизнесе консалтинга и логистики...">
     </head>
     <body>
-        <header>
-            <img src="images/logo.png" alt="Логотип компании" class="logo">
-            <h1 data-translate="headerTitle">ООО Адриатик Групп</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about" data-translate="navAbout">О нас</a></li>
-                    <li><a href="#services" data-translate="navServices">Услуги</a></li>
-                    <li><a href="#contact" data-translate="navContact">Контакты</a></li>
-                </ul>
-            </nav>
-            <div class="language-switcher">
-                <button onclick="switchLanguage('ru')">Русский</button>
-                <button onclick="switchLanguage('sr')">Српски</button>
-            </div>
-        </header>
+        <header class="sticky">
+            <div class = "nav-logo-title">
+                <img src="images/logo.png" alt="Логотип компании" class="logo">
+                <div class="nav-name-list">
+                    <h1 data-translate="headerTitle">ООО Адриатик Групп</h1>
+                    <button class="menu-toggle" aria-label="Toggle menu">
+                        <span class="burger-bar"></span>
+                        <span class="burger-bar"></span>
+                        <span class="burger-bar"></span>
+                    </button>
+                    <nav id="navbar" class="nav">
+                        <ul>
+                            <li><a href="#about" data-translate="navAbout">О нас</a></li>
+                            <li><a href="#services" data-translate="navServices">Услуги</a></li>
+                            <li><a href="#contact" data-translate="navContact">Контакты</a></li>
+                        </ul>
+                    </nav>
+                </div>
 
+                <div class="language-switcher">
+                    <button onclick="switchLanguage('ru')">Русский</button>
+                    <button onclick="switchLanguage('sr')">Српски</button>
+                </div>
+                
+            </div>
+            
+        </header>
+    
         <main>
             <section id="country-selection">
                 <div class="buttons">
@@ -39,30 +53,122 @@
             <section id="map-section">
                 <h2 id="map-title" style="display:none;" data-translate="mapTitle">Карта</h2>
                 <div class="map-container">
+                    <!-- Карта России -->
                     <div class="map" id="russia">
                         <img src="images/russia-map.png" alt="Карта России">
-                        <div class="map-point" style="top: 45%; left: 50%;" data-city="moscow">
+                        <div class="map-point" style="top: 55%; left: 10%;" data-city="moscow">
                             <span class="city-label" data-translate="moscow">Москва</span>
                         </div>
+                        <div class="map-point" style="top: 45%; left: 11%;" data-city="st-petersburg">
+                            <span class="city-label" data-translate="stPetersburg">Санкт-Петербург</span>
+                        </div>
+                        <div class="map-point" style="top: 80%; left: 40%;" data-city="novosibirsk">
+                            <span class="city-label" data-translate="novosibirsk">Новосибирск</span>
+                        </div>
+                        <div class="map-point" style="top: 70%; left: 27%;" data-city="yekaterinburg">
+                            <span class="city-label" data-translate="yekaterinburg">Екатеринбург</span>
+                        </div>
+                        <div class="map-point" style="top: 65%; left: 15%;" data-city="nn">
+                            <span class="city-label" data-translate="nn">Нижний Новгород</span>
+                        </div>
+                        <!-- <div class="map-point" style="top: 72%; left: 17%;" data-city="samara">
+                            <span class="city-label" data-translate="samara">Самара</span>
+                        </div> -->
+                        <!-- <div class="map-point" style="top: 78%; left: 33%;" data-city="omsk">
+                            <span class="city-label" data-translate="omsk">Омск</span>
+                        </div> -->
+                        <!-- <div class="map-point" style="top: 70%; left: 17%;" data-city="kazan">
+                            <span class="city-label" data-translate="kazan">Казань</span>
+                        </div> -->
+                        <!-- <div class="map-point" style="top: 73%; left: 25%;" data-city="chelyabinsk">
+                            <span class="city-label" data-translate="chelyabinsk">Челябинск</span>
+                        </div> -->
+                        <div class="map-point" style="top: 75%; left: 5%;" data-city="rostov">
+                            <span class="city-label" data-translate="rostov">Ростов-на-Дону</span>
+                        </div>
+                        <!-- <div class="map-point" style="top: 70%; left: 20%;" data-city="ufa">
+                            <span class="city-label" data-translate="ufa">Уфа</span>
+                        </div> -->
+                        <!-- <div class="map-point" style="top: 75%; left: 8%;" data-city="volgograd">
+                            <span class="city-label" data-translate="volgograd">Волгоград</span>
+                        </div> -->
                     </div>
+            
+                    <!-- Карта Сербии -->
                     <div class="map" id="serbia" style="display: none;">
                         <img src="images/serbia-map.png" alt="Карта Сербии">
-                        <div class="map-point" style="top: 60%; left: 50%;" data-city="belgrade">
+                        <div class="map-point" style="top: 30%; left: 45%;" data-city="belgrade">
                             <span class="city-label" data-translate="belgrade">Белград</span>
                         </div>
+                        <div class="map-point" style="top: 52%; left: 45%;" data-city="kraljevo">
+                            <span class="city-label" data-translate="kraljevo">Кралево</span>
+                        </div>
+                        <div class="map-point" style="top: 18%; left: 45%;" data-city="zrenjanin">
+                            <span class="city-label" data-translate="zrenjanin">Зренянин</span>
+                        </div>
+                        <div class="map-point" style="top: 67%; left: 65%;" data-city="pirot">
+                            <span class="city-label" data-translate="pirot">Пирот</span>
+                        </div>
+                        <div class="map-point" style="top: 10%; left: 32%;" data-city="sombor">
+                            <span class="city-label" data-translate="sombor">Сомбор</span>
+                        </div>
+                        <div class="map-point" style="top: 60%; left: 60%;" data-city="knjazevac">
+                            <span class="city-label" data-translate="knjazevac">Княжевац</span>
+                        </div>
+                        <div class="map-point" style="top: 50%; left: 60%;" data-city="zajecar">
+                            <span class="city-label" data-translate="zajecar">Заечар</span>
+                        </div>
                     </div>
+            
+                    <!-- Карта Беларуси -->
                     <div class="map" id="belarus" style="display: none;">
                         <img src="images/belarus-map.png" alt="Карта Беларуси">
-                        <div class="map-point" style="top: 40%; left: 50%;" data-city="minsk">
+                        <div class="map-point" style="top: 45%; left: 50%;" data-city="minsk">
                             <span class="city-label" data-translate="minsk">Минск</span>
+                        </div>
+                        <div class="map-point" style="top: 82%; left: 22%;" data-city="brest">
+                            <span class="city-label" data-translate="brest">Брест</span>
+                        </div>
+                        <div class="map-point" style="top: 50%; left: 22%;" data-city="grodno">
+                            <span class="city-label" data-translate="grodno">Гродно</span>
+                        </div>
+                        <div class="map-point" style="top: 75%; left: 70%;" data-city="gomel">
+                            <span class="city-label" data-translate="gomel">Гомель</span>
+                        </div>
+                        <div class="map-point" style="top: 20%; left: 65%;" data-city="vitebsk">
+                            <span class="city-label" data-translate="vitebsk">Витебск</span>
+                        </div>
+                        <div class="map-point" style="top: 45%; left: 65%;" data-city="mogilev">
+                            <span class="city-label" data-translate="mogilev">Могилёв</span>
                         </div>
                     </div>
                 </div>
             </section>
+            
+
+            <section id="advertisement">
+                <h2 data-translate="advertisementTitle">Реклама</h2>
+                <div class="advert-space">
+                    <img src="images/advert-sample.jpg" alt="Рекламное место">
+                </div>
+            </section>
+            
 
             <section id="about">
                 <h2 data-translate="aboutUsTitle">О нас</h2>
                 <p data-translate="aboutUsText">Наша миссия: обеспечить компаниям ответственного партнёра и посредника в бизнесе консалтинга и логистики...</p>
+            </section>
+
+            <section id="partners">
+                <h2 data-translate="partnersTitle">Наши партнёры</h2>
+                <div class="partner-logos">
+                    <div class="partner-logo" title="Партнёр 1">
+                        <img src="images/partner1-logo.png" alt="Логотип Партнёра 1">
+                    </div>
+                    <div class="partner-logo" title="Партнёр 2">
+                        <img src="images/partner2-logo.png" alt="Логотип Партнёра 2">
+                    </div>
+                </div>
             </section>
 
             <section id="services">
@@ -75,15 +181,48 @@
                 </ul>
             </section>
 
-            <section id="contact">
-                <h2 data-translate="contactTitle">Контакты</h2>
-                <div class="contact-info">
-                    <p><i class="fas fa-building"></i> ООО Адриатик Групп</p>
-                    <p><i class="fas fa-phone-alt"></i> Контакт телефон Viber/WhatsApp: +375292815954</p>
-                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:jadran3110@gmail.com">jadran3110@gmail.com</a>, <a href="mailto:adriatikgrupp@mail.ru">adriatikgrupp@mail.ru</a></p>
+            <section id="blacklist">
+                <h2 data-translate="blacklistTitle">Черный список компаний</h2>
+                <div class="blacklist-logos">
+                    <div class="blacklist-logo" title="Компания 1">
+                        <img src="images/blacklist1-logo.png" alt="Логотип Компании 1">
+                    </div>
+                    <div class="blacklist-logo" title="Компания 2">
+                        <img src="images/blacklist2-logo.png" alt="Логотип Компании 2">
+                    </div>
                 </div>
             </section>
+            
+
         </main>
+
+        <footer>
+            <div class="footer-container" id="contact">
+                <div class="footer-section contact-info">
+                    <h3 data-translate="footerContacts">Контакты</h3>
+                    <p><i class="fas fa-phone"></i> <span data-translate="footerPhone">Телефон Viber/WhatsApp: +375292815954</span></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:jadran3110@gmail.com">jadran3110@gmail.com</a>, <a href="mailto:adriatikgrupp@mail.ru">adriatikgrupp@mail.ru</a></p>
+                    <div class="social-media">
+                        <a href="viber://chat?number=+375292815954" aria-label="Viber" target="_blank"><i class="fab fa-viber"></i></a>
+                        <a href="https://wa.me/+375292815954" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+        
+                <div class="footer-section links">
+                    <h3 data-translate="footerLinks">Полезные ссылки</h3>
+                    <ul>
+                        <li><a href="#" data-translate="footerPrivacy">Политика конфиденциальности</a></li>
+                        <li><a href="#" data-translate="footerTerms">Условия использования</a></li>
+                        <li><a href="#" data-translate="footerFAQ">Часто задаваемые вопросы</a></li>
+                    </ul>
+                </div>
+        
+                <div class="footer-section">
+                    <p data-translate="footerCopy">&copy; 2024 ООО Адриатик Групп. Все права защищены.</p>
+                </div>
+            </div>
+        </footer>
+        
 
         <div id="popup" class="popup">
             <span class="close" id="close">&times;</span>
