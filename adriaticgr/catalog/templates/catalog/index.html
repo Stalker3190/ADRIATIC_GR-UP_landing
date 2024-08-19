@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
+        {% load static %}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="ООО Адриатик Групп - ваш надежный партнер в Сербии">
         <title data-translate="headerTitle">ООО Адриатик Групп</title>
-        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="{% static 'catalog/styles/style.css' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <script src="scripts/main.js" defer></script>
         <title>Лучшие посредник в бизнесе консалтинга и логистики - Адриатик Групп</title>
@@ -14,7 +15,7 @@
     <body>
         <header class="sticky">
             <div class = "nav-logo-title">
-                <img src="images/logo.png" alt="Логотип компании" class="logo">
+                <img src="{% static 'catalog/images/logo.png' %}" alt="Логотип компании" class="logo">
                 <div class="nav-name-list">
                     <h1 data-translate="headerTitle">ООО Адриатик Групп</h1>
                     <button class="menu-toggle" aria-label="Toggle menu">
@@ -62,7 +63,7 @@
                 <div class="map-container">
                     <!-- Карта России -->
                     <div class="map" id="russia">
-                        <img src="images/russia-map.png" alt="Карта России">
+                        <img src="{% static 'catalog/images/russia-map.png' %}" alt="Карта России">
                         <div class="map-point" style="top: 55%; left: 10%;" data-city="moscow">
                             <span class="city-label" data-translate="moscow">Москва</span>
                         </div>
@@ -107,7 +108,7 @@
             
                     <!-- Карта Сербии -->
                     <div class="map" id="serbia" style="display: none;">
-                        <img src="images/serbia-map.png" alt="Карта Сербии">
+                        <img src="{% static 'catalog/images/serbia-map.png' %}" alt="Карта Сербии">
                         <div class="map-point" style="top: 30%; left: 45%;" data-city="belgrade">
                             <span class="city-label" data-translate="belgrade">Белград</span>
                         </div>
@@ -133,7 +134,7 @@
             
                     <!-- Карта Беларуси -->
                     <div class="map" id="belarus" style="display: none;">
-                        <img src="images/belarus-map.png" alt="Карта Беларуси">
+                        <img src="{% static 'catalog/images/belarus-map.png' %}" alt="Карта Беларуси">
                         <div class="map-point" style="top: 45%; left: 50%;" data-city="minsk">
                             <span class="city-label" data-translate="minsk">Минск</span>
                         </div>
@@ -160,7 +161,7 @@
             <section id="advertisement">
                 <h2 data-translate="advertisementTitle">Реклама</h2>
                 <div class="advert-space">
-                    <img src="images/advert-sample.jpg" alt="Рекламное место">
+                    <img src="{% static 'catalog/images/advert-sample.png' %}" alt="Рекламное место">
                 </div>
             </section>
             
@@ -174,10 +175,10 @@
                 <h2 data-translate="partnersTitle">Наши партнёры</h2>
                 <div class="partner-logos">
                     <div class="partner-logo" title="Партнёр 1">
-                        <img src="images/partner1-logo.png" alt="Логотип Партнёра 1">
+                        <img src="{% static 'catalog/images/partner1-logo.png' %}" alt="Логотип Партнёра 1">
                     </div>
                     <div class="partner-logo" title="Партнёр 2">
-                        <img src="images/partner2-logo.png" alt="Логотип Партнёра 2">
+                        <img src="{% static 'catalog/images/partner2-logo.png' %}" alt="Логотип Партнёра 2">
                     </div>
                 </div>
             </section>
@@ -196,10 +197,10 @@
                 <h2 data-translate="blacklistTitle">Черный список компаний</h2>
                 <div class="blacklist-logos">
                     <div class="blacklist-logo" title="Компания 1">
-                        <img src="images/blacklist1-logo.png" alt="Логотип Компании 1">
+                        <img src="{% static 'catalog/images/blacklist1-logo.png' %}" alt="Логотип Компании 1">
                     </div>
                     <div class="blacklist-logo" title="Компания 2">
-                        <img src="images/blacklist2-logo.png" alt="Логотип Компании 2">
+                        <img src="{% static 'catalog/images/blacklist2-logo.png' %}" alt="Логотип Компании 2">
                     </div>
                 </div>
             </section>
@@ -241,6 +242,6 @@
             <div id="company-details"></div>
         </div>
 
-        <script src="scripts/main.js"></script>
+        <script src="{% static 'catalog/js/script.js' %}"></script>
     </body>
 </html>
