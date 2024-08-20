@@ -4,6 +4,7 @@
         {% load static %}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="{% static 'catalog/images/favicon.ico' %}" type="image/x-icon">
         <meta name="description" content="ООО Адриатик Групп - ваш надежный партнер в Сербии">
         <title data-translate="headerTitle">ООО Адриатик Групп</title>
         <link rel="stylesheet" href="{% static 'catalog/styles/style.css' %}">
@@ -62,6 +63,15 @@
 
             <section id="map-section">
                 <h2 id="map-title" style="display:none;" data-translate="mapTitle">Карта</h2>
+                
+                <!-- Список городов -->
+                <div id="city-list-container" style="display:none;">
+                    <h2>Города</h2>
+                    <div id="city-list">
+                        <!-- Списки городов будут добавляться здесь динамически -->
+                    </div>
+                </div>
+                
                 <div class="map-container">
                     <!-- Карта России -->
                     <div class="map" id="russia">
