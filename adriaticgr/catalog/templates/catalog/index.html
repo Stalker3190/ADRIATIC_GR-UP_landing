@@ -55,23 +55,82 @@
             <section id="country-selection">
                 <div class="buttons">
                     <h2 data-translate="countrySelectionTitle">Выберите страну</h2>
-                    <button class="country-button" data-translate="countrySerb" data-country="serbia">Сербия</button>
-                    <button class="country-button" data-translate="countryRus" data-country="russia">Россия</button>
-                    <button class="country-button" data-translate="countryBel" data-country="belarus">Беларусь</button>
+                    <button class="country-button" data-translate="countrySerb" data-country="sr">Сербия</button>
+                    <button class="country-button" data-translate="countryRus" data-country="ru">Россия</button>
+                    <button class="country-button" data-translate="countryBel" data-country="be">Беларусь</button>
                 </div>
             </section>
 
             <section id="map-section">
                 <h2 id="map-title" style="display:none;" data-translate="mapTitle">Карта</h2>
                 
-                <!-- Список городов -->
-                <div id="city-list-container" style="display:none;">
-                    <h2>Города</h2>
-                    <div id="city-list">
-                        <!-- Списки городов будут добавляться здесь динамически -->
+                <!-- Список стран и городов -->
+                <div class="map-list">
+                    <!-- Россия -->
+                    <div class="country" id="russia-cities" style="display: none;">
+                        <h3 data-translate="russia">Россия</h3>
+                        <ul>
+                            <li><a href="#" data-city="moscow" data-translate="moscow">Москва</a></li>
+                            <li><a href="#" data-city="kaliningrad" data-translate="kaliningrad">Калининград</a></li>
+                            <li><a href="#" data-city="stPetersburg" data-translate="stPetersburg">Санкт-Петербург</a></li>
+                            <li><a href="#" data-city="novosibirsk" data-translate="novosibirsk">Новосибирск</a></li>
+                            <li><a href="#" data-city="yekaterinburg" data-translate="yekaterinburg">Екатеринбург</a></li>
+                            <li><a href="#" data-city="nn" data-translate="nn">Нижний Новгород</a></li>
+                            <li><a href="#" data-city="rostov" data-translate="rostov">Ростов-на-Дону</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Сербия -->
+                    <div class="country" id="serbia-cities" style="display: none;">
+                        <h3 data-translate="serbia">Сербия</h3>
+                        <ul>
+                            <li><a href="#" data-city="belgrade" data-translate="belgrade">Белград</a></li>
+                            <li><a href="#" data-city="kraljevo" data-translate="kraljevo">Кралево</a></li>
+                            <li><a href="#" data-city="zrenjanin" data-translate="zrenjanin">Зренянин</a></li>
+                            <li><a href="#" data-city="pirot" data-translate="pirot">Пирот</a></li>
+                            <li><a href="#" data-city="sombor" data-translate="sombor">Сомбор</a></li>
+                            <li><a href="#" data-city="knjazevac" data-translate="knjazevac">Княжевац</a></li>
+                            <li><a href="#" data-city="zajecar" data-translate="zajecar">Заечар</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Беларусь -->
+                    <div class="country" id="belarus-cities" style="display: none;">
+                        <h3 data-translate="belarus">Беларусь</h3>
+                        <ul>
+                            <li><a href="#" data-city="minsk" data-translate="minsk">Минск</a></li>
+                            <li><a href="#" data-city="brest" data-translate="brest">Брест</a></li>
+                            <li><a href="#" data-city="grodno" data-translate="grodno">Гродно</a></li>
+                            <li><a href="#" data-city="gomel" data-translate="gomel">Гомель</a></li>
+                            <li><a href="#" data-city="vitebsk" data-translate="vitebsk">Витебск</a></li>
+                            <li><a href="#" data-city="mogilev" data-translate="mogilev">Могилёв</a></li>
+                        </ul>
                     </div>
                 </div>
+
+                <!-- Список компаний -->
+                <div id="company-details" style="display: none;">
+                    <!-- Пример компании -->
+                    <div class="company" data-city="moscow">
+                        <h3>Компания 1</h3>
+                        <p>Краткая информация о компании 1 в Москве.</p>
+                        <button data-translate="learnMore">Узнать больше</button>
+                    </div>
+                    <div class="company" data-city="moscow">
+                        <h3>Компания 2</h3>
+                        <p>Краткая информация о компании 2 в Москве.</p>
+                        <button data-translate="learnMore">Узнать больше</button>
+                    </div>
+
+                    <div class="company" data-city="belgrade">
+                        <h3>Компания 1</h3>
+                        <p>Краткая информация о компании 1 в Белграде.</p>
+                        <button data-translate="learnMore">Узнать больше</button>
+                    </div>
+                    <!-- Добавьте остальные компании аналогичным образом -->
+                </div>
                 
+                <!-- Карты -->
                 <div class="map-container">
                     <!-- Карта России -->
                     <div class="map" id="russia">
@@ -142,6 +201,9 @@
                         <div class="map-point" style="top: 50%; left: 60%;" data-city="zajecar">
                             <span class="city-label" data-translate="zajecar">Заечар</span>
                         </div>
+                        <div class="map-point" style="top: 50%; left: 60%;" data-city="arile">
+                            <span class="city-label" data-translate="arile">Ариле</span>
+                        </div>
                     </div>
             
                     <!-- Карта Беларуси -->
@@ -180,20 +242,31 @@
 
             <section id="about">
                 <h2 data-translate="aboutUsTitle">О нас</h2>
-                <p data-translate="aboutUsText">Наша миссия: обеспечить компаниям ответственного партнёра и посредника в бизнесе консалтинга и логистики...</p>
+                <p data-translate="aboutUsText">Наша миссия обеспечить компаниям ответственного партнёра и посредника в бизнесе консалтинга и логистики, быстрее получать информацию и вместе решать выставленные задачи и самое главное быть главным звеном по сотрудничеству между Сербии, России и Беларуси и вместе с нашими партнёрами поднимать экономику наших историческо дружественных стран.</p>
             </section>
 
             <section id="partners">
                 <h2 data-translate="partnersTitle">Наши партнёры</h2>
-                <div class="partner-logos">
-                    <div class="partner-logo" title="Партнёр 1">
-                        <img src="{% static 'catalog/images/partner1-logo.png' %}" alt="Логотип Партнёра 1">
+                <div class="partner-details">
+                    <!-- Партнёр 1 -->
+                    <div class="partner-entry">
+                        <h3><a href="https://goldenfruitdoo.rs/" target="_blank">Golden Fruit d.o.o.</a></h3>
+                        <a href="https://goldenfruitdoo.rs/" target="_blank">
+                            <img src="{% static 'catalog/images/logotip-GF.png' %}" alt="Логотип Golden Fruit">
+                        </a>
+                        <p data-translate="GoldenFruit">Golden Fruit d.o.o. - ведущий производитель и поставщик замороженных ягод и фруктов, специализирующийся на высококачественной чернике и других продуктах. Они предлагают надежные и экологически чистые продукты для клиентов по всему миру.</p>
                     </div>
-                    <div class="partner-logo" title="Партнёр 2">
-                        <img src="{% static 'catalog/images/partner2-logo.png' %}" alt="Логотип Партнёра 2">
+                    <hr>
+                    <!-- Партнёр 2 -->
+                    <div class="partner-entry">
+                        <h3><a href="https://www.mmnfruit.com/" target="_blank">MMN Fruit</a></h3>
+                        
+                        <p data-translate="MMNFruit">MMN Fruit - крупный поставщик фруктов, специализирующийся на различных видах свежих и замороженных продуктов. Компания обеспечивает высокое качество и широкий ассортимент продукции для удовлетворения потребностей клиентов.</p>
                     </div>
                 </div>
             </section>
+            
+            
 
             <section id="services">
                 <h2 data-translate="servicesTitle">Услуги</h2>
@@ -207,15 +280,35 @@
 
             <section id="blacklist">
                 <h2 data-translate="blacklistTitle">Черный список компаний</h2>
-                <div class="blacklist-logos">
-                    <div class="blacklist-logo" title="Компания 1">
-                        <img src="{% static 'catalog/images/blacklist1-logo.png' %}" alt="Логотип Компании 1">
+                <div class="blacklist-content">
+                    <!-- Информация о первой компании -->
+                    <div class="blacklist-entry">
+                        <h3>КФХ АГРОМАРАФОН</h3>
+                        <p><strong>ИНН:</strong> 3200001215</p>
+                        <p><strong>Глава:</strong> Борисов Евгений Владимирович</p>
+                        <p><strong>Юридический адрес:</strong> 241029, Брянская область, г Брянск, Красноармейская ул. д. 126/1 офис 202а</p>
+                        <p><strong>Причина не работать с этой компанией:</strong> Брали денег от сербской компании на поставку картофеля в размере 688.000 рублей и не поставили картофель, а деньги присвоили, вернули только 50 тысяч рублей. Рекомендуем не работать с данной компанией.</p>
                     </div>
-                    <div class="blacklist-logo" title="Компания 2">
-                        <img src="{% static 'catalog/images/blacklist2-logo.png' %}" alt="Логотип Компании 2">
+                    <hr>
+                    <!-- Информация о второй компании -->
+                    <div class="blacklist-entry">
+                        <h3>ООО САУЛ-КОРП</h3>
+                        <p><strong>УНП:</strong> 692229787</p>
+                        <p><strong>Директор:</strong> Миранович Вадим Владимирович</p>
+                        <p><strong>Юридический/почтовый адрес:</strong> 223039, Минская обл., Минский р-н, Ждановичский с/с, район деревни Таборы, здание административно-хозяйственное, комната 39А</p>
+                        <p><strong>У этого поставщика есть и другие компании и просим Вас обратить внимание:</strong></p>
+                        <ul>
+                            <li>ООО ВИТАДИМ</li>
+                            <li>ИП Миранович Вадим Владимирович</li>
+                            <li>ООО Эмерсис Трейд</li>
+                            <li>ООО Белорехпром</li>
+                            <li>ООО СВ-фрукт</li>
+                        </ul>
+                        <p><strong>Причина не работать с этой компанией:</strong> Поставляли некачественный товар, конкретно картофель на сумму 6.020€, и в итоге отказались принять ответственность вернуть средства на плохой товар. Рекомендуем не работать с данной компанией.</p>
                     </div>
                 </div>
             </section>
+            
             
 
         </main>

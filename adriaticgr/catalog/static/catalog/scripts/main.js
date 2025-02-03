@@ -99,14 +99,34 @@ document.addEventListener('DOMContentLoaded', function() {
         ]
     };
 
+    function showMap(countryId) {
+        // Скрываем все карты
+        maps.forEach(map => map.style.display = 'none');
+        // Показываем выбранную карту
+        document.getElementById(countryId).style.display = 'block';
+    }
+
     countryButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const country = this.getAttribute('data-country');
-            maps.forEach(map => {
-                map.style.display = map.id === country ? 'block' : 'none';
-            });
+        button.addEventListener('click', function () {
+            const selectedCountry = this.getAttribute('data-country');
+            setLanguageCookie(selectedCountry);
+            switch (selectedCountry) {
+                case 'sr':
+                    showMap('serbia');
+                    break;
+                case 'ru':
+                    showMap('russia');
+                    break;
+                case 'be':
+                    showMap('belarus');
+                    break;
+            }
         });
     });
+
+    function setLanguageCookie(lang) {
+        document.cookie = `django_language=${lang}; path=/`;
+    }
 
     mapPoints.forEach(point => {
         point.addEventListener('click', function() {
@@ -263,7 +283,7 @@ const translations = {
         zajecar: "Заечар",
         senica: "Сеница",
         aboutUsTitle: "О нас",
-        aboutUsText: "Наша миссия: обеспечить компаниям ответственного партнёра и посредника в бизнесе консалтинга и логистики...",
+        aboutUsText: "Наша миссия обеспечить компаниям ответственного партнёра и посредника в бизнесе консалтинга и логистики, быстрее получать информацию и вместе решать выставленные задачи и самое главное быть главным звеном по сотрудничеству между Сербии, России и Беларуси и вместе с нашими партнёрами поднимать экономику наших историческо дружественных стран.",
         servicesTitle: "Услуги",
         service1: "Агентские услуги",
         service2: "Экспорт импорт",
@@ -283,7 +303,9 @@ const translations = {
         footerPrivacy: "Политика конфиденциальности",
         footerTerms: "Условия использования",
         footerFAQ: "Часто задаваемые вопросы",
-        footerCopy: "© ООО Адриатик Групп. Все права защищены."
+        footerCopy: "© ООО Адриатик Групп. Все права защищены.",
+        GoldenFruit: "Golden Fruit d.o.o. - ведущий производитель и поставщик замороженных ягод и фруктов, специализирующийся на высококачественной чернике и других продуктах. Они предлагают надежные и экологически чистые продукты для клиентов по всему миру.",
+        MMNFruit: "MMN Fruit - крупный поставщик фруктов, специализирующийся на различных видах свежих и замороженных продуктов. Компания обеспечивает высокое качество и широкий ассортимент продукции для удовлетворения потребностей клиентов.",
     },
     sr: {
         headerTitle: "ADRIATIC GROUP DOO",
@@ -324,8 +346,9 @@ const translations = {
         negotin: "Negotin",
         zajecar: "Zaječar",
         senica: "Sjenica",
+        arile: "",
         aboutUsTitle: "O nama",
-        aboutUsText: "Naša misija je da obezbedimo firmama odgovornog partnera i posrednika u poslovanju, konsaltingu i logistici...",
+        aboutUsText: "Naša misija je da našim partnerima obezbedimo odgovornog partnera i posrednika u poslovima konsaltinga i logistike, brzo dobijamo informacije i rešavamo postavljene zadatke, i što je najvažnije, budemo glavna karika u saradnji Srbije,Rusije i Belorusije,i da zajedno sa našim partnerima  unapredimo ekonomski razvoj naših istorijski prijateljskih zemalja.",
         servicesTitle: "Usluge",
         service1: "Agentske usluge",
         service2: "Uvoz i izvoz",
@@ -345,7 +368,9 @@ const translations = {
         footerPrivacy: "Politika privatnosti",
         footerTerms: "Uslovi korišćenja",
         footerFAQ: "Često postavljana pitanja",
-        footerCopy: "© ADRIATIC GROUP DOO. Sva prava zadržana."
+        footerCopy: "© ADRIATIC GROUP DOO. Sva prava zadržana.",
+        GoldenFruit: "Golden Fruit d.o.o. je vodeći proizvođač i dobavljač smrznutog bobičastog voća i voća, specijalizovan za kvalitetne borovnice i druge proizvode. Oni nude pouzdane i ekološke proizvode kupcima širom sveta.",
+        MMNFruit: "MMN Voće je veliki dobavljač voća specijalizovan za razne vrste svežih i smrznutih proizvoda. Kompanija obezbeđuje visok kvalitet i širok spektar proizvoda kako bi zadovoljila potrebe kupaca.",
     }
 };
 

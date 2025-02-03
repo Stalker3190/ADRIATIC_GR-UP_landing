@@ -16,4 +16,5 @@ def search(request):
         results = Company.objects.filter(companyproduct__product__name__icontains=query).distinct()
     else:
         results = Company.objects.none()
+
     return render(request, 'catalog/search_results.html', {'results': results, 'query': query})
