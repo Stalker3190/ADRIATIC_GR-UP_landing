@@ -1,0 +1,842 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	/* background: url("../images/background.jpg") no-repeat center center fixed;
+	background-size: cover; */
+	background-color: #f4f4f4;
+	color: #333;
+}
+
+/* Общие стили для всех экранов */
+header {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+}
+
+header .logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+header .logo {
+    max-height: 50px;
+    margin-right: 8px;
+}
+
+header h1 {
+    font-size: 1em;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.menu-toggle {
+    display: none; /* Скрыть по умолчанию */
+    flex-direction: column;
+    justify-content: space-around;
+    height: 24px;
+    width: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: auto;
+    box-sizing: border-box;
+}
+
+.burger-bar {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav ul li {
+    margin: 0 8px;
+}
+
+.nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.language-switcher {
+    display: flex;
+    margin-left: 10px;
+}
+
+.language-switcher button {
+    margin: 0 3px;
+    padding: 5px 8px;
+    cursor: pointer;
+    border: none;
+    background-color: #00a651;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.language-switcher button:hover {
+    background-color: #007a40;
+}
+
+/* Поиск */
+.search-form {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    max-width: 200px;
+    padding: 5px;
+    background-color: #2b2b2b;
+    border-radius: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    border: 1px solid #3a3a3a;
+    box-sizing: border-box;
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 6px 8px;
+    border: none;
+    border-radius: 30px 0 0 30px;
+    font-size: 0.9em;
+    color: #e0e0e0;
+    background-color: #444444;
+    transition: background-color 0.3s ease;
+}
+
+.search-button {
+    padding: 6px 8px;
+    border: none;
+    border-radius: 0 30px 30px 0;
+    background-color: #00a651;
+    color: #ffffff;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-button i {
+    font-size: 14px;
+}
+
+
+@media (max-width: 910px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-container {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .menu-toggle {
+        display: flex; /* Показать на мобильных устройствах */
+    }
+
+    .nav {
+        display: none; /* Скрыть меню по умолчанию */
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav ul li {
+        margin: 10px 0;
+    }
+
+    .nav.nav-open {
+        display: flex; /* Показать меню при открытии */
+    }
+
+    .search-form {
+        width: 90%;
+        max-width: 100%;
+        margin: 10px auto;
+        display: none; /* Скрыть форму поиска по умолчанию */
+    }
+
+    .nav.nav-open .search-form {
+        display: flex; /* Показать форму поиска при открытии меню */
+    }
+
+    .language-switcher {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header .logo-container img {
+        display: none; /* Скрыть логотип */
+    }
+
+    .search-form {
+        width: 100%; /* Расширить форму поиска на весь экран */
+    }
+
+    .language-switcher {
+        margin: 5px 0;
+    }
+}
+
+
+
+
+
+/*                      Тело*/
+section {
+    padding: 20px;
+    background-color: white;
+    margin: 20px auto;
+    border-radius: 8px;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    scroll-margin-top: 8em;
+}
+
+@media (max-width: 728px) {
+
+	section {
+		scroll-margin-top: 5.5em;
+	}
+}
+
+h2 {
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #00a651;
+}
+
+.buttons {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.country-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #00a651;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.country-button:hover {
+    background-color: #007a40;
+}
+
+
+/*                 Список*/
+
+
+.map-list {
+    display: none;
+}
+
+.country h3 {
+    color: #00a651;
+    cursor: pointer;
+}
+
+.country ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.country ul li {
+    margin-bottom: 10px;
+}
+
+.country ul li a {
+    color: #007a40;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.country ul li a:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 728px) {
+
+    .map-list {
+        display: block;
+    }
+}
+
+@media (min-width: 729px) {
+
+    .map-list {
+        display: none;
+    }
+}
+
+/* Компании */
+.company {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    display: none;
+}
+
+.company h3 {
+    margin-top: 0;
+    color: #00a651;
+}
+
+.company p {
+    margin: 5px 0;
+}
+
+.company button {
+    background-color: #00a651;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.company button:hover {
+    background-color: #007a40;
+}
+
+
+/*                карты*/
+.map-container {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.map img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.map-point {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #00a651;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+}
+
+@media (max-width: 728px) {
+
+    .mapContainer {
+        display: none;
+    }
+
+    .map-point {
+        width: 7px;
+        height: 7px;
+    }
+}
+
+@media (min-width: 729px) {
+    .map-container {
+        display: block; 
+    }
+}
+
+.city-label {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #00a651;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 700px;
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+#popup-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #00a651;
+}
+
+#company-details {
+    margin-top: 20px;
+}
+
+.company {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.company h3 {
+    margin-top: 0;
+    color: #00a651;
+}
+
+.company p {
+    margin: 5px 0;
+}
+
+.company button {
+    background-color: #00a651;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.company button:hover {
+    background-color: #007a40;
+}
+
+.more-info {
+    margin-top: 10px;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+#advertisement {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.advert-space img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+
+
+
+
+
+
+
+
+#partners {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    max-width: 800px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#partners h2 {
+    margin-bottom: 20px;
+}
+
+.partner-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.partner-logo {
+    margin: 10px;
+    transition: transform 0.3s;
+}
+
+.partner-logo img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.partner-logo:hover {
+    transform: scale(1.1);
+}
+
+.partner-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.partner-entry {
+    margin: 20px;
+    padding: 20px;
+}
+
+.partner-entry h3 {
+    margin: 0;
+    color: #5bc0de; /* Цвет заголовка */
+}
+
+.partner-entry h3 a{
+    margin: 0;
+    color: #5bc0de; /* Цвет заголовка */
+    text-decoration: none;
+}
+
+.partner-entry img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.partner-entry p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+
+
+
+
+
+
+#blacklist {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#blacklist h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 24px;
+    border-bottom: 2px solid #00a651;
+    padding-bottom: 10px;
+}
+
+.blacklist-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.blacklist-entry {
+    margin-bottom: 20px;
+}
+
+.blacklist-entry h3 {
+    margin: 0;
+    color: #d9534f; /* Цвет заголовка */
+}
+
+.blacklist-entry p {
+    margin: 5px 0;
+}
+
+.blacklist-entry ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+
+
+
+
+
+
+
+footer {
+    background-color: rgba(0, 0, 0, 0.9); /* Полупрозрачный черный фон */
+    color: white;
+    padding: 40px 20px; /* Увеличенные отступы для лучшего визуального восприятия */
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px; /* Расстояние между секциями */
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 220px;
+    margin: 0;
+}
+
+.footer-section h3 {
+    margin-top: 0;
+    color: #00a651;
+    font-size: 18px;
+    border-bottom: 2px solid #00a651;
+    padding-bottom: 10px;
+}
+
+.footer-section p {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #00a651;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin: 8px 0;
+}
+
+.social-media {
+    margin-top: 15px;
+}
+
+.social-media a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.social-media a:hover {
+    color: #00a651;
+}
+
+#current-year {
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 728px) {
+    .map-container {
+        display: none;
+    }
+    
+    .company-list {
+        display: block;
+        padding: 20px;
+        background-color: white;
+        margin: 20px auto;
+        border-radius: 8px;
+        max-width: 800px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+}
+
+
+
+
+
+
+
+
+/*           Результаты поиска*/
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.container h1 {
+    color: #00a651;
+    margin-bottom: 30px;
+}
+
+.search-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.company-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.company-card:hover {
+    transform: scale(1.05);
+}
+
+.company-name {
+    color: #00a651;
+    margin-bottom: 10px;
+}
+
+.company-description {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.company-contact p {
+    margin: 5px 0;
+}
+
+.company-contact a {
+    color: #007a40;
+    text-decoration: none;
+}
+
+.company-contact a:hover {
+    text-decoration: underline;
+}
+
+.back-button {
+    margin-top: 30px;
+}
+
+.back-button .button {
+    padding: 10px 20px;
+    background-color: #00a651;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.back-button .button:hover {
+    background-color: #007a40;
+}

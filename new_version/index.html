@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+        <meta name="description" content="ООО Адриатик Групп - ваш надежный партнер в Сербии">
+        <title data-translate="headerTitle">ООО Адриатик Групп - Лучшие посредник в бизнесе консалтинга и логистики</title>
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<meta name="description" content="Наша миссия: обеспечить компаниям ответственного партнёра и посредника в бизнесе консалтинга и логистики...">
+    </head>
+    <body>
+        <header class="sticky">
+            <div class="nav-container">
+                <div class="logo-container">
+                    <img src="images/logo.png" alt="Логотип компании" class="logo">
+                    <h1 class="company-title" data-translate="headerTitle">ООО Адриатик Групп</h1>
+                </div>
+        
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span class="burger-bar"></span>
+                    <span class="burger-bar"></span>
+                    <span class="burger-bar"></span>
+                </button>
+        
+                <nav id="navbar" class="nav">
+                    <ul>
+                        <li><a href="#about" data-translate="navAbout">О нас</a></li>
+                        <li><a href="#services" data-translate="navServices">Услуги</a></li>
+                        <li><a href="#contact" data-translate="navContact">Контакты</a></li>
+                    </ul>
+        
+                    <form action="search_products" method="get" class="search-form">
+                        <input type="text" name="q" placeholder="Что вы ищете?" class="search-input">
+                        <button type="submit" class="search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </nav>
+        
+                <div class="language-switcher">
+                    <button onclick="switchLanguage('ru')">Русский</button>
+                    <button onclick="switchLanguage('sr')">Српски</button>
+                </div>
+            </div>
+        </header>
+        
+        
+    
+        <main>
+            <section id="country-selection">
+                <div class="buttons">
+                    <h2 data-translate="countrySelectionTitle">Выберите страну</h2>
+                    <button class="country-button" data-translate="countrySerb" data-country="sr">Сербия</button>
+                    <button class="country-button" data-translate="countryRus" data-country="ru">Россия</button>
+                    <button class="country-button" data-translate="countryBel" data-country="be">Беларусь</button>
+                </div>
+            </section>
+
+            <section id="map-section">
+                <h2 id="map-title" style="display:none;" data-translate="mapTitle">Карта</h2>
+                
+                <!-- Список стран и городов -->
+                <div class="map-list">
+                    <!-- Россия -->
+                    <div class="country" id="russia-cities" style="display: none;">
+                        <h3 data-translate="russia">Россия</h3>
+                        <ul>
+                            <li><a href="#" data-city="moscow" data-translate="moscow">Москва</a></li>
+                            <li><a href="#" data-city="kaliningrad" data-translate="kaliningrad">Калининград</a></li>
+                            <li><a href="#" data-city="stPetersburg" data-translate="stPetersburg">Санкт-Петербург</a></li>
+                            <li><a href="#" data-city="novosibirsk" data-translate="novosibirsk">Новосибирск</a></li>
+                            <li><a href="#" data-city="yekaterinburg" data-translate="yekaterinburg">Екатеринбург</a></li>
+                            <li><a href="#" data-city="nn" data-translate="nn">Нижний Новгород</a></li>
+                            <li><a href="#" data-city="rostov" data-translate="rostov">Ростов-на-Дону</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Сербия -->
+                    <div class="country" id="serbia-cities" style="display: none;">
+                        <h3 data-translate="serbia">Сербия</h3>
+                        <ul>
+                            <li><a href="#" data-city="belgrade" data-translate="belgrade">Белград</a></li>
+                            <li><a href="#" data-city="kraljevo" data-translate="kraljevo">Кралево</a></li>
+                            <li><a href="#" data-city="zrenjanin" data-translate="zrenjanin">Зренянин</a></li>
+                            <li><a href="#" data-city="pirot" data-translate="pirot">Пирот</a></li>
+                            <li><a href="#" data-city="sombor" data-translate="sombor">Сомбор</a></li>
+                            <li><a href="#" data-city="knjazevac" data-translate="knjazevac">Княжевац</a></li>
+                            <li><a href="#" data-city="zajecar" data-translate="zajecar">Заечар</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Беларусь -->
+                    <div class="country" id="belarus-cities" style="display: none;">
+                        <h3 data-translate="belarus">Беларусь</h3>
+                        <ul>
+                            <li><a href="#" data-city="minsk" data-translate="minsk">Минск</a></li>
+                            <li><a href="#" data-city="brest" data-translate="brest">Брест</a></li>
+                            <li><a href="#" data-city="grodno" data-translate="grodno">Гродно</a></li>
+                            <li><a href="#" data-city="gomel" data-translate="gomel">Гомель</a></li>
+                            <li><a href="#" data-city="vitebsk" data-translate="vitebsk">Витебск</a></li>
+                            <li><a href="#" data-city="mogilev" data-translate="mogilev">Могилёв</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Список компаний -->
+                <div id="company-details" style="display: none;">
+                    <!-- Пример компании -->
+                    <div class="company" data-city="moscow">
+                        <h3>Компания 1</h3>
+                        <p>Краткая информация о компании 1 в Москве.</p>
+                        <button data-translate="learnMore">Узнать больше</button>
+                    </div>
+                    <div class="company" data-city="moscow">
+                        <h3>Компания 2</h3>
+                        <p>Краткая информация о компании 2 в Москве.</p>
+                        <button data-translate="learnMore">Узнать больше</button>
+                    </div>
+
+                    <div class="company" data-city="belgrade">
+                        <h3>Компания 1</h3>
+                        <p>Краткая информация о компании 1 в Белграде.</p>
+                        <button data-translate="learnMore">Узнать больше</button>
+                    </div>
+                    <!-- Добавьте остальные компании аналогичным образом -->
+                </div>
+                
+                <!-- Карты -->
+                <div class="map-container">
+                    <!-- Карта России -->
+                    <div class="map" id="russia">
+                        <img src="images/russia-map.png" alt="Карта России">
+                        <div class="map-point" style="top: 55%; left: 10%;" data-city="moscow">
+                            <span class="city-label" data-translate="moscow">Москва</span>
+                        </div>
+                        <div class="map-point" style="top: 41%; left: 0%;" data-city="kaliningrad">
+                            <span class="city-label" data-translate="kaliningrad">Калининград</span>
+                        </div>
+                        <div class="map-point" style="top: 45%; left: 11%;" data-city="stPetersburg">
+                            <span class="city-label" data-translate="stPetersburg">Санкт-Петербург</span>
+                        </div>
+                        <div class="map-point" style="top: 80%; left: 40%;" data-city="novosibirsk">
+                            <span class="city-label" data-translate="novosibirsk">Новосибирск</span>
+                        </div>
+                        <div class="map-point" style="top: 70%; left: 27%;" data-city="yekaterinburg">
+                            <span class="city-label" data-translate="yekaterinburg">Екатеринбург</span>
+                        </div>
+                        <div class="map-point" style="top: 65%; left: 15%;" data-city="nn">
+                            <span class="city-label" data-translate="nn">Нижний Новгород</span>
+                        </div>
+                        <!-- <div class="map-point" style="top: 72%; left: 17%;" data-city="samara">
+                            <span class="city-label" data-translate="samara">Самара</span>
+                        </div> -->
+                        <!-- <div class="map-point" style="top: 78%; left: 33%;" data-city="omsk">
+                            <span class="city-label" data-translate="omsk">Омск</span>
+                        </div> -->
+                        <!-- <div class="map-point" style="top: 70%; left: 17%;" data-city="kazan">
+                            <span class="city-label" data-translate="kazan">Казань</span>
+                        </div> -->
+                        <!-- <div class="map-point" style="top: 73%; left: 25%;" data-city="chelyabinsk">
+                            <span class="city-label" data-translate="chelyabinsk">Челябинск</span>
+                        </div> -->
+                        <div class="map-point" style="top: 75%; left: 5%;" data-city="rostov">
+                            <span class="city-label" data-translate="rostov">Ростов-на-Дону</span>
+                        </div>
+                        <!-- <div class="map-point" style="top: 70%; left: 20%;" data-city="ufa">
+                            <span class="city-label" data-translate="ufa">Уфа</span>
+                        </div> -->
+                        <!-- <div class="map-point" style="top: 75%; left: 8%;" data-city="volgograd">
+                            <span class="city-label" data-translate="volgograd">Волгоград</span>
+                        </div> -->
+                        
+                    </div>
+            
+                    <!-- Карта Сербии -->
+                    <div class="map" id="serbia" style="display: none;">
+                        <img src="images/serbia-map.png" alt="Карта Сербии">
+                        <div class="map-point" style="top: 30%; left: 45%;" data-city="belgrade">
+                            <span class="city-label" data-translate="belgrade">Белград</span>
+                        </div>
+                        <div class="map-point" style="top: 52%; left: 45%;" data-city="kraljevo">
+                            <span class="city-label" data-translate="kraljevo">Кралево</span>
+                        </div>
+                        <div class="map-point" style="top: 18%; left: 45%;" data-city="zrenjanin">
+                            <span class="city-label" data-translate="zrenjanin">Зренянин</span>
+                        </div>
+                        <div class="map-point" style="top: 67%; left: 65%;" data-city="pirot">
+                            <span class="city-label" data-translate="pirot">Пирот</span>
+                        </div>
+                        <div class="map-point" style="top: 10%; left: 32%;" data-city="sombor">
+                            <span class="city-label" data-translate="sombor">Сомбор</span>
+                        </div>
+                        <div class="map-point" style="top: 60%; left: 60%;" data-city="knjazevac">
+                            <span class="city-label" data-translate="knjazevac">Княжевац</span>
+                        </div>
+                        <div class="map-point" style="top: 50%; left: 60%;" data-city="zajecar">
+                            <span class="city-label" data-translate="zajecar">Заечар</span>
+                        </div>
+                        <div class="map-point" style="top: 50%; left: 60%;" data-city="arile">
+                            <span class="city-label" data-translate="arile">Ариле</span>
+                        </div>
+                    </div>
+            
+                    <!-- Карта Беларуси -->
+                    <div class="map" id="belarus" style="display: none;">
+                        <img src="images/belarus-map.png" alt="Карта Беларуси">
+                        <div class="map-point" style="top: 45%; left: 50%;" data-city="minsk">
+                            <span class="city-label" data-translate="minsk">Минск</span>
+                        </div>
+                        <div class="map-point" style="top: 82%; left: 22%;" data-city="brest">
+                            <span class="city-label" data-translate="brest">Брест</span>
+                        </div>
+                        <div class="map-point" style="top: 50%; left: 22%;" data-city="grodno">
+                            <span class="city-label" data-translate="grodno">Гродно</span>
+                        </div>
+                        <div class="map-point" style="top: 75%; left: 70%;" data-city="gomel">
+                            <span class="city-label" data-translate="gomel">Гомель</span>
+                        </div>
+                        <div class="map-point" style="top: 20%; left: 65%;" data-city="vitebsk">
+                            <span class="city-label" data-translate="vitebsk">Витебск</span>
+                        </div>
+                        <div class="map-point" style="top: 45%; left: 65%;" data-city="mogilev">
+                            <span class="city-label" data-translate="mogilev">Могилёв</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+
+            <section id="advertisement">
+                <h2 data-translate="advertisementTitle">Реклама</h2>
+                <div class="advert-space">
+                    <img src="catalog/images/advert-sample.png" alt="Рекламное место">
+                </div>
+            </section>
+            
+
+            <section id="about">
+                <h2 data-translate="aboutUsTitle">О нас</h2>
+                <p data-translate="aboutUsText">Наша миссия обеспечить компаниям ответственного партнёра и посредника в бизнесе консалтинга и логистики, быстрее получать информацию и вместе решать выставленные задачи и самое главное быть главным звеном по сотрудничеству между Сербии, России и Беларуси и вместе с нашими партнёрами поднимать экономику наших историческо дружественных стран.</p>
+            </section>
+
+            <section id="partners">
+                <h2 data-translate="partnersTitle">Наши партнёры</h2>
+                <div class="partner-details">
+                    <!-- Партнёр 1 -->
+                    <div class="partner-entry">
+                        <h3><a href="https://goldenfruitdoo.rs/" target="_blank">Golden Fruit d.o.o.</a></h3>
+                        <a href="https://goldenfruitdoo.rs/" target="_blank">
+                            <img src="catalog/images/logotip-GF.png" alt="Логотип Golden Fruit">
+                        </a>
+                        <p data-translate="GoldenFruit">Golden Fruit d.o.o. - ведущий производитель и поставщик замороженных ягод и фруктов, специализирующийся на высококачественной чернике и других продуктах. Они предлагают надежные и экологически чистые продукты для клиентов по всему миру.</p>
+                    </div>
+                    <hr>
+                    <!-- Партнёр 2 -->
+                    <div class="partner-entry">
+                        <h3><a href="https://www.mmnfruit.com/" target="_blank">MMN Fruit</a></h3>
+                        
+                        <p data-translate="MMNFruit">MMN Fruit - крупный поставщик фруктов, специализирующийся на различных видах свежих и замороженных продуктов. Компания обеспечивает высокое качество и широкий ассортимент продукции для удовлетворения потребностей клиентов.</p>
+                    </div>
+                </div>
+            </section>
+            
+            
+
+            <section id="services">
+                <h2 data-translate="servicesTitle">Услуги</h2>
+                <ul>
+                    <li data-translate="service1">Агентские услуги</li>
+                    <li data-translate="service2">Экспорт импорт</li>
+                    <li data-translate="service3">Поиск надёжных партнёров в Сербии</li>
+                    <li data-translate="service4">Консультационные услуги поставки товаров на Сербию и из Сербии</li>
+                </ul>
+            </section>
+
+            <section id="blacklist">
+                <h2 data-translate="blacklistTitle">Черный список компаний</h2>
+                <div class="blacklist-content">
+                    <!-- Информация о первой компании -->
+                    <div class="blacklist-entry">
+                        <h3>КФХ АГРОМАРАФОН</h3>
+                        <p><strong>ИНН:</strong> 3200001215</p>
+                        <p><strong>Глава:</strong> Борисов Евгений Владимирович</p>
+                        <p><strong>Юридический адрес:</strong> 241029, Брянская область, г Брянск, Красноармейская ул. д. 126/1 офис 202а</p>
+                        <p><strong>Причина не работать с этой компанией:</strong> Брали денег от сербской компании на поставку картофеля в размере 688.000 рублей и не поставили картофель, а деньги присвоили, вернули только 50 тысяч рублей. Рекомендуем не работать с данной компанией.</p>
+                    </div>
+                    <hr>
+                    <!-- Информация о второй компании -->
+                    <div class="blacklist-entry">
+                        <h3>ООО САУЛ-КОРП</h3>
+                        <p><strong>УНП:</strong> 692229787</p>
+                        <p><strong>Директор:</strong> Миранович Вадим Владимирович</p>
+                        <p><strong>Юридический/почтовый адрес:</strong> 223039, Минская обл., Минский р-н, Ждановичский с/с, район деревни Таборы, здание административно-хозяйственное, комната 39А</p>
+                        <p><strong>У этого поставщика есть и другие компании и просим Вас обратить внимание:</strong></p>
+                        <ul>
+                            <li>ООО ВИТАДИМ</li>
+                            <li>ИП Миранович Вадим Владимирович</li>
+                            <li>ООО Эмерсис Трейд</li>
+                            <li>ООО Белорехпром</li>
+                            <li>ООО СВ-фрукт</li>
+                        </ul>
+                        <p><strong>Причина не работать с этой компанией:</strong> Поставляли некачественный товар, конкретно картофель на сумму 6.020€, и в итоге отказались принять ответственность вернуть средства на плохой товар. Рекомендуем не работать с данной компанией.</p>
+                    </div>
+                </div>
+            </section>
+            
+            
+
+        </main>
+
+        <footer>
+            <div class="footer-container" id="contact">
+                <div class="footer-section contact-info">
+                    <h3 data-translate="footerContacts">Контакты</h3>
+                    <p><i class="fas fa-phone"></i> <span data-translate="footerPhone">Телефон Viber/WhatsApp: +375292815954</span></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:jadran3110@gmail.com">jadran3110@gmail.com</a>, <a href="mailto:adriatikgrupp@mail.ru">adriatikgrupp@mail.ru</a></p>
+                    <div class="social-media">
+                        <a href="viber://chat?number=+375292815954" aria-label="Viber" target="_blank"><i class="fab fa-viber"></i></a>
+                        <a href="https://wa.me/+375292815954" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+        
+                <div class="footer-section links">
+                    <h3 data-translate="footerLinks">Полезные ссылки</h3>
+                    <ul>
+                        <li><a href="#" data-translate="footerPrivacy">Политика конфиденциальности</a></li>
+                        <li><a href="#" data-translate="footerTerms">Условия использования</a></li>
+                        <li><a href="#" data-translate="footerFAQ">Часто задаваемые вопросы</a></li>
+                    </ul>
+                </div>
+        
+                <div class="footer-section">
+                    <p data-translate="footerCopy">&copy; 2024 ООО Адриатик Групп. Все права защищены.</p>
+                </div>
+            </div>
+        </footer>
+        
+
+        <div id="popup" class="popup">
+            <span class="close" id="close">&times;</span>
+            <p id="popup-text"></p>
+            <div id="company-details"></div>
+        </div>
+
+        <script src="main.js"></script>
+    </body>
+</html>
