@@ -92,6 +92,10 @@ header h1 {
 }
 
 
+.auth-buttons{
+    display: flex;
+}
+
 .auth-buttons button{
     margin: 0 3px;
     padding: 5px 8px;

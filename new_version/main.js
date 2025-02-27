@@ -51,6 +51,37 @@
 
 
 document.addEventListener('DOMContentLoaded', function() {
+
+    const user = JSON.parse(localStorage.getItem("user"));
+    const logoutBtn = document.getElementById("logout-btn");
+
+    if (user && user.status.toLowerCase() === "ok") {
+        document.getElementById("partners").style.display = "block";
+        document.getElementById("blacklist").style.display = "block";
+        
+        logoutBtn.style.display = "block";
+
+        document.getElementById("login-btn").style.display = "none";
+        document.getElementById("register-btn").style.display = "none";
+        
+    } else {
+        document.getElementById("partners").style.display = "none";
+        document.getElementById("blacklist").style.display = "none";
+        
+        logoutBtn.style.display = "none";
+
+        document.getElementById("login-btn").style.display = "block";
+        document.getElementById("register-btn").style.display = "block";
+    }
+
+    logoutBtn.addEventListener("click", function () {
+        localStorage.removeItem("user"); // Удаляем пользователя
+        alert("Вы вышли из аккаунта!");
+        window.location.reload(); // Перезагружаем страницу
+    });
+
+
+
     const countryButtons = document.querySelectorAll('.country-button');
     const maps = document.querySelectorAll('.map');
     const mapPoints = document.querySelectorAll('.map-point');
@@ -228,14 +259,27 @@ function switchLanguage(language) {
         const key = el.getAttribute('data-translate');
         el.innerText = translations[language][key];
     });
+
+    const searchInput = document.querySelector(".search-input");
+    if (searchInput) {
+        searchInput.placeholder = translations[language]["searchPlaceholder"];
+    }
 }
 
 const translations = {
     ru: {
         headerTitle: "ООО Адриатик Групп",
+
         navAbout: "О нас",
         navServices: "Услуги",
         navContact: "Контакты",
+
+        searchPlaceholder: "Что вы ищете?",
+
+        logout: "Выйти из аккаунта",
+        login: "Войти",
+        register: "Регистрация",
+
         countrySelectionTitle: "Выберите страну",
         countrySerb: "Сербия",
         countryRus: "Россия",
@@ -270,21 +314,29 @@ const translations = {
         negotin: "Неготин",
         zajecar: "Заечар",
         senica: "Сеница",
+
         companiesInCity: "Компании в городе",
         noCompanies:"Нет компаний в этом городе.",
+
         aboutUsTitle: "О нас",
         aboutUsText: "Наша миссия обеспечить компаниям ответственного партнёра и посредника в бизнесе консалтинга и логистики, быстрее получать информацию и вместе решать выставленные задачи и самое главное быть главным звеном по сотрудничеству между Сербии, России и Беларуси и вместе с нашими партнёрами поднимать экономику наших историческо дружественных стран.",
+        
         servicesTitle: "Услуги",
         service1: "Агентские услуги",
         service2: "Экспорт импорт",
         service3: "Поиск надёжных партнёров в Сербии",
         service4: "Консультационные услуги поставки товаров на Сербию и из Сербии",
+
         contactTitle: "Контакты",
         contactText: "ООО Адриатик Групп",
         contactPhone: "Контакт телефон Viber/WhatsApp: +375292815954",
+
         advertisementTitle: "Реклама",
+
         partnersTitle: "Наши партнёры",
+
         blacklistTitle: "Черный список компаний",
+
         footerContacts: "Контакты",
         footerPhone: "Телефон Viber/WhatsApp: +375292815954",
         footerEmail1: "Email: jadran3110@gmail.com",
@@ -294,6 +346,7 @@ const translations = {
         footerTerms: "Условия использования",
         footerFAQ: "Часто задаваемые вопросы",
         footerCopy: "© ООО Адриатик Групп. Все права защищены.",
+
         GoldenFruit: "Golden Fruit d.o.o. - ведущий производитель и поставщик замороженных ягод и фруктов, специализирующийся на высококачественной чернике и других продуктах. Они предлагают надежные и экологически чистые продукты для клиентов по всему миру.",
         MMNFruit: "MMN Fruit - крупный поставщик фруктов, специализирующийся на различных видах свежих и замороженных продуктов. Компания обеспечивает высокое качество и широкий ассортимент продукции для удовлетворения потребностей клиентов.",
     
@@ -303,10 +356,19 @@ const translations = {
     },
     sr: {
         headerTitle: "ADRIATIC GROUP DOO",
+
         navAbout: "O nama",
         navServices: "Usluge",
         navContact: "Kontakti",
+
+        searchPlaceholder: "Šta tražite?",
+
+        logout: "Odjavi se",
+        login: "Prijavi se",
+        register: "Registracija",
+
         countrySelectionTitle: "Izaberite zemlju",
+
         countrySerb: "Србија",
         countryRus: "Русија",
         countryBel: "Белорусија",
@@ -340,23 +402,31 @@ const translations = {
         negotin: "Negotin",
         zajecar: "Zaječar",
         senica: "Sjenica",
+
         companiesInCity: "Kompanije u gradu",
         noCompanies: "Nema kompanija u ovom gradu.",
+
         aboutUsTitle: "O nama",
         aboutUsText: "Naša misija je da našim partnerima obezbedimo odgovornog partnera i posrednika u poslovima konsaltinga i logistike, brzo dobijamo informacije i rešavamo postavljene zadatke, i što je najvažnije, budemo glavna karika u saradnji Srbije,Rusije i Belorusije,i da zajedno sa našim partnerima  unapredimo ekonomski razvoj naših istorijski prijateljskih zemalja.",
+        
         servicesTitle: "Usluge",
         service1: "Agentske usluge",
         service2: "Uvoz i izvoz",
         service3: "Pretraga pouzdanih partnera u Srbiji",
         service4: "Konsultantske usluge u vezi sa isporukom roba u Srbiju i iz Srbije",
+
         contactTitle: "Kontakti",
         contactText: "ADRIATIC GROUP DOO",
         contactPhone: "Kontakt telefon Viber/WhatsApp: +375292815954",
         contactEmail1: "Email: jadran3110@gmail.com",
         contactEmail2: "Email: adriatikgrupp@mail.ru",
+
         advertisementTitle: "Reklama",
+
         partnersTitle: "Naši partneri",
+
         blacklistTitle: "Crna lista kompanija",
+
         footerContacts: "Kontakti",
         footerPhone: "Telefon Viber/WhatsApp: +375292815954",
         footerLinks: "Korisni linkovi",
@@ -364,6 +434,7 @@ const translations = {
         footerTerms: "Uslovi korišćenja",
         footerFAQ: "Često postavljana pitanja",
         footerCopy: "© ADRIATIC GROUP DOO. Sva prava zadržana.",
+
         GoldenFruit: "Golden Fruit d.o.o. je vodeći proizvođač i dobavljač smrznutog bobičastog voća i voća, specijalizovan za kvalitetne borovnice i druge proizvode. Oni nude pouzdane i ekološke proizvode kupcima širom sveta.",
         MMNFruit: "MMN Voće je veliki dobavljač voća specijalizovan za razne vrste svežih i smrznutih proizvoda. Kompanija obezbeđuje visok kvalitet i širok spektar proizvoda kako bi zadovoljila potrebe kupaca.",
     
