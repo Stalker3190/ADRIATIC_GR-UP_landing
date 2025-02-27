@@ -91,6 +91,31 @@ header h1 {
     font-size: 0.9em;
 }
 
+
+.auth-buttons button{
+    margin: 0 3px;
+    padding: 5px 8px;
+    cursor: pointer;
+    border: none;
+    background-color: #00a651;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.login-btn, .register-btn{
+    background-color: #0084d6;
+}
+
+.login-btn:hover, .register-btn:hover{
+    background-color: #006bb3;
+}
+
+
+
+
+
 .language-switcher {
     display: flex;
     margin-left: 10px;
@@ -573,12 +598,12 @@ h2 {
 
 .partner-entry h3 {
     margin: 0;
-    color: #5bc0de; /* Цвет заголовка */
+    color: #0f8b41; /* Цвет заголовка */
 }
 
 .partner-entry h3 a{
     margin: 0;
-    color: #5bc0de; /* Цвет заголовка */
+    color: #0f8b41; /* Цвет заголовка */
     text-decoration: none;
 }
 
