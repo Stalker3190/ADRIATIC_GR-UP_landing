@@ -168,6 +168,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         popup.style.display = "block";
+        console.log("Current language:", currentLanguage);
+        console.log("City:", city);
+        console.log("Translation:", translations[currentLanguage]['companiesInCity']);
+
         popupText.textContent = `${translations[currentLanguage]['companiesInCity']}: ${translations[currentLanguage][city] || city}`;
     }
 
@@ -292,6 +296,10 @@ const translations = {
         footerCopy: "© ООО Адриатик Групп. Все права защищены.",
         GoldenFruit: "Golden Fruit d.o.o. - ведущий производитель и поставщик замороженных ягод и фруктов, специализирующийся на высококачественной чернике и других продуктах. Они предлагают надежные и экологически чистые продукты для клиентов по всему миру.",
         MMNFruit: "MMN Fruit - крупный поставщик фруктов, специализирующийся на различных видах свежих и замороженных продуктов. Компания обеспечивает высокое качество и широкий ассортимент продукции для удовлетворения потребностей клиентов.",
+    
+        company1_moscow: "Краткая информация о компании 1 в Москве.",
+        company2_moscow: "Краткая информация о компании 2 в Москве.",
+        company1_belgrade: "Краткая информация о компании 1 в Белграде.",
     },
     sr: {
         headerTitle: "ADRIATIC GROUP DOO",
@@ -332,7 +340,7 @@ const translations = {
         negotin: "Negotin",
         zajecar: "Zaječar",
         senica: "Sjenica",
-        companiesInCity: "Компании в городе",
+        companiesInCity: "Kompanije u gradu",
         noCompanies: "Nema kompanija u ovom gradu.",
         aboutUsTitle: "O nama",
         aboutUsText: "Naša misija je da našim partnerima obezbedimo odgovornog partnera i posrednika u poslovima konsaltinga i logistike, brzo dobijamo informacije i rešavamo postavljene zadatke, i što je najvažnije, budemo glavna karika u saradnji Srbije,Rusije i Belorusije,i da zajedno sa našim partnerima  unapredimo ekonomski razvoj naših istorijski prijateljskih zemalja.",
@@ -358,6 +366,10 @@ const translations = {
         footerCopy: "© ADRIATIC GROUP DOO. Sva prava zadržana.",
         GoldenFruit: "Golden Fruit d.o.o. je vodeći proizvođač i dobavljač smrznutog bobičastog voća i voća, specijalizovan za kvalitetne borovnice i druge proizvode. Oni nude pouzdane i ekološke proizvode kupcima širom sveta.",
         MMNFruit: "MMN Voće je veliki dobavljač voća specijalizovan za razne vrste svežih i smrznutih proizvoda. Kompanija obezbeđuje visok kvalitet i širok spektar proizvoda kako bi zadovoljila potrebe kupaca.",
+    
+        company1_moscow: "Kratke informacije o kompaniji 1 u Moskvi.",
+        company2_moscow: "Kratke informacije o kompaniji 2 u Moskvi.",
+        company1_belgrade: "Kratke informacije o kompaniji 1 u Beogradu.",
     }
 };
 
