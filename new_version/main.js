@@ -55,49 +55,53 @@ document.addEventListener('DOMContentLoaded', function() {
     const maps = document.querySelectorAll('.map');
     const mapPoints = document.querySelectorAll('.map-point');
     const popup = document.getElementById('popup');
-    const popupText = document.getElementById('popup-text');
-    const companyDetails = document.getElementById('company-details');
+
+    const popupText = document.getElementById("popup-text");
+    // const popupText = document.getElementById('popup-text');
+    // const companyDetails = document.getElementById('company-details');
     const close = document.getElementById('close');
 
+    const popupCompanyDetailsContainer = document.getElementById("popup-company-details");
+    
     const menuToggle = document.querySelector('.menu-toggle');
     const nav = document.querySelector('nav');
     const navLinks = document.querySelectorAll('.nav ul li a');
 
     const yearSpan = document.getElementById('current-year');
 
-    const companies = {
-        moscow: [
-            {
-                name: 'Компания 1',
-                description: 'Краткое описание компании 1 в Москве.',
-                moreInfo: 'Полное описание компании 1 в Москве.'
-            }
-        ],
-        belgrade: [
-            {
-                name: 'Компания A',
-                description: 'Краткое описание компании A в Белграде.',
-                moreInfo: 'Полное описание компании A в Белграде.'
-            },
-            {
-                name: 'Компания B',
-                description: 'Краткое описание компании B в Белграде.',
-                moreInfo: 'Полное описание компании B в Белграде.'
-            },
-            {
-                name: 'Компания C',
-                description: 'Краткое описание компании C в Белграде.',
-                moreInfo: 'Полное описание компании C в Белграде.'
-            }
-        ],
-        minsk: [
-            {
-                name: 'Компания X',
-                description: 'Краткое описание компании X в Минске.',
-                moreInfo: 'Полное описание компании X в Минске.'
-            }
-        ]
-    };
+    // const companies = {
+    //     moscow: [
+    //         {
+    //             name: 'Компания 1',
+    //             description: 'Краткое описание компании 1 в Москве.',
+    //             moreInfo: 'Полное описание компании 1 в Москве.'
+    //         }
+    //     ],
+    //     belgrade: [
+    //         {
+    //             name: 'Компания A',
+    //             description: 'Краткое описание компании A в Белграде.',
+    //             moreInfo: 'Полное описание компании A в Белграде.'
+    //         },
+    //         {
+    //             name: 'Компания B',
+    //             description: 'Краткое описание компании B в Белграде.',
+    //             moreInfo: 'Полное описание компании B в Белграде.'
+    //         },
+    //         {
+    //             name: 'Компания C',
+    //             description: 'Краткое описание компании C в Белграде.',
+    //             moreInfo: 'Полное описание компании C в Белграде.'
+    //         }
+    //     ],
+    //     minsk: [
+    //         {
+    //             name: 'Компания X',
+    //             description: 'Краткое описание компании X в Минске.',
+    //             moreInfo: 'Полное описание компании X в Минске.'
+    //         }
+    //     ]
+    // };
 
     function showMap(countryId) {
         // Скрываем все карты
@@ -129,11 +133,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     mapPoints.forEach(point => {
-        point.addEventListener('click', function() {
-            const city = this.getAttribute('data-city');
-            popupText.textContent = `Компании в ${translations[currentLanguage][city]}:`;
-            displayCompanyDetails(city);
-            popup.style.display = 'block';
+        point.addEventListener("click", function () {
+            const city = this.getAttribute("data-city");
+            console.log(`Clicked city: ${city}`);
+            showCompanies(city);
         });
     });
 
@@ -147,44 +150,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    function displayCompanyDetails(city) {
-        const companiesList = companies[city] || [];
-        companyDetails.innerHTML = '';
-
-        companiesList.forEach(company => {
-            const companyDiv = document.createElement('div');
-            companyDiv.className = 'company';
-
-            const name = document.createElement('h3');
-            name.textContent = company.name;
-            companyDiv.appendChild(name);
-
-            const description = document.createElement('p');
-            description.textContent = company.description;
-            companyDiv.appendChild(description);
-
-            const moreInfoButton = document.createElement('button');
-            moreInfoButton.textContent = 'Подробнее';
-            companyDiv.appendChild(moreInfoButton);
-
-            const moreInfoDiv = document.createElement('div');
-            moreInfoDiv.className = 'more-info';
-            moreInfoDiv.textContent = company.moreInfo;
-            moreInfoDiv.style.display = 'none';  // Initially hide the additional information
-            companyDiv.appendChild(moreInfoDiv);
-
-            moreInfoButton.addEventListener('click', function() {
-                if (moreInfoDiv.style.display === 'none') {
-                    moreInfoDiv.style.display = 'block';
-                    moreInfoButton.textContent = 'Скрыть';
-                } else {
-                    moreInfoDiv.style.display = 'none';
-                    moreInfoButton.textContent = 'Подробнее';
-                }
+    function showCompanies(city) {
+        const companies = document.querySelectorAll(`.company[data-city='${city}']`);
+        popupCompanyDetailsContainer.innerHTML = ""; // Очищаем только попап
+    
+        if (companies.length > 0) {
+            let companyList = "<ul>";
+            companies.forEach(company => {
+                const companyName = company.querySelector("h3").textContent;
+                const companyInfo = company.querySelector("p").textContent;
+                companyList += `<li><strong>${companyName}</strong>: ${companyInfo}</li>`;
             });
+            companyList += "</ul>";
+            popupCompanyDetailsContainer.innerHTML = companyList;
+        } else {
+            companyDetailsContainer.innerHTML = `<p>${translations[currentLanguage]['noCompanies']}</p>`;
+        }
 
-            companyDetails.appendChild(companyDiv);
-        });
+        popup.style.display = "block";
+        popupText.textContent = `${translations[currentLanguage]['companiesInCity']}: ${translations[currentLanguage][city] || city}`;
     }
 
     menuToggle.addEventListener('click', () => {
@@ -282,6 +266,8 @@ const translations = {
         negotin: "Неготин",
         zajecar: "Заечар",
         senica: "Сеница",
+        companiesInCity: "Компании в городе",
+        noCompanies:"Нет компаний в этом городе.",
         aboutUsTitle: "О нас",
         aboutUsText: "Наша миссия обеспечить компаниям ответственного партнёра и посредника в бизнесе консалтинга и логистики, быстрее получать информацию и вместе решать выставленные задачи и самое главное быть главным звеном по сотрудничеству между Сербии, России и Беларуси и вместе с нашими партнёрами поднимать экономику наших историческо дружественных стран.",
         servicesTitle: "Услуги",
@@ -346,7 +332,8 @@ const translations = {
         negotin: "Negotin",
         zajecar: "Zaječar",
         senica: "Sjenica",
-        arile: "",
+        companiesInCity: "Компании в городе",
+        noCompanies: "Nema kompanija u ovom gradu.",
         aboutUsTitle: "O nama",
         aboutUsText: "Naša misija je da našim partnerima obezbedimo odgovornog partnera i posrednika u poslovima konsaltinga i logistike, brzo dobijamo informacije i rešavamo postavljene zadatke, i što je najvažnije, budemo glavna karika u saradnji Srbije,Rusije i Belorusije,i da zajedno sa našim partnerima  unapredimo ekonomski razvoj naših istorijski prijateljskih zemalja.",
         servicesTitle: "Usluge",
