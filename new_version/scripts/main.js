@@ -1,55 +1,3 @@
-// const countries = {
-//     serbia: {
-//         name: "Сербия",
-//         map: "images/serbia-map.png",
-//         cities: {
-//             "belgrade": {
-//                 name: "Белград",
-//                 companies: [
-//                     { name: "Golden Fruit Доо", description: "Производство и реализация замороженной вишни, малины и других фруктов. Представители в России и Беларуси." }
-//                 ]
-//             },
-//             "novi-sad": {
-//                 name: "Нови-Сад",
-//                 companies: [
-//                     { name: "Компания 2", description: "Описание компании 2..." }
-//                 ]
-//             },
-//             "nis": {
-//                 name: "Ниш",
-//                 companies: [
-//                     { name: "Компания 3", description: "Описание компании 3..." }
-//                 ]
-//             }
-//         }
-//     },
-//     russia: {
-//         name: "Россия",
-//         map: "images/russia-map.png",
-//         cities: {
-//             "moscow": {
-//                 name: "Москва",
-//                 companies: [
-//                     { name: "Компания 4", description: "Описание компании 4..." }
-//                 ]
-//             }
-//         }
-//     },
-//     belarus: {
-//         name: "Беларусь",
-//         map: "images/belarus-map.png",
-//         cities: {
-//             "minsk": {
-//                 name: "Минск",
-//                 companies: [
-//                     { name: "Компания 5", description: "Описание компании 5..." }
-//                 ]
-//             }
-//         }
-//     }
-// };
-
-
 document.addEventListener('DOMContentLoaded', function() {
 
     const user = JSON.parse(localStorage.getItem("user"));
@@ -319,6 +267,7 @@ const translations = {
         rostov: "Ростов-на-Дону",
         ufa: "Уфа",
         volgograd: "Волгоград",
+        arile: "Арилье",
         kraljevo: "Кралево",
         zrenjanin: "Зренянин",
         pirot: "Пирот",
@@ -364,9 +313,9 @@ const translations = {
         GoldenFruit: "Golden Fruit d.o.o. - ведущий производитель и поставщик замороженных ягод и фруктов, специализирующийся на высококачественной чернике и других продуктах. Они предлагают надежные и экологически чистые продукты для клиентов по всему миру.",
         MMNFruit: "MMN Fruit - крупный поставщик фруктов, специализирующийся на различных видах свежих и замороженных продуктов. Компания обеспечивает высокое качество и широкий ассортимент продукции для удовлетворения потребностей клиентов.",
     
-        company1_moscow: "Краткая информация о компании 1 в Москве.",
-        company2_moscow: "Краткая информация о компании 2 в Москве.",
-        company1_belgrade: "Краткая информация о компании 1 в Белграде.",
+        MMNFruit_arile: "Компания MMN Fruit, основанная в 2011 году, специализируется на экспорте премиальных замороженных фруктов клиентам в Европе, Азии и США.",
+        GoldenFruit_arile: "Компания уделяет особое внимание качеству и безопасности своей продукции, сотрудничая с местными производителями и контролируя весь процесс — от сбора до поставки. Продукция экспортируется в страны Европейского Союза, включая Германию и государства Скандинавии, где используется в производстве десертов, мороженого, соков и джемов.",
+        company1_belgrade: "Kratke informacije o kompaniji 1 u Beogradu.",
     },
     sr: {
         headerTitle: "ADRIATIC GROUP DOO",
@@ -407,6 +356,7 @@ const translations = {
         rostov: "Rostov na Donu",
         ufa: "Ufa",
         volgograd: "Volgograd",
+        arile: "Arile",
         kraljevo: "Kraljevo",
         zrenjanin: "Zrenjanin",
         pirot: "Pirot",
@@ -452,8 +402,8 @@ const translations = {
         GoldenFruit: "Golden Fruit d.o.o. je vodeći proizvođač i dobavljač smrznutog bobičastog voća i voća, specijalizovan za kvalitetne borovnice i druge proizvode. Oni nude pouzdane i ekološke proizvode kupcima širom sveta.",
         MMNFruit: "MMN Voće je veliki dobavljač voća specijalizovan za razne vrste svežih i smrznutih proizvoda. Kompanija obezbeđuje visok kvalitet i širok spektar proizvoda kako bi zadovoljila potrebe kupaca.",
     
-        company1_moscow: "Kratke informacije o kompaniji 1 u Moskvi.",
-        company2_moscow: "Kratke informacije o kompaniji 2 u Moskvi.",
+        MMNFruit_arile: "Kompanija MMN Fruit, osnovana 2011. godine, specijalizovana je za izvoz premium smrznutog voća klijentima u Evropi, Aziji i SAD-u.",
+        GoldenFruit_arile: "Kompanija posebnu pažnju posvećuje kvalitetu i bezbednosti svojih proizvoda, sarađujući sa lokalnim proizvođačima i kontrolišući ceo proces – od berbe do isporuke. Proizvodi se izvoze u zemlje Evropske unije, uključujući Nemačku i skandinavske države, gde se koriste u proizvodnji poslastica, sladoleda, sokova i džemova.",
         company1_belgrade: "Kratke informacije o kompaniji 1 u Beogradu.",
     }
 };

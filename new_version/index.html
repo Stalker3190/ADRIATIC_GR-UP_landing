@@ -7,6 +7,7 @@
         <meta name="description" content="ООО Адриатик Групп - ваш надежный партнер в Сербии">
         <title data-translate="headerTitle">ООО Адриатик Групп - Лучшие посредник в бизнесе консалтинга и логистики</title>
         <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/header.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <meta name="description" content="Наша миссия: обеспечить компаниям ответственного партнёра и посредника в бизнесе консалтинга и логистики...">
     </head>
@@ -31,8 +32,8 @@
                         <li><a href="#contact" data-translate="navContact">Контакты</a></li>
                     </ul>
         
-                    <form action="search_products" method="get" class="search-form">
-                        <input type="text" name="q" placeholder="Что вы ищете?" class="search-input">
+                    <form action="search_results.html" method="get" class="search-form" onsubmit="saveSearchQuery()">
+                        <input type="text" name="q" placeholder="Что вы ищете?" class="search-input" id="searchInput">
                         <button type="submit" class="search-button">
                             <i class="fas fa-search"></i>
                         </button>
@@ -114,19 +115,15 @@
                 <!-- Список компаний -->
                 <div id="company-details" style="display: none;">
 
-                    <div class="company" data-city="moscow">
-                        <h3>Компания 1</h3>
-                        <p data-translate="company1_moscow">Краткая информация о компании 1 в Москве.</p>
+                    <div class="company" data-city="arile">
+                        <h3>MMN Fruit</h3>
+                        <p data-translate="MMNFruit_arile">Компания MMN Fruit, основанная в 2011 году, специализируется на экспорте премиальных замороженных фруктов клиентам в Европе, Азии и США.</p>
                     </div>
-                    <div class="company" data-city="moscow">
-                        <h3>Компания 2</h3>
-                        <p data-translate="company2_moscow">Краткая информация о компании 2 в Москве.</p>
+                    <div class="company" data-city="arile">
+                        <h3>Golden Fruit d.o.o.</h3>
+                        <p data-translate="GoldenFruit_arile">Компания уделяет особое внимание качеству и безопасности своей продукции, сотрудничая с местными производителями и контролируя весь процесс — от сбора до поставки. Продукция экспортируется в страны Европейского Союза, включая Германию и государства Скандинавии, где используется в производстве десертов, мороженого, соков и джемов.</p>
                     </div>
 
-                    <div class="company" data-city="belgrade">
-                        <h3>Компания 1</h3>
-                        <p data-translate="company1_belgrade">Краткая информация о компании 1 в Белграде.</p>
-                    </div>
                 </div>
                 
                 <!-- Карты -->
@@ -347,6 +344,7 @@
             <!-- <div id="company-details"></div> -->
         </div>
 
-        <script src="main.js"></script>
+        <script src="scripts/main.js"></script>
+        <script defer src="scripts/search_results.js"></script>
     </body>
 </html>

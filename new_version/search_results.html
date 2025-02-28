@@ -1,41 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-    <title>Search Results</title>
-    <link rel="stylesheet" href="{% static 'catalog/styles/style.css' %}">
-</head>
-<body>
-    <div class="container">
-        <h1 data-translate="searchResultsTitle">Результаты поиска для: "{{ query }}"</h1>
-        {% if results %}
-            <div class="search-results">
-                {% for company in results %}
-                    <div class="company-card">
-                        <h2 class="company-name">{{ company.name }}</h2>
-                        <p class="company-description">{{ company.description }}</p>
-                        <div class="company-contact">
-                            {% if company.phone_number %}
-                                <p><strong data-translate="phoneLabel">Телефон:</strong> {{ company.phone_number }}</p>
-                            {% endif %}
-                            {% if company.email %}
-                                <p><strong data-translate="emailLabel">Электронная почта:</strong> <a href="mailto:{{ company.email }}">{{ company.email }}</a></p>
-                            {% endif %}
-                            {% if company.website %}
-                                <p><strong data-translate="websiteLabel">Вебсайт:</strong> <a href="{{ company.website }}" target="_blank">{{ company.website }}</a></p>
-                            {% endif %}
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        {% else %}
-            <p data-translate="noResults">Ничего не найдено.</p>
-        {% endif %}
-        <div class="back-button">
-            <a href="{% url 'index' %}" class="button" data-translate="backButton">Вернуться на главную</a>
-        </div>
-    </div>
-</body>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Результаты поиска</title>
+        <link rel="stylesheet" href="styles/search_results.css">
+        <link rel="stylesheet" href="styles/header.css">
+    </head>
+    <body>
+
+        <h1>Результаты поиска</h1>
+
+        <!-- Контейнер для результатов поиска -->
+        <div class="search-results"></div>
+
+        <!-- Кнопка возврата на главную -->
+        <button class="back-button" onclick="goBack()">🏠 На главную</button>
+
+        <script defer src="scripts/search_results.js"></script>
+        <script>
+            function goBack() {
+                window.location.href = "index.html";
+            }
+        </script>
+    </body>
 </html>
