@@ -80,6 +80,20 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.reload(); // Перезагружаем страницу
     });
 
+    const searchInput = document.querySelector(".search-input");
+
+    if (searchInput) {
+        searchInput.addEventListener("focus", function (event) {
+            const user = JSON.parse(localStorage.getItem("user"));
+
+            if (!user) {
+                event.preventDefault();
+                searchInput.blur(); // Убираем фокус с поля ввода
+                alert("🔒 Чтобы воспользоваться поиском, авторизуйтесь!");
+            }
+        });
+    }
+
 
 
     const countryButtons = document.querySelectorAll('.country-button');
