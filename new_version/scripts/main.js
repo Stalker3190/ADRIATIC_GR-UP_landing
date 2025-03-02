@@ -1,7 +1,17 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {  
 
     const user = JSON.parse(localStorage.getItem("user"));
     const logoutBtn = document.getElementById("logout-btn");
+
+    const urlParams = new URLSearchParams(window.location.search);
+    let lang = urlParams.get("lang") || localStorage.getItem("selectedLanguage") || "ru";
+    if (!urlParams.has("lang")) {
+        window.history.replaceState({}, "", `?lang=${lang}`);
+    }
+    switchLanguage(lang);
+
+    switchLanguage(lang);
+    
 
     if (user && user.status.toLowerCase() === "ok") {
         document.getElementById("partners").style.display = "block";
@@ -97,16 +107,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // };
 
     function showMap(countryId) {
-        // Скрываем все карты
-        maps.forEach(map => map.style.display = 'none');
-        // Показываем выбранную карту
-        document.getElementById(countryId).style.display = 'block';
+        console.log(`Показываем карту: ${countryId}`); // Логируем, какая карта должна отображаться
+        maps.forEach(map => {
+            map.style.display = 'none';
+            console.log(`Скрываем карту: ${map.id}`); // Логируем скрываемые карты
+        });
+    
+        const selectedMap = document.getElementById(countryId);
+        if (selectedMap) {
+            selectedMap.style.display = 'block';
+            console.log(`Отобразили карту: ${countryId}`); // Логируем успешное отображение
+        } else {
+            console.log(`Карта ${countryId} не найдена!`);
+        }
     }
+    
 
     countryButtons.forEach(button => {
         button.addEventListener('click', function () {
             const selectedCountry = this.getAttribute('data-country');
-            setLanguageCookie(selectedCountry);
+            console.log(`Выбрана страна: ${selectedCountry}`); // Логируем выбранную страну
             switch (selectedCountry) {
                 case 'sr':
                     showMap('serbia');
@@ -120,10 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    function setLanguageCookie(lang) {
-        document.cookie = `django_language=${lang}; path=/`;
-    }
+    
 
     mapPoints.forEach(point => {
         point.addEventListener("click", function () {
@@ -192,34 +209,55 @@ document.addEventListener('DOMContentLoaded', function() {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // function toggleMapAndList() {
-    //     const mapSection = document.querySelector('.map-container');
-    //     const companyListSection = document.getElementById('company-list-section');
 
-    //     if (window.innerWidth <= 768) {
-    //         mapSection.style.display = 'none';
-    //         companyListSection.style.display = 'block';
-    //     } else {
-    //         mapSection.style.display = 'block';
-    //         companyListSection.style.display = 'none';
-    //     }
-    // }
+    // Цифры
 
-    // toggleMapAndList();
+    const counters = document.querySelectorAll(".stat-number");
 
-    // window.addEventListener('resize', toggleMapAndList);
+    counters.forEach(counter => {
+        const target = +counter.getAttribute("data-target"); // Получаем целевое значение
+        const unit = counter.getAttribute("data-unit") || ""; // Получаем единицу измерения
+
+        let count = 0;
+        const increment = target / 300; // Делим число на 100 шагов
+
+        const updateCounter = () => {
+            if (count < target) {
+                count += increment;
+                counter.textContent = Math.floor(count) + unit; // Добавляем единицу измерения
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = target + unit; // Финальное значение с единицей измерения
+            }
+        };
+
+        updateCounter();
+    });
 
 });
+
+function saveSearchQuery() {
+    const searchLang = document.getElementById("searchLang");
+    searchLang.value = localStorage.getItem("selectedLanguage") || "ru";
+}
+
+
+const searchLang = document.getElementById("searchLang");
+    if (searchLang) {
+        searchLang.value = localStorage.getItem("selectedLanguage") || "ru";
+    }
 
 let currentLanguage = 'ru';
 
 function switchLanguage(language) {
+    
     currentLanguage = language;
+    localStorage.setItem("selectedLanguage", language); // Сохраняем язык
     const elements = document.querySelectorAll('[data-translate]');
 
     elements.forEach(el => {
         const key = el.getAttribute('data-translate');
-        el.innerText = translations[language][key];
+        el.innerHTML = translations[language][key];
     });
 
     const searchInput = document.querySelector(".search-input");
@@ -296,9 +334,37 @@ const translations = {
 
         advertisementTitle: "Реклама",
 
+        GlassJar: "Стеклянная банка тип 720 <br> Беларусь → Сербия",
+        SemiFinishedMix: "Смесь полуфабрикатов <br> Беларусь → Сербия",
+        FoodPotato: "Картофель продовольственный <br> Беларусь → Сербия",
+        FrozenPotato: "Картофель замороженный <br> Беларусь → Сербия",
+        Raspberry: "Малина гриз <br> Сербия → Беларусь",
+        FrozenCherry: "Вишня замороженная <br> Сербия → Беларусь",
+        Onion: "Лук репчатый <br> Россия → Сербия",
+        FrozenPotatoRU: "Замороженный картофель <br> Россия → Сербия",
+
         partnersTitle: "Наши партнёры",
 
+        // Черный список
         blacklistTitle: "Черный список компаний",
+        company1Name: "КФХ АГРОМАРАФОН",
+        company1INN: "3200001215",
+        company1Head: "Борисов Евгений Владимирович",
+        company1Address: "241029, Брянская область, г Брянск, Красноармейская ул. д. 126/1 офис 202а",
+        company1Reason: "Брали денег от сербской компании на поставку картофеля в размере 688.000 рублей и не поставили картофель, а деньги присвоили, вернули только 50 тысяч рублей. Рекомендуем не работать с данной компанией.",
+
+        company2Name: "ООО САУЛ-КОРП",
+        company2UNP: "692229787",
+        company2Director: "Миранович Вадим Владимирович",
+        company2Address: "223039, Минская обл., Минский р-н, Ждановичский с/с, район деревни Таборы, здание административно-хозяйственное, комната 39А",
+        otherCompanies: "У этого поставщика есть и другие компании и просим Вас обратить внимание:",
+        company2Other1: "ООО ВИТАДИМ",
+        company2Other2: "ИП Миранович Вадим Владимирович",
+        company2Other3: "ООО Эмерсис Трейд",
+        company2Other4: "ООО Белорехпром",
+        company2Other5: "ООО СВ-фрукт",
+        company2Reason: "Поставляли некачественный товар, конкретно картофель на сумму 6.020€, и в итоге отказались принять ответственность вернуть средства на плохой товар. Рекомендуем не работать с данной компанией.",
+
 
         footerContacts: "Контакты",
         footerPhone: "Телефон Viber/WhatsApp: +375292815954",
@@ -316,6 +382,15 @@ const translations = {
         MMNFruit_arile: "Компания MMN Fruit, основанная в 2011 году, специализируется на экспорте премиальных замороженных фруктов клиентам в Европе, Азии и США.",
         GoldenFruit_arile: "Компания уделяет особое внимание качеству и безопасности своей продукции, сотрудничая с местными производителями и контролируя весь процесс — от сбора до поставки. Продукция экспортируется в страны Европейского Союза, включая Германию и государства Скандинавии, где используется в производстве десертов, мороженого, соков и джемов.",
         company1_belgrade: "Kratke informacije o kompaniji 1 u Beogradu.",
+
+
+
+
+        searchResultsTitle: "Результаты поиска",
+        backToHome: "🏠 На главную",
+        website: "Вебсайт",
+        products: "Продукция",
+        noResults: "❌ Ничего не найдено.",
     },
     sr: {
         headerTitle: "ADRIATIC GROUP DOO",
@@ -387,9 +462,37 @@ const translations = {
 
         advertisementTitle: "Reklama",
 
+        GlassJar: "Staklena tegla tip 720 <br> Belorusija → Srbija",
+        SemiFinishedMix: "Mešavina poluproizvoda <br> Belorusija → Srbija",
+        FoodPotato: "Krompir za ishranu <br> Belorusija → Srbija",
+        FrozenPotato: "Zamrznuti krompir <br> Belorusija → Srbija",
+        Raspberry: "Malina griz <br> Srbija → Belorusija",
+        FrozenCherry: "Zamrznuta višnja <br> Srbija → Belorusija",
+        Onion: "Crni luk <br> Rusija → Srbija",
+        FrozenPotatoRU: "Zamrznuti krompir <br> Rusija → Srbija",
+
         partnersTitle: "Naši partneri",
 
+        // Crna lista
         blacklistTitle: "Crna lista kompanija",
+        company1Name: "KFH AGROMARAFON",
+        company1INN: "3200001215",
+        company1Head: "Borisov Evgenij Vladimirovič",
+        company1Address: "241029, Brjanska oblast, grad Brjansk, Krasnoarmejska ul. br. 126/1, kancelarija 202a",
+        company1Reason: "Uzeli su novac od srpske kompanije za isporuku krompira u iznosu od 688.000 rubalja, ali krompir nisu isporučili, a novac su prisvojili, vratili su samo 50.000 rubalja. Preporučujemo da ne sarađujete sa ovom kompanijom.",
+
+        company2Name: "OOO SAUL-KORP",
+        company2UNP: "692229787",
+        company2Director: "Miranović Vadim Vladimirovič",
+        company2Address: "223039, Minska oblast, Minski region, Ždanovički s/s, oblast sela Tabory, administrativno-gospodarska zgrada, soba 39A",
+        otherCompanies: "Ovaj dobavljač ima i druge kompanije, obratite pažnju:",
+        company2Other1: "OOO VITADIM",
+        company2Other2: "IP Miranović Vadim Vladimirovič",
+        company2Other3: "OOO Emersis Trejd",
+        company2Other4: "OOO Belorehprom",
+        company2Other5: "OOO SV-frukt",
+        company2Reason: "Isporučili su nekvalitetnu robu, konkretno krompir u vrednosti od 6.020€, i na kraju odbili da preuzmu odgovornost i vrate sredstva za lošu robu. Preporučujemo da ne sarađujete sa ovom kompanijom.",
+
 
         footerContacts: "Kontakti",
         footerPhone: "Telefon Viber/WhatsApp: +375292815954",
@@ -405,6 +508,14 @@ const translations = {
         MMNFruit_arile: "Kompanija MMN Fruit, osnovana 2011. godine, specijalizovana je za izvoz premium smrznutog voća klijentima u Evropi, Aziji i SAD-u.",
         GoldenFruit_arile: "Kompanija posebnu pažnju posvećuje kvalitetu i bezbednosti svojih proizvoda, sarađujući sa lokalnim proizvođačima i kontrolišući ceo proces – od berbe do isporuke. Proizvodi se izvoze u zemlje Evropske unije, uključujući Nemačku i skandinavske države, gde se koriste u proizvodnji poslastica, sladoleda, sokova i džemova.",
         company1_belgrade: "Kratke informacije o kompaniji 1 u Beogradu.",
+
+
+
+        searchResultsTitle: "Rezultati pretrage",
+        backToHome: "🏠 Nazad na početnu",
+        website: "Vebsajt",
+        products: "Proizvodi",
+        noResults: "❌ Ništa nije pronađeno.",
     }
 };
 

@@ -7,23 +7,30 @@
     <link rel="stylesheet" href="styles/login.css">
 </head>
 <body>
+    <input type="hidden" id="loginLang">
+
 
     <div class="login-container">
-        <h2>Вход</h2>
+        <h2 data-translate="loginTitle">Вход</h2>
 
         <div id="loading-spinner" class="spinner" style="display: none;"></div>
 
         <form id="login-form">
-            <label for="login">Логин:</label>
-            <input type="text" id="login" required placeholder="Введите логин">
+            <label for="login" data-translate="loginLabel">Логин:</label>
+            <input type="text" id="login" required placeholder="Введите логин" data-translate-placeholder="loginPlaceholder">
+
             
-            <label for="accessCode">Код доступа:</label>
-            <input type="password" id="accessCode" required placeholder="Введите код">
-            
-            <button type="submit" class="auth-btn login-btn">Войти</button>
+            <label for="accessCode" data-translate="passwordLabel">Код доступа:</label>
+            <input type="password" id="accessCode" required placeholder="Введите код" data-translate-placeholder="passwordPlaceholder">
+
+            <button type="submit" class="auth-btn login-btn" data-translate="loginButton">Войти</button>
         </form>
 
-        <p class="register-link">Еще нет аккаунта? <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLvLNsJqaEr4QIBoWJDDpkoYlSlGjKjIgql_MxDoxB-I3h6Q/viewform?usp=header" target="_blank">Зарегистрироваться</a></p>
+        <p class="register-link">
+            <span data-translate="registerText">Еще нет аккаунта?</span>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLvLNsJqaEr4QIBoWJDDpkoYlSlGjKjIgql_MxDoxB-I3h6Q/viewform?usp=header" 
+               target="_blank" data-translate="registerLink">Зарегистрироваться</a>
+        </p>
     </div>
 
     <script src="scripts/login.js"></script>

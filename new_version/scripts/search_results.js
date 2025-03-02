@@ -3,58 +3,90 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const urlParams = new URLSearchParams(window.location.search);
     let query = urlParams.get("q") ? urlParams.get("q").trim().toLowerCase() : "";
+    let lang = urlParams.get("lang") || localStorage.getItem("selectedLanguage") || "ru";
+    if (!urlParams.has("lang")) {
+        window.location.replace(`${window.location.pathname}?q=${query}&lang=${lang}`);
+    }
+    
 
     if (query) {
-        localStorage.setItem("searchQuery", query);  // Обновляем localStorage
+        localStorage.setItem("searchQuery", query);
     } else {
-        query = localStorage.getItem("searchQuery") ? localStorage.getItem("searchQuery").trim().toLowerCase() : "";
+        query = localStorage.getItem("searchQuery") || "";
     }
 
+    localStorage.setItem("selectedLanguage", lang); // Запоминаем язык
+
     console.log("🔎 Итоговый запрос:", query);
+    console.log("🌍 Язык:", lang);
+
+    const translations = {
+        ru: {
+            searchResultsTitle: "Результаты поиска",
+            backToHome: "🏠 На главную",
+            website: "Вебсайт",
+            products: "Продукция",
+            noResults: "❌ Ничего не найдено."
+        },
+        sr: {
+            searchResultsTitle: "Rezultati pretrage",
+            backToHome: "🏠 Nazad na početnu",
+            website: "Vebsajt",
+            products: "Proizvodi",
+            noResults: "❌ Ništa nije pronađeno."
+        }
+    };
+
+    const h1Element = document.querySelector("h1");
+
+    // Меняем заголовок только если в URL есть параметр "q" (поисковый запрос)
+    if (urlParams.has("q")) {
+        h1Element.textContent = translations[lang]["searchResultsTitle"];
+    }
+    document.querySelector(".back-button").textContent = translations[lang]["backToHome"];
 
     const companies = [
         { 
             name: "Golden Fruit", 
-            description: "Производитель ягод",
+            description: { ru: "Производитель ягод", sr: "Proizvođač bobičastog voća" },
             website: "https://goldenfruit.com",
-            products: ["Малина свежая", "Малина замороженная", "Ежевика культивированная", "Ежевика лесная", 
-                "Слива - разные сорта", "Черника лесная"]
+            products: {
+                ru: ["Малина свежая", "Малина замороженная", "Ежевика культивированная"],
+                sr: ["Sveža malina", "Zamrznuta malina", "Uzgojena kupina"]
+            }
         },
         { 
             name: "MMN Fruit", 
-            description: "Поставщик свежих фруктов",
+            description: { ru: "Поставщик свежих фруктов", sr: "Dobavljač svežeg voća" },
             website: "https://mmnfruit.com",
-            products: ["Малина замороженная", "Клубника замороженная", "Черника замороженная", 
-                "Ежевика замороженная", "Слива замороженная", "Вишня замороженная"]
+            products: {
+                ru: ["Малина замороженная", "Клубника замороженная", "Черника замороженная"],
+                sr: ["Zamrznuta malina", "Zamrznuta jagoda", "Zamrznuta borovnica"]
+            }
         }
     ];
 
-    // Фильтруем компании
     let filteredCompanies = companies.filter(company =>
         company.name.toLowerCase().includes(query) || 
-        company.description.toLowerCase().includes(query) || 
-        company.products.some(product => product.toLowerCase().includes(query))
+        company.description[lang].toLowerCase().includes(query) || 
+        company.products[lang].some(product => product.toLowerCase().includes(query))
     );
 
-    console.log("✅ Найденные компании:", filteredCompanies);
-
-    // Очищаем контейнер перед выводом результатов
     resultsContainer.innerHTML = "";
 
-    // Отображаем результаты
     if (filteredCompanies.length > 0) {
         filteredCompanies.forEach(company => {
             const companyCard = `
                 <div class="company-card">
                     <h2 class="company-name">${company.name}</h2>
-                    <p class="company-description">${company.description}</p>
-                    <p><strong>🌍 Вебсайт:</strong> <a href="${company.website}" target="_blank">${company.website}</a></p>
-                    <p><strong>🛒 Продукция:</strong> ${company.products.join(", ")}</p>
+                    <p class="company-description">${company.description[lang]}</p>
+                    <p><strong>🌍 ${translations[lang]["website"]}:</strong> <a href="${company.website}" target="_blank">${company.website}</a></p>
+                    <p><strong>🛒 ${translations[lang]["products"]}:</strong> ${company.products[lang].join(", ")}</p>
                 </div>
             `;
             resultsContainer.innerHTML += companyCard;
         });
     } else {
-        resultsContainer.innerHTML = `<p class="no-results">❌ Ничего не найдено.</p>`;
+        resultsContainer.innerHTML = `<p class="no-results">${translations[lang]["noResults"]}</p>`;
     }
 });

@@ -34,10 +34,12 @@
         
                     <form action="search_results.html" method="get" class="search-form" onsubmit="saveSearchQuery()">
                         <input type="text" name="q" placeholder="Что вы ищете?" class="search-input" id="searchInput">
+                        <input type="hidden" name="lang" id="searchLang">
                         <button type="submit" class="search-button">
                             <i class="fas fa-search"></i>
                         </button>
                     </form>
+                    
                 </nav>
 
                 <div class="auth-buttons">
@@ -241,6 +243,53 @@
                 <p data-translate="aboutUsText">Наша миссия обеспечить компаниям ответственного партнёра и посредника в бизнесе консалтинга и логистики, быстрее получать информацию и вместе решать выставленные задачи и самое главное быть главным звеном по сотрудничеству между Сербии, России и Беларуси и вместе с нашими партнёрами поднимать экономику наших историческо дружественных стран.</p>
             </section>
 
+            <section class="stats">
+                <h2>Наши достижения за год</h2>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <img src="images/icons_stats/jam_strawberry_pot_spoon_breakfast_food_jar_icon_183549.png" alt="Стеклянная банка">
+                        <p class="stat-number" data-unit=" штук / komada" data-target="850000">0</p>
+                        <p data-translate="GlassJar">Стеклянная банка тип 720 <br> Беларусь → Сербия</p>
+                    </div>
+                    <div class="stat-item">
+                        <img src="images/icons_stats/package_122391.png" alt="Смесь полуфабрикатов">
+                        <p class="stat-number" data-unit=" тонн / tona" data-target="80">0</p>
+                        <p data-translate="SemiFinishedMix">Смесь полуфабрикатов <br> Беларусь → Сербия</p>
+                    </div>
+                    <div class="stat-item">
+                        <img src="images/icons_stats/potatoes_potato_vegetables_vegetable_food_agriculture_icon_220749.png" alt="Картофель продовольственный">
+                        <p class="stat-number" data-unit=" тонн / tona" data-target="1300">0</p>
+                        <p data-translate="FoodPotato">Картофель продовольственный <br> Беларусь → Сербия</p>
+                    </div>
+                    <div class="stat-item">
+                        <img src="images/icons_stats/ice_bucket_drink_ice_cubes_icon_210119.png" alt="Картофель замороженный">
+                        <p class="stat-number" data-unit=" тонн / tona" data-target="320">0</p>
+                        <p data-translate="FrozenPotato">Картофель замороженный <br> Беларусь → Сербия</p>
+                    </div>
+                    <div class="stat-item">
+                        <img src="images/icons_stats/raspberry_pi_icon_196025.png" alt="Малина">
+                        <p class="stat-number" data-unit=" тонн / tona" data-target="140">0</p>
+                        <p data-translate="Raspberry">Малина гриз <br> Сербия → Беларусь</p>
+                    </div>
+                    <div class="stat-item">
+                        <img src="images/icons_stats/ice_bucket_drink_ice_cubes_icon_210119.png" alt="Вишня">
+                        <p class="stat-number" data-unit=" тонн / tona" data-target="80">0</p>
+                        <p data-translate="FrozenCherry">Вишня замороженная <br> Сербия → Беларусь</p>
+                    </div>
+                    <div class="stat-item">
+                        <img src="images/icons_stats/onion_food_onions_vegetables_icon_183542.png" alt="Лук репчатый">
+                        <p class="stat-number" data-unit=" тонн / tona" data-target="120">0</p>
+                        <p data-translate="Onion">Лук репчатый <br> Россия → Сербия</p>
+                    </div>
+                    <div class="stat-item">
+                        <img src="images/icons_stats/ice_bucket_drink_ice_cubes_icon_210119.png" alt="Замороженный картофель">
+                        <p class="stat-number" data-unit=" тонн / tona" data-target="40">0</p>
+                        <p data-translate="FrozenPotatoRU">Замороженный картофель <br> Россия → Сербия</p>
+                    </div>
+                    
+                </div>
+            </section>
+
             <section id="partners">
                 <h2 data-translate="partnersTitle">Наши партнёры</h2>
                 <div class="partner-details">
@@ -279,31 +328,47 @@
                 <div class="blacklist-content">
                     <!-- Информация о первой компании -->
                     <div class="blacklist-entry">
-                        <h3>КФХ АГРОМАРАФОН</h3>
-                        <p><strong>ИНН:</strong> 3200001215</p>
-                        <p><strong>Глава:</strong> Борисов Евгений Владимирович</p>
-                        <p><strong>Юридический адрес:</strong> 241029, Брянская область, г Брянск, Красноармейская ул. д. 126/1 офис 202а</p>
-                        <p><strong>Причина не работать с этой компанией:</strong> Брали денег от сербской компании на поставку картофеля в размере 688.000 рублей и не поставили картофель, а деньги присвоили, вернули только 50 тысяч рублей. Рекомендуем не работать с данной компанией.</p>
+                        <h3 data-translate="company1Name">КФХ АГРОМАРАФОН</h3>
+                        <p><strong data-translate="inn">ИНН:</strong> <span data-translate="company1INN">3200001215</span></p>
+                        <p><strong data-translate="head">Глава:</strong> <span data-translate="company1Head">Борисов Евгений Владимирович</span></p>
+                        <p><strong data-translate="address">Юридический адрес:</strong> <span data-translate="company1Address">241029, Брянская область, г Брянск, Красноармейская ул. д. 126/1 офис 202а</span></p>
+                        <p>
+                            <strong data-translate="reason">Причина не работать с этой компанией:</strong>
+                            <span data-translate="company1Reason">
+                                Брали денег от сербской компании на поставку картофеля в размере 688.000 рублей и не поставили картофель, а деньги присвоили, вернули только 50 тысяч рублей. Рекомендуем не работать с данной компанией.
+                            </span>
+                        </p>
                     </div>
                     <hr>
                     <!-- Информация о второй компании -->
                     <div class="blacklist-entry">
-                        <h3>ООО САУЛ-КОРП</h3>
-                        <p><strong>УНП:</strong> 692229787</p>
-                        <p><strong>Директор:</strong> Миранович Вадим Владимирович</p>
-                        <p><strong>Юридический/почтовый адрес:</strong> 223039, Минская обл., Минский р-н, Ждановичский с/с, район деревни Таборы, здание административно-хозяйственное, комната 39А</p>
-                        <p><strong>У этого поставщика есть и другие компании и просим Вас обратить внимание:</strong></p>
+                        <h3 data-translate="company2Name">ООО САУЛ-КОРП</h3>
+                        <p><strong data-translate="unp">УНП:</strong> <span data-translate="company2UNP">692229787</span></p>
+                        <p><strong data-translate="director">Директор:</strong> <span data-translate="company2Director">Миранович Вадим Владимирович</span></p>
+                        <p>
+                            <strong data-translate="postalAddress">Юридический/почтовый адрес:</strong>
+                            <span data-translate="company2Address">
+                                223039, Минская обл., Минский р-н, Ждановичский с/с, район деревни Таборы, здание административно-хозяйственное, комната 39А
+                            </span>
+                        </p>
+                        <p data-translate="otherCompanies">У этого поставщика есть и другие компании и просим Вас обратить внимание:</p>
                         <ul>
-                            <li>ООО ВИТАДИМ</li>
-                            <li>ИП Миранович Вадим Владимирович</li>
-                            <li>ООО Эмерсис Трейд</li>
-                            <li>ООО Белорехпром</li>
-                            <li>ООО СВ-фрукт</li>
+                            <li data-translate="company2Other1">ООО ВИТАДИМ</li>
+                            <li data-translate="company2Other2">ИП Миранович Вадим Владимирович</li>
+                            <li data-translate="company2Other3">ООО Эмерсис Трейд</li>
+                            <li data-translate="company2Other4">ООО Белорехпром</li>
+                            <li data-translate="company2Other5">ООО СВ-фрукт</li>
                         </ul>
-                        <p><strong>Причина не работать с этой компанией:</strong> Поставляли некачественный товар, конкретно картофель на сумму 6.020€, и в итоге отказались принять ответственность вернуть средства на плохой товар. Рекомендуем не работать с данной компанией.</p>
+                        <p>
+                            <strong data-translate="reason">Причина не работать с этой компанией:</strong>
+                            <span data-translate="company2Reason">
+                                Поставляли некачественный товар, конкретно картофель на сумму 6.020€, и в итоге отказались принять ответственность вернуть средства на плохой товар. Рекомендуем не работать с данной компанией.
+                            </span>
+                        </p>
                     </div>
                 </div>
             </section>
+            
             
             
 

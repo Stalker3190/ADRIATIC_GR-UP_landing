@@ -18,10 +18,14 @@
         <button class="back-button" onclick="goBack()">🏠 На главную</button>
 
         <script defer src="scripts/search_results.js"></script>
+        <script defer src="scripts/main.js"></script>
         <script>
             function goBack() {
-                window.location.href = "index.html";
+                let lang = localStorage.getItem("selectedLanguage") || "ru";
+                window.location.href = `index.html?lang=${lang}`;
             }
+            
         </script>
+        
     </body>
 </html>
