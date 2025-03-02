@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
             passwordPlaceholder: "Введите код",
             loginButton: "Войти",
             registerText: "Еще нет аккаунта?",
-            registerLink: "Зарегистрироваться"
+            registerLink: "Зарегистрироваться",
+            backToHome: "На главную"
         },
         sr: {
             loginTitle: "Prijava",
@@ -28,9 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
             passwordPlaceholder: "Unesite lozinku",
             loginButton: "Prijavi se",
             registerText: "Još nemate nalog?",
-            registerLink: "Registrujte se"
+            registerLink: "Registrujte se",
+            backToHome: "Nazad na početnu"
         }
     };
+    
 
     // Функция для перевода страницы
     function translatePage(lang) {
@@ -51,6 +54,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 🔹 ВЫЗЫВАЕМ ФУНКЦИЮ ПЕРЕВОДА ПРИ ЗАГРУЗКЕ
     translatePage(lang);
+
+    // 🔹 Функция для локализации ошибок
+    function setValidationMessages(input) {
+        const message = lang === "sr" ? "Molimo vas da popunite ovo polje!" : "Пожалуйста, заполните это поле!";
+        
+        input.addEventListener("input", function () {
+            this.setCustomValidity(""); // Сбрасываем ошибку при вводе
+            this.classList.remove("error"); // Убираем стили ошибки
+        });
+
+        input.addEventListener("blur", function () {
+            if (!this.value.trim()) {
+                this.setCustomValidity(message);
+                this.reportValidity(); // Показываем ошибку явно
+                this.classList.add("error"); // Добавляем стили ошибки
+            }
+        });
+
+        input.addEventListener("invalid", function (event) {
+            event.preventDefault(); // Блокируем стандартное сообщение браузера
+            this.setCustomValidity(message);
+            this.reportValidity(); // Показываем ошибку явно
+            this.classList.add("error"); // Добавляем стили ошибки
+        });
+    }
+
+    // 🔹 Применяем валидацию ко всем required-полям
+    document.querySelectorAll("input[required]").forEach(setValidationMessages);
+
+    document.getElementById("backToHome").addEventListener("click", function () {
+        let lang = localStorage.getItem("selectedLanguage") || "ru";
+        window.location.href = `index.html?lang=${lang}`;
+    });
+    
 });
 
 document.getElementById("login-form").addEventListener("submit", async function (e) {

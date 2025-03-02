@@ -27,31 +27,33 @@
         
                 <nav id="navbar" class="nav">
                     <ul>
-                        <li><a href="#about" data-translate="navAbout">О нас</a></li>
-                        <li><a href="#services" data-translate="navServices">Услуги</a></li>
-                        <li><a href="#contact" data-translate="navContact">Контакты</a></li>
+                        <li class="hidden-on-burger"><a href="#about" data-translate="navAbout">О нас</a></li>
+                        <li class="hidden-on-burger"><a href="#services" data-translate="navServices">Услуги</a></li>
+                        <li class="hidden-on-burger"><a href="#contact" data-translate="navContact">Контакты</a></li>
+                        <li>
+                            <form action="search_results.html" method="get" class="search-form" onsubmit="saveSearchQuery()">
+                                <input type="text" name="q" placeholder="Что вы ищете?" class="search-input" id="searchInput">
+                                <input type="hidden" name="lang" id="searchLang">
+                                <button type="submit" class="search-button">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </form>
+                        </li>
+                        <li>
+                            <div class="auth-buttons">
+                                <button id="logout-btn" data-translate="logout" onclick="window.location.href='login.html'" class="login-btn">Выйти из аккаунта</button>
+                                <button id="login-btn" data-translate="login" onclick="window.location.href='login.html'" class="login-btn">Войти</button>
+                                <button id="register-btn" data-translate="register" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfLvLNsJqaEr4QIBoWJDDpkoYlSlGjKjIgql_MxDoxB-I3h6Q/viewform?usp=header', '_blank')" class="register-btn">Регистрация</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="language-switcher">
+                                <button onclick="switchLanguage('ru')">Русский</button>
+                                <button onclick="switchLanguage('sr')">Српски</button>
+                            </div>
+                        </li>
                     </ul>
-        
-                    <form action="search_results.html" method="get" class="search-form" onsubmit="saveSearchQuery()">
-                        <input type="text" name="q" placeholder="Что вы ищете?" class="search-input" id="searchInput">
-                        <input type="hidden" name="lang" id="searchLang">
-                        <button type="submit" class="search-button">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </form>
-                    
                 </nav>
-
-                <div class="auth-buttons">
-                    <button id="logout-btn" data-translate="logout" onclick="window.location.href='login.html'" class="login-btn">Выйти из аккаунта</button>
-                    <button id="login-btn" data-translate="login" onclick="window.location.href='login.html'" class="login-btn">Войти</button>
-                    <button id="register-btn" data-translate="register" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfLvLNsJqaEr4QIBoWJDDpkoYlSlGjKjIgql_MxDoxB-I3h6Q/viewform?usp=header', '_blank')" class="register-btn">Регистрация</button>
-                </div>
-        
-                <div class="language-switcher">
-                    <button onclick="switchLanguage('ru')">Русский</button>
-                    <button onclick="switchLanguage('sr')">Српски</button>
-                </div>
             </div>
         </header>
         
@@ -110,6 +112,7 @@
                             <li><a href="#" data-city="gomel" data-translate="gomel">Гомель</a></li>
                             <li><a href="#" data-city="vitebsk" data-translate="vitebsk">Витебск</a></li>
                             <li><a href="#" data-city="mogilev" data-translate="mogilev">Могилёв</a></li>
+                            <li><a href="#" data-city="borisov" data-translate="borisov">Борисов</a></li>
                         </ul>
                     </div>
                 </div>
@@ -124,6 +127,16 @@
                     <div class="company" data-city="arile">
                         <h3>Golden Fruit d.o.o.</h3>
                         <p data-translate="GoldenFruit_arile">Компания уделяет особое внимание качеству и безопасности своей продукции, сотрудничая с местными производителями и контролируя весь процесс — от сбора до поставки. Продукция экспортируется в страны Европейского Союза, включая Германию и государства Скандинавии, где используется в производстве десертов, мороженого, соков и джемов.</p>
+                    </div>
+
+                    <div class="company" data-city="sombor">
+                        <h3>Sinagoga d.o.o.</h3>
+                        <p data-translate="Sinagoga_sombor">Оптовая и розничная торговля продуктами питания, импорт упаковочной бумаги, производство и упаковка мака, подсолнечника, арахиса, овсяных, ржаных, пшеничных и соевых хлопьев</p>
+                    </div>
+
+                    <div class="company" data-city="borisov">
+                        <h3>Уладар</h3>
+                        <p data-translate="Uladar_borisov">Крупнейшее зерноперерабатывающее предприятие Республики Беларусь</p>
                     </div>
 
                 </div>
@@ -225,6 +238,9 @@
                         <div class="map-point" style="top: 45%; left: 65%;" data-city="mogilev">
                             <span class="city-label" data-translate="mogilev">Могилёв</span>
                         </div>
+                        <div class="map-point" style="top: 35%; left: 57%;" data-city="borisov">
+                            <span class="city-label" data-translate="borisov">Борисов</span>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -244,7 +260,7 @@
             </section>
 
             <section class="stats">
-                <h2>Наши достижения за год</h2>
+                <h2 data-translate="statsTitle">Наши достижения за год</h2>
                 <div class="stats-container">
                     <div class="stat-item">
                         <img src="images/icons_stats/jam_strawberry_pot_spoon_breakfast_food_jar_icon_183549.png" alt="Стеклянная банка">

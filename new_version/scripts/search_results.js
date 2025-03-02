@@ -63,6 +63,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 ru: ["Малина замороженная", "Клубника замороженная", "Черника замороженная"],
                 sr: ["Zamrznuta malina", "Zamrznuta jagoda", "Zamrznuta borovnica"]
             }
+        },
+        {
+            name: "Sinagoga doo",
+            description: { ru: "Оптовая торговля, упаковка, производство хлопьев и орехов.", sr: "Veleprodaja, pakovanje, proizvodnja pahuljica i orašastih plodova." },
+            website: "https://www.sinagoga.co.rs/",
+            products: {
+                ru: ["Мак", "Подсолнечник", "Арахис", "Овсяные хлопья", "Ржаные хлопья", "Пшеничные хлопья", "Соевые хлопья"],
+                sr: ["Mak", "Suncokret", "Kikiriki", "Ovsene pahuljice", "Ražene pahuljice", "Pšenične pahuljice", "Sojine pahuljice"]
+            }
+        },
+        {
+            name: "Уладар",
+            description: { ru: "Крупнейшее зерноперерабатывающее предприятие Республики Беларусь", sr: "Najveće preduzeće za preradu žitarica u Republici Belorusiji" },
+            website: "https://uladar.by/",
+            products: {
+                ru: ["Мука пшеничная", "Макаронные изделия", "Крупы", "Комбикорм", "Мясные полуфабрикаты", "Молочная продукция"],
+                sr: ["Pšenično brašno", "Testenine", "Žitarice", "Stočna hrana", "Mesni poluproizvodi", "Mlečni proizvodi"]
+            }
         }
     ];
 

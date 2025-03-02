@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {  
+    
 
     const user = JSON.parse(localStorage.getItem("user"));
     const logoutBtn = document.getElementById("logout-btn");
@@ -8,8 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!urlParams.has("lang")) {
         window.history.replaceState({}, "", `?lang=${lang}`);
     }
-    switchLanguage(lang);
-
     switchLanguage(lang);
     
 
@@ -60,51 +59,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const popup = document.getElementById('popup');
 
     const popupText = document.getElementById("popup-text");
-    // const popupText = document.getElementById('popup-text');
-    // const companyDetails = document.getElementById('company-details');
     const close = document.getElementById('close');
 
     const popupCompanyDetailsContainer = document.getElementById("popup-company-details");
     
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav');
-    const navLinks = document.querySelectorAll('.nav ul li a');
+    
 
     const yearSpan = document.getElementById('current-year');
-
-    // const companies = {
-    //     moscow: [
-    //         {
-    //             name: 'Компания 1',
-    //             description: 'Краткое описание компании 1 в Москве.',
-    //             moreInfo: 'Полное описание компании 1 в Москве.'
-    //         }
-    //     ],
-    //     belgrade: [
-    //         {
-    //             name: 'Компания A',
-    //             description: 'Краткое описание компании A в Белграде.',
-    //             moreInfo: 'Полное описание компании A в Белграде.'
-    //         },
-    //         {
-    //             name: 'Компания B',
-    //             description: 'Краткое описание компании B в Белграде.',
-    //             moreInfo: 'Полное описание компании B в Белграде.'
-    //         },
-    //         {
-    //             name: 'Компания C',
-    //             description: 'Краткое описание компании C в Белграде.',
-    //             moreInfo: 'Полное описание компании C в Белграде.'
-    //         }
-    //     ],
-    //     minsk: [
-    //         {
-    //             name: 'Компания X',
-    //             description: 'Краткое описание компании X в Минске.',
-    //             moreInfo: 'Полное описание компании X в Минске.'
-    //         }
-    //     ]
-    // };
 
     function showMap(countryId) {
         console.log(`Показываем карту: ${countryId}`); // Логируем, какая карта должна отображаться
@@ -185,8 +146,17 @@ document.addEventListener('DOMContentLoaded', function() {
         popupText.textContent = `${translations[currentLanguage]['companiesInCity']}: ${translations[currentLanguage][city] || city}`;
     }
 
-    menuToggle.addEventListener('click', () => {
-        nav.classList.toggle('nav-open');
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector(".nav");
+
+    const navLinks = document.querySelectorAll('.nav ul li a');
+
+    menuToggle.addEventListener("click", function () {
+        if (window.innerWidth <= 1280) { // Проверяем размер экрана
+            nav.classList.toggle("nav-open");
+            this.classList.toggle("open");
+        }
     });
 
     navLinks.forEach(link => {
@@ -208,6 +178,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
+
+
 
 
     // Цифры
@@ -293,6 +265,7 @@ const translations = {
         gomel: "Гомель",
         vitebsk: "Витебск",
         mogilev: "Могилёв",
+        borisov: "Борисов",
         kaliningrad: "Калининград",
         stPetersburg: "Санкт-Петербург",
         novosibirsk: "Новосибирск",
@@ -334,6 +307,7 @@ const translations = {
 
         advertisementTitle: "Реклама",
 
+        statsTitle: "Наши достижения за год",
         GlassJar: "Стеклянная банка тип 720 <br> Беларусь → Сербия",
         SemiFinishedMix: "Смесь полуфабрикатов <br> Беларусь → Сербия",
         FoodPotato: "Картофель продовольственный <br> Беларусь → Сербия",
@@ -342,6 +316,7 @@ const translations = {
         FrozenCherry: "Вишня замороженная <br> Сербия → Беларусь",
         Onion: "Лук репчатый <br> Россия → Сербия",
         FrozenPotatoRU: "Замороженный картофель <br> Россия → Сербия",
+        
 
         partnersTitle: "Наши партнёры",
 
@@ -381,8 +356,11 @@ const translations = {
     
         MMNFruit_arile: "Компания MMN Fruit, основанная в 2011 году, специализируется на экспорте премиальных замороженных фруктов клиентам в Европе, Азии и США.",
         GoldenFruit_arile: "Компания уделяет особое внимание качеству и безопасности своей продукции, сотрудничая с местными производителями и контролируя весь процесс — от сбора до поставки. Продукция экспортируется в страны Европейского Союза, включая Германию и государства Скандинавии, где используется в производстве десертов, мороженого, соков и джемов.",
-        company1_belgrade: "Kratke informacije o kompaniji 1 u Beogradu.",
+        
+        Uladar_borisov: "Крупнейшее зерноперерабатывающее предприятие Республики Беларусь",
 
+        Sinagoga_sombor1: "Kratke informacije o kompaniji 1 u Beogradu.",
+        Sinagoga_sombor2: "Kratke informacije o kompaniji 1 u Beogradu.",
 
 
 
@@ -419,6 +397,7 @@ const translations = {
         gomel: "Gomel",
         vitebsk: "Vitebsk",
         mogilev: "Mogilev",
+        borisov: "Borisov",
         kaliningrad: "Kaliningrad",
         stPetersburg: "Sankt Peterburg",
         novosibirsk: "Novosibirsk",
@@ -462,6 +441,7 @@ const translations = {
 
         advertisementTitle: "Reklama",
 
+        statsTitle: "Naša dostignuća za godinu",
         GlassJar: "Staklena tegla tip 720 <br> Belorusija → Srbija",
         SemiFinishedMix: "Mešavina poluproizvoda <br> Belorusija → Srbija",
         FoodPotato: "Krompir za ishranu <br> Belorusija → Srbija",
@@ -507,7 +487,12 @@ const translations = {
     
         MMNFruit_arile: "Kompanija MMN Fruit, osnovana 2011. godine, specijalizovana je za izvoz premium smrznutog voća klijentima u Evropi, Aziji i SAD-u.",
         GoldenFruit_arile: "Kompanija posebnu pažnju posvećuje kvalitetu i bezbednosti svojih proizvoda, sarađujući sa lokalnim proizvođačima i kontrolišući ceo proces – od berbe do isporuke. Proizvodi se izvoze u zemlje Evropske unije, uključujući Nemačku i skandinavske države, gde se koriste u proizvodnji poslastica, sladoleda, sokova i džemova.",
-        company1_belgrade: "Kratke informacije o kompaniji 1 u Beogradu.",
+        Sinagoga_sombor: "Veleprodaja i maloprodaja prehrambene robe, uvoz ambalažnog papira, proizvodnja i pakovanje maka, suncokreta, kikirikija, ovsenih, raženih, pšeničnih i sojinih pahuljica",
+        
+        Uladar_borisov: "Najveće preduzeće za preradu žitarica u Republici Belorusiji",
+
+        Sinagoga_sombor1: "Kratke informacije o kompaniji 1 u Beogradu.",
+        Sinagoga_sombor2: "Kratke informacije o kompaniji 1 u Beogradu.",
 
 
 
@@ -518,5 +503,6 @@ const translations = {
         noResults: "❌ Ništa nije pronađeno.",
     }
 };
+
 
 

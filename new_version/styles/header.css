@@ -29,6 +29,9 @@ header h1 {
 }
 
 .nav-container {
+    max-width: 1200px; /* Можно менять в зависимости от дизайна */
+    margin: 0 auto;
+    width: 100%;
     display: flex;
     align-items: center;
     flex-grow: 1;
@@ -47,26 +50,50 @@ header h1 {
     padding: 0;
     margin-left: auto;
     box-sizing: border-box;
+    transition: transform 0.3s ease; /* Анимация для трансформации бургер-меню */
 }
 
 .burger-bar {
     width: 100%;
     height: 3px;
     background-color: #fff;
-    transition: all 0.3s;
+    transition: all 0.3s ease; /* Плавный переход для бургерных полосок */
+}
+
+.hidden-on-burger {
+    display: block; /* Видим на больших экранах */
 }
 
 .nav {
-    display: flex;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
     align-items: center;
-    margin: 0;
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+    z-index: 999; /* Чтобы не было под другими элементами */
+}
+
+.nav.nav-open {
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+    padding: 10px 0;
 }
 
 .nav ul {
     display: flex;
-    list-style: none;
-    margin: 0;
+    flex-direction: column;
+    width: auto;
+    text-align: center;
     padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
 .nav ul li {
@@ -79,6 +106,24 @@ header h1 {
     font-weight: bold;
     font-size: 0.9em;
 }
+
+/* Плавная анимация для перехода бургерного меню в крестик */
+.menu-toggle.open .burger-bar:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 7px;
+}
+
+.menu-toggle.open .burger-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.open .burger-bar:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -7px;
+}
+
 
 
 .auth-buttons{
@@ -135,6 +180,7 @@ header h1 {
     display: flex;
     align-items: center;
     margin-left: 10px;
+    margin-right: 30px ;
     max-width: 200px;
     padding: 5px;
     background-color: #2b2b2b;
@@ -142,6 +188,7 @@ header h1 {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
     border: 1px solid #3a3a3a;
     box-sizing: border-box;
+    
 }
 
 .search-input {
@@ -202,7 +249,8 @@ header h1 {
     .nav ul {
         flex-direction: column;
         width: 100%;
-        text-align: center;
+        text-align: start;
+        list-style: none;
     }
 
     .nav ul li {
@@ -214,9 +262,6 @@ header h1 {
     }
 
     .search-form {
-        width: 90%;
-        max-width: 100%;
-        margin: 10px auto;
         display: none; /* Скрыть форму поиска по умолчанию */
     }
 
@@ -234,11 +279,78 @@ header h1 {
         display: none; /* Скрыть логотип */
     }
 
-    .search-form {
-        width: 100%; /* Расширить форму поиска на весь экран */
-    }
-
     .language-switcher {
         margin: 5px 0;
     }
 }
+
+@media (max-width: 1280px) {
+    
+    .hidden-on-burger {
+        display: none; /* Скрываем эти элементы при открытии бургер-меню */
+    }
+    
+    .menu-toggle {
+        display: flex; /* Бургер виден */
+    }
+
+    .nav {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        height: 0;
+        overflow: hidden;
+        transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+        z-index: 999;
+        display: flex; /* Меню всегда flex, но скрыто */
+    }
+
+    .nav.nav-open {
+        opacity: 1;
+        visibility: visible;
+        height: auto;
+        width: 50%;
+        padding: 10px 20px;
+        margin-top: 9px;
+    }
+}
+
+@media (min-width: 1281px) {
+    .menu-toggle {
+        display: none !important; /* Убираем бургер */
+    }
+
+    .nav {
+        display: flex !important;
+        flex-direction: row; /* Меню теперь горизонтальное */
+        justify-content: flex-end; /* Перемещаем элементы к правому краю */
+        align-items: center; /* Центрируем по вертикали */
+        gap: 20px; /* Отступы между пунктами */
+        position: static; /* Возвращаем в нормальный поток */
+        width: auto;
+        height: auto; 
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav ul {
+        display: flex;
+        flex-direction: row; /* Горизонтальное расположение */
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .nav ul li {
+        margin: 0 10px; /* Отступы между элементами */
+    }
+}
+
