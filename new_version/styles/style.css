@@ -138,6 +138,17 @@ h2 {
     background-color: #007a40;
 }
 
+#company_list_title{
+    display: none;
+    text-align: center;
+}
+
+
+
+
+
+
+
 
 /*                карты*/
 .map-container {
@@ -584,17 +595,60 @@ footer {
     .map-container {
         display: none;
     }
-    
-    .company-list {
+
+    #country-selection{
+        display: none;
+    }
+
+    #company_list_title{
         display: block;
-        padding: 20px;
-        background-color: white;
-        margin: 20px auto;
-        border-radius: 8px;
-        max-width: 800px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #company-details {
+        display: block;
+    }
+
+    .company {
+        display: block;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+/*           Куки*/
+#cookie-banner {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+
+#cookie-banner button {
+    background: #ff9800;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
 
 
 

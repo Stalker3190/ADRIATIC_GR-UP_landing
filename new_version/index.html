@@ -72,53 +72,10 @@
             <section id="map-section">
                 <h2 id="map-title" style="display:none;" data-translate="mapTitle">Карта</h2>
                 
-                <!-- Список стран и городов -->
-                <div class="map-list">
-                    <!-- Россия -->
-                    <div class="country" id="russia-cities" style="display: none;">
-                        <h3 data-translate="russia">Россия</h3>
-                        <ul>
-                            <li><a href="#" data-city="moscow" data-translate="moscow">Москва</a></li>
-                            <li><a href="#" data-city="kaliningrad" data-translate="kaliningrad">Калининград</a></li>
-                            <li><a href="#" data-city="stPetersburg" data-translate="stPetersburg">Санкт-Петербург</a></li>
-                            <li><a href="#" data-city="novosibirsk" data-translate="novosibirsk">Новосибирск</a></li>
-                            <li><a href="#" data-city="yekaterinburg" data-translate="yekaterinburg">Екатеринбург</a></li>
-                            <li><a href="#" data-city="nn" data-translate="nn">Нижний Новгород</a></li>
-                            <li><a href="#" data-city="rostov" data-translate="rostov">Ростов-на-Дону</a></li>
-                        </ul>
-                    </div>
 
-                    <!-- Сербия -->
-                    <div class="country" id="serbia-cities" style="display: none;">
-                        <h3 data-translate="serbia">Сербия</h3>
-                        <ul>
-                            <li><a href="#" data-city="belgrade" data-translate="belgrade">Белград</a></li>
-                            <li><a href="#" data-city="kraljevo" data-translate="kraljevo">Кралево</a></li>
-                            <li><a href="#" data-city="zrenjanin" data-translate="zrenjanin">Зренянин</a></li>
-                            <li><a href="#" data-city="pirot" data-translate="pirot">Пирот</a></li>
-                            <li><a href="#" data-city="sombor" data-translate="sombor">Сомбор</a></li>
-                            <li><a href="#" data-city="knjazevac" data-translate="knjazevac">Княжевац</a></li>
-                            <li><a href="#" data-city="zajecar" data-translate="zajecar">Заечар</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Беларусь -->
-                    <div class="country" id="belarus-cities" style="display: none;">
-                        <h3 data-translate="belarus">Беларусь</h3>
-                        <ul>
-                            <li><a href="#" data-city="minsk" data-translate="minsk">Минск</a></li>
-                            <li><a href="#" data-city="brest" data-translate="brest">Брест</a></li>
-                            <li><a href="#" data-city="grodno" data-translate="grodno">Гродно</a></li>
-                            <li><a href="#" data-city="gomel" data-translate="gomel">Гомель</a></li>
-                            <li><a href="#" data-city="vitebsk" data-translate="vitebsk">Витебск</a></li>
-                            <li><a href="#" data-city="mogilev" data-translate="mogilev">Могилёв</a></li>
-                            <li><a href="#" data-city="borisov" data-translate="borisov">Борисов</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Список компаний -->
-                <div id="company-details" style="display: none;">
+                <!-- Список компаний-->
+                <div id="company-details">
+                    <h2 id="company_list_title" data-translate="company_list_title">Компании-партнеры</h2>
 
                     <div class="company" data-city="arile">
                         <h3>MMN Fruit</h3>
@@ -194,7 +151,7 @@
                         <div class="map-point" style="top: 30%; left: 45%;" data-city="belgrade">
                             <span class="city-label" data-translate="belgrade">Белград</span>
                         </div>
-                        <div class="map-point" style="top: 52%; left: 45%;" data-city="kraljevo">
+                        <div class="map-point" style="top: 55%; left: 48%;" data-city="kraljevo">
                             <span class="city-label" data-translate="kraljevo">Кралево</span>
                         </div>
                         <div class="map-point" style="top: 18%; left: 45%;" data-city="zrenjanin">
@@ -212,7 +169,7 @@
                         <div class="map-point" style="top: 50%; left: 60%;" data-city="zajecar">
                             <span class="city-label" data-translate="zajecar">Заечар</span>
                         </div>
-                        <div class="map-point" style="top: 50%; left: 60%;" data-city="arile">
+                        <div class="map-point" style="top: 50%; left: 38%;" data-city="arile">
                             <span class="city-label" data-translate="arile">Ариле</span>
                         </div>
                     </div>
@@ -424,6 +381,12 @@
             <div id="popup-company-details"></div>
             <!-- <div id="company-details"></div> -->
         </div>
+
+        <div id="cookie-banner">
+            <p data-translate="cookie_accept">Мы используем файлы cookie для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с их использованием.</p>
+            <button id="accept-cookies">ОК</button>
+        </div>
+        
 
         <script src="scripts/main.js"></script>
         <script defer src="scripts/search_results.js"></script>

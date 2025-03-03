@@ -1,5 +1,32 @@
 document.addEventListener('DOMContentLoaded', function() {  
     
+    //куки
+    function getCookie(name) {
+        let match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+        return match ? match[2] : null;
+    }
+
+    function setCookie(name, value, days) {
+        let expires = new Date();
+        expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+        document.cookie = `${name}=${value}; path=/; expires=${expires.toUTCString()}; SameSite=Lax`;
+    }
+
+    if (!getCookie("cookiesAccepted")) {
+        document.getElementById("cookie-banner").style.display = "flex";
+    } else {
+        document.getElementById("cookie-banner").style.display = "none"; 
+    }
+
+    document.getElementById("accept-cookies").addEventListener("click", function () {
+        setCookie("cookiesAccepted", "true", 365);
+        document.getElementById("cookie-banner").style.display = "none";
+        console.log("Куки приняты, баннер скрыт");
+    });
+
+    //конец куки
+
+
 
     const user = JSON.parse(localStorage.getItem("user"));
     const logoutBtn = document.getElementById("logout-btn");
@@ -68,18 +95,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const yearSpan = document.getElementById('current-year');
 
     function showMap(countryId) {
-        console.log(`Показываем карту: ${countryId}`); // Логируем, какая карта должна отображаться
-        maps.forEach(map => {
-            map.style.display = 'none';
-            console.log(`Скрываем карту: ${map.id}`); // Логируем скрываемые карты
-        });
+        if (window.innerWidth > 768) {  // Проверка на мобильное устройство
+            console.log(`Показываем карту: ${countryId}`);
+            maps.forEach(map => {
+                map.style.display = 'none';
+                console.log(`Скрываем карту: ${map.id}`);
+            });
     
-        const selectedMap = document.getElementById(countryId);
-        if (selectedMap) {
-            selectedMap.style.display = 'block';
-            console.log(`Отобразили карту: ${countryId}`); // Логируем успешное отображение
-        } else {
-            console.log(`Карта ${countryId} не найдена!`);
+            const selectedMap = document.getElementById(countryId);
+            if (selectedMap) {
+                selectedMap.style.display = 'block';
+                console.log(`Отобразили карту: ${countryId}`);
+            } else {
+                console.log(`Карта ${countryId} не найдена!`);
+            }
         }
     }
     
@@ -122,6 +151,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function showCompanies(city) {
+        const companyDetailsContainer = document.getElementById("company-details");
+        companyDetailsContainer.style.display = "block";
+
         const companies = document.querySelectorAll(`.company[data-city='${city}']`);
         popupCompanyDetailsContainer.innerHTML = ""; // Очищаем только попап
     
@@ -134,8 +166,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             companyList += "</ul>";
             popupCompanyDetailsContainer.innerHTML = companyList;
-        } else {
-            companyDetailsContainer.innerHTML = `<p>${translations[currentLanguage]['noCompanies']}</p>`;
         }
 
         popup.style.display = "block";
@@ -153,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav ul li a');
 
     menuToggle.addEventListener("click", function () {
-        if (window.innerWidth <= 1280) { // Проверяем размер экрана
+        if (window.innerWidth <= 1280) { 
             nav.classList.toggle("nav-open");
             this.classList.toggle("open");
         }
@@ -238,6 +268,7 @@ function switchLanguage(language) {
     }
 }
 
+
 const translations = {
     ru: {
         headerTitle: "ООО Адриатик Групп",
@@ -291,6 +322,8 @@ const translations = {
 
         companiesInCity: "Компании в городе",
         noCompanies:"Нет компаний в этом городе.",
+
+        company_list_title: "Компании-партнеры",
 
         aboutUsTitle: "О нас",
         aboutUsText: "Наша миссия обеспечить компаниям ответственного партнёра и посредника в бизнесе консалтинга и логистики, быстрее получать информацию и вместе решать выставленные задачи и самое главное быть главным звеном по сотрудничеству между Сербии, России и Беларуси и вместе с нашими партнёрами поднимать экономику наших историческо дружественных стран.",
@@ -357,11 +390,15 @@ const translations = {
         MMNFruit_arile: "Компания MMN Fruit, основанная в 2011 году, специализируется на экспорте премиальных замороженных фруктов клиентам в Европе, Азии и США.",
         GoldenFruit_arile: "Компания уделяет особое внимание качеству и безопасности своей продукции, сотрудничая с местными производителями и контролируя весь процесс — от сбора до поставки. Продукция экспортируется в страны Европейского Союза, включая Германию и государства Скандинавии, где используется в производстве десертов, мороженого, соков и джемов.",
         
+        Sinagoga_sombor: "Оптовая и розничная торговля продуктами питания, импорт упаковочной бумаги, производство и упаковка мака, подсолнечника, арахиса, овсяных, ржаных, пшеничных и соевых хлопьев",
+
         Uladar_borisov: "Крупнейшее зерноперерабатывающее предприятие Республики Беларусь",
 
         Sinagoga_sombor1: "Kratke informacije o kompaniji 1 u Beogradu.",
         Sinagoga_sombor2: "Kratke informacije o kompaniji 1 u Beogradu.",
 
+
+        cookie_accept: "Мы используем файлы cookie для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с их использованием.",
 
 
         searchResultsTitle: "Результаты поиска",
@@ -423,6 +460,8 @@ const translations = {
 
         companiesInCity: "Kompanije u gradu",
         noCompanies: "Nema kompanija u ovom gradu.",
+
+        company_list_title: "Partnerske kompanije",
 
         aboutUsTitle: "O nama",
         aboutUsText: "Naša misija je da našim partnerima obezbedimo odgovornog partnera i posrednika u poslovima konsaltinga i logistike, brzo dobijamo informacije i rešavamo postavljene zadatke, i što je najvažnije, budemo glavna karika u saradnji Srbije,Rusije i Belorusije,i da zajedno sa našim partnerima  unapredimo ekonomski razvoj naših istorijski prijateljskih zemalja.",
@@ -495,6 +534,7 @@ const translations = {
         Sinagoga_sombor2: "Kratke informacije o kompaniji 1 u Beogradu.",
 
 
+        cookie_accept: "Koristimo kolačiće za poboljšanje rada sajta. Nastavljajući da koristite sajt, slažete se sa njihovom upotrebom.",
 
         searchResultsTitle: "Rezultati pretrage",
         backToHome: "🏠 Nazad na početnu",
