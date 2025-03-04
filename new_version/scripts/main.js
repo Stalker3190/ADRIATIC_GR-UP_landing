@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     logoutBtn.addEventListener("click", function () {
         localStorage.removeItem("user"); // Удаляем пользователя
-        alert("Вы вышли из аккаунта!");
+        alert("You've logged out of your account!");
         window.location.reload(); // Перезагружаем страницу
     });
 

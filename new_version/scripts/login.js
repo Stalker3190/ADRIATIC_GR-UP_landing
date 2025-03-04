@@ -116,7 +116,7 @@ document.getElementById("login-form").addEventListener("submit", async function 
         );
 
         if (user) {
-            alert("✅ Вход выполнен успешно!");
+            alert("✅ Login successful!");
             localStorage.setItem("user", JSON.stringify(user));
 
             let lang = localStorage.getItem("selectedLanguage") || "ru";
