@@ -303,6 +303,19 @@ h2 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+#advertisement a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: color 0.3s;
+}
+
+#advertisement a:hover {
+    color: #00a651;
+}
+
+
 .advert-space img {
     max-width: 100%;
     height: auto;
@@ -731,4 +744,30 @@ footer {
 
 .back-button .button:hover {
     background-color: #007a40;
+}
+
+
+
+/*             Кнопка вверх*/
+
+#scrollToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 18px;
+    background-color: #00a651;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, opacity 0.3s, transform 0.3s;
+}
+
+#scrollToTop:hover {
+    background-color: #008f45;
+    transform: scale(1.1);
 }

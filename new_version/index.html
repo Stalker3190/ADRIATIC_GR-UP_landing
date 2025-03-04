@@ -204,9 +204,16 @@
             
 
             <section id="advertisement">
-                <h2 data-translate="advertisementTitle">Реклама</h2>
+                <h2 data-translate="advertisementTitle">Рекламное место доступно! 🚀</h2>
                 <div class="advert-space">
-                    <img src="images/advert-sample.png" alt="Рекламное место">
+                    <p data-translate="advertisementText">Хотите, чтобы о вашей компании узнали? Разместите рекламу здесь и привлеките новых клиентов!</p>
+                    <p data-translate="advertisementCallToAction"><strong>📢 Закажите рекламу уже сегодня!</strong></p>
+                    <p data-translate="advertisementContact">Для подробной информации свяжитесь с нами:</p>
+                    <p>
+                        📧 <a href="mailto:jadran3110@gmail.com">jadran3110@gmail.com</a> | 
+                        📞 <a href="tel:+375292815954">Viber/WhatsApp: +375292815954</a>
+                    </p>
+                    <!-- <img src="images/advert-sample.png" alt="Рекламное место"> -->
                 </div>
             </section>
             
@@ -263,6 +270,19 @@
                 </div>
             </section>
 
+            
+            <section id="services">
+                <h2 data-translate="servicesTitle">Услуги</h2>
+                <ul>
+                    <li data-translate="service1">Агентские услуги</li>
+                    <li data-translate="service2">Экспорт импорт</li>
+                    <li data-translate="service3">Поиск надёжных партнёров в Сербии</li>
+                    <li data-translate="service4">Консультационные услуги поставки товаров на Сербию и из Сербии</li>
+                </ul>
+            </section>
+
+
+
             <section id="partners">
                 <h2 data-translate="partnersTitle">Наши партнёры</h2>
                 <div class="partner-details">
@@ -286,15 +306,6 @@
             
             
 
-            <section id="services">
-                <h2 data-translate="servicesTitle">Услуги</h2>
-                <ul>
-                    <li data-translate="service1">Агентские услуги</li>
-                    <li data-translate="service2">Экспорт импорт</li>
-                    <li data-translate="service3">Поиск надёжных партнёров в Сербии</li>
-                    <li data-translate="service4">Консультационные услуги поставки товаров на Сербию и из Сербии</li>
-                </ul>
-            </section>
 
             <section id="blacklist">
                 <h2 data-translate="blacklistTitle">Черный список компаний</h2>
@@ -302,7 +313,7 @@
                     <!-- Информация о первой компании -->
                     <div class="blacklist-entry">
                         <h3 data-translate="company1Name">КФХ АГРОМАРАФОН</h3>
-                        <p><strong data-translate="inn">ИНН:</strong> <span data-translate="company1INN">3200001215</span></p>
+                        <p><strong data-translate="inn">ИНН:</strong> <span>3200001215</span></p>
                         <p><strong data-translate="head">Глава:</strong> <span data-translate="company1Head">Борисов Евгений Владимирович</span></p>
                         <p><strong data-translate="address">Юридический адрес:</strong> <span data-translate="company1Address">241029, Брянская область, г Брянск, Красноармейская ул. д. 126/1 офис 202а</span></p>
                         <p>
@@ -316,10 +327,10 @@
                     <!-- Информация о второй компании -->
                     <div class="blacklist-entry">
                         <h3 data-translate="company2Name">ООО САУЛ-КОРП</h3>
-                        <p><strong data-translate="unp">УНП:</strong> <span data-translate="company2UNP">692229787</span></p>
+                        <p><strong data-translate="unp">УНП:</strong> <span>692229787</span></p>
                         <p><strong data-translate="director">Директор:</strong> <span data-translate="company2Director">Миранович Вадим Владимирович</span></p>
                         <p>
-                            <strong data-translate="postalAddress">Юридический/почтовый адрес:</strong>
+                            <strong data-translate="address">Юридический адрес:</strong>
                             <span data-translate="company2Address">
                                 223039, Минская обл., Минский р-н, Ждановичский с/с, район деревни Таборы, здание административно-хозяйственное, комната 39А
                             </span>
@@ -363,8 +374,8 @@
                     <h3 data-translate="footerLinks">Полезные ссылки</h3>
                     <ul>
                         <li><a href="privacy_policy.html" data-translate="footerPrivacy">Политика конфиденциальности</a></li>
-                        <li><a href="user_agreement.html" data-translate="footerTerms">Условия использования</a></li>
-                        <li><a href="#" data-translate="footerFAQ">Часто задаваемые вопросы</a></li>
+                        <li><a href="user_agreement.html" data-translate="footerTerms">Пользовательское соглашение</a></li>
+                        <li><a href="placement_rules.html" data-translate="placement_rules">Правила размещения информации</a></li>
                     </ul>
                 </div>
         
@@ -379,8 +390,9 @@
             <span class="close" id="close">&times;</span>
             <p id="popup-text"></p>
             <div id="popup-company-details"></div>
-            <!-- <div id="company-details"></div> -->
         </div>
+
+        <button id="scrollToTop" title="top">⬆</button>
 
         <div id="cookie-banner">
             <p data-translate="cookie_accept">Мы используем файлы cookie для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с их использованием.</p>

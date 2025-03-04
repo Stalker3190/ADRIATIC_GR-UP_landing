@@ -236,6 +236,22 @@ document.addEventListener('DOMContentLoaded', function() {
         updateCounter();
     });
 
+    // Кнопка вверх
+
+    const scrollBtn = document.getElementById("scrollToTop");
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 300) {
+            scrollBtn.style.display = "flex";
+        } else {
+            scrollBtn.style.display = "none";
+        }
+    });
+
+    scrollBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
 });
 
 function saveSearchQuery() {
@@ -338,7 +354,10 @@ const translations = {
         contactText: "ООО Адриатик Групп",
         contactPhone: "Контакт телефон Viber/WhatsApp: +375292815954",
 
-        advertisementTitle: "Реклама",
+        advertisementTitle: "Рекламное место доступно! 🚀",
+        advertisementText: "Хотите, чтобы о вашей компании узнали? Разместите рекламу здесь и привлеките новых клиентов!",
+        advertisementCallToAction: "📢 Закажите рекламу уже сегодня!",
+        advertisementContact: "Для подробной информации свяжитесь с нами:",
 
         statsTitle: "Наши достижения за год",
         GlassJar: "Стеклянная банка тип 720 <br> Беларусь → Сербия",
@@ -356,13 +375,17 @@ const translations = {
         // Черный список
         blacklistTitle: "Черный список компаний",
         company1Name: "КФХ АГРОМАРАФОН",
-        company1INN: "3200001215",
+        inn: "ИНН:",
+        head: "Глава:",
+        address: "Юридический адрес:",
         company1Head: "Борисов Евгений Владимирович",
         company1Address: "241029, Брянская область, г Брянск, Красноармейская ул. д. 126/1 офис 202а",
+        reason: "Причина не работать с этой компанией:",
         company1Reason: "Брали денег от сербской компании на поставку картофеля в размере 688.000 рублей и не поставили картофель, а деньги присвоили, вернули только 50 тысяч рублей. Рекомендуем не работать с данной компанией.",
 
         company2Name: "ООО САУЛ-КОРП",
-        company2UNP: "692229787",
+        unp: "УНП:",
+        director: "Директор:",
         company2Director: "Миранович Вадим Владимирович",
         company2Address: "223039, Минская обл., Минский р-н, Ждановичский с/с, район деревни Таборы, здание административно-хозяйственное, комната 39А",
         otherCompanies: "У этого поставщика есть и другие компании и просим Вас обратить внимание:",
@@ -380,7 +403,8 @@ const translations = {
         footerEmail2: "Email: adriatikgrupp@mail.ru",
         footerLinks: "Полезные ссылки",
         footerPrivacy: "Политика конфиденциальности",
-        footerTerms: "Условия использования",
+        footerTerms: "Пользовательское соглашение",
+        placement_rules: "Правила размещения информации",
         footerFAQ: "Часто задаваемые вопросы",
         footerCopy: "© ООО Адриатик Групп. Все права защищены.",
 
@@ -478,7 +502,10 @@ const translations = {
         contactEmail1: "Email: jadran3110@gmail.com",
         contactEmail2: "Email: adriatikgrupp@mail.ru",
 
-        advertisementTitle: "Reklama",
+        advertisementTitle: "Reklamni prostor dostupan! 🚀",
+        advertisementText: "Želite da vaša kompanija bude primećena? Oglasite se ovde i privucite nove klijente!",
+        advertisementCallToAction: "📢 Postavite svoju reklamu već danas!",
+        advertisementContact: "Za više informacija kontaktirajte nas:",
 
         statsTitle: "Naša dostignuća za godinu",
         GlassJar: "Staklena tegla tip 720 <br> Belorusija → Srbija",
@@ -495,13 +522,17 @@ const translations = {
         // Crna lista
         blacklistTitle: "Crna lista kompanija",
         company1Name: "KFH AGROMARAFON",
-        company1INN: "3200001215",
+        inn: "PIB:",
+        head: "Direktor:",
+        address: "Pravna adresa:",
         company1Head: "Borisov Evgenij Vladimirovič",
         company1Address: "241029, Brjanska oblast, grad Brjansk, Krasnoarmejska ul. br. 126/1, kancelarija 202a",
+        reason: "Razlog za izbegavanje poslovanja sa ovom kompanijom:",
         company1Reason: "Uzeli su novac od srpske kompanije za isporuku krompira u iznosu od 688.000 rubalja, ali krompir nisu isporučili, a novac su prisvojili, vratili su samo 50.000 rubalja. Preporučujemo da ne sarađujete sa ovom kompanijom.",
 
         company2Name: "OOO SAUL-KORP",
-        company2UNP: "692229787",
+        unp: "Matični broj:",
+        director: "Direktor:",
         company2Director: "Miranović Vadim Vladimirovič",
         company2Address: "223039, Minska oblast, Minski region, Ždanovički s/s, oblast sela Tabory, administrativno-gospodarska zgrada, soba 39A",
         otherCompanies: "Ovaj dobavljač ima i druge kompanije, obratite pažnju:",
@@ -517,7 +548,8 @@ const translations = {
         footerPhone: "Telefon Viber/WhatsApp: +375292815954",
         footerLinks: "Korisni linkovi",
         footerPrivacy: "Politika privatnosti",
-        footerTerms: "Uslovi korišćenja",
+        footerTerms: "Korisnički sporazum",
+        placement_rules: "Pravila objavljivanja informacija",
         footerFAQ: "Često postavljana pitanja",
         footerCopy: "© ADRIATIC GROUP DOO. Sva prava zadržana.",
 
