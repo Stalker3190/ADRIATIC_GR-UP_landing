@@ -12,17 +12,17 @@ document.addEventListener('DOMContentLoaded', function() {
         document.cookie = `${name}=${value}; path=/; expires=${expires.toUTCString()}; SameSite=Lax`;
     }
 
-    if (!getCookie("cookiesAccepted")) {
-        document.getElementById("cookie-banner").style.display = "flex";
-    } else {
-        document.getElementById("cookie-banner").style.display = "none"; 
-    }
+    const cookieBanner = document.getElementById("cookie-banner");
+        const acceptButton = document.getElementById("accept-cookies");
 
-    document.getElementById("accept-cookies").addEventListener("click", function () {
-        setCookie("cookiesAccepted", "true", 365);
-        document.getElementById("cookie-banner").style.display = "none";
-        console.log("Куки приняты, баннер скрыт");
-    });
+        if (!getCookie("cookiesAccepted")) {
+            cookieBanner.classList.add("show");
+        }
+
+        acceptButton.addEventListener("click", function () {
+            setCookie("cookiesAccepted", "true", 365);
+            cookieBanner.classList.remove("show");
+        });
 
     //конец куки
 

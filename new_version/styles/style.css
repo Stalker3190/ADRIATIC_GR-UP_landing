@@ -639,30 +639,63 @@ footer {
 /*           Куки*/
 #cookie-banner {
     position: fixed;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-    background: rgba(0, 0, 0, 0.8);
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.85);
     color: white;
-    padding: 10px;
-    text-align: center;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 5px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
+    width: 600px;
+    font-size: 0.95em;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
-#cookie-banner button {
-    background: #ff9800;
+#cookie-banner.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#cookie-banner p {
+    margin: 0;
+    flex-grow: 1;
+}
+
+#accept-cookies {
+    background: #00a651;
     border: none;
-    padding: 5px 10px;
+    padding: 8px 15px;
+    margin: 1%;
     cursor: pointer;
     color: white;
     font-weight: bold;
-    border-radius: 3px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
 }
 
+#accept-cookies:hover {
+    background: #008f45;
+}
 
+@media (max-width: 600px) {
+    #cookie-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #accept-cookies {
+        margin-top: 10px;
+        width: 100%;
+    }
+}
 
 
 
