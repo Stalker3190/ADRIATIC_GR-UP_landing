@@ -40,6 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
     if (user && user.status.toLowerCase() === "ok") {
+        document.getElementById("partnersTitle-btn").style.display = "block";
+
         document.getElementById("partners").style.display = "block";
         document.getElementById("blacklist").style.display = "block";
         
@@ -49,6 +51,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("register-btn").style.display = "none";
         
     } else {
+        document.getElementById("partnersTitle-btn").style.display = "none";
+
         document.getElementById("partners").style.display = "none";
         document.getElementById("blacklist").style.display = "none";
         
