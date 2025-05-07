@@ -7,6 +7,34 @@ document.addEventListener("DOMContentLoaded", function () {
         window.history.replaceState({}, "", `?lang=${lang}`);
     }
 
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector(".nav");
+
+    const navLinks = document.querySelectorAll('.nav ul li a');
+
+    menuToggle.addEventListener("click", function () {
+        if (window.innerWidth <= 1280) { 
+            nav.classList.toggle("nav-open");
+            this.classList.toggle("open");
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            // Закрытие меню
+            nav.classList.remove('nav-open');
+
+            // Плавный переход
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+
     localStorage.setItem("selectedLanguage", lang);
 
     // Объект с переводами
@@ -62,7 +90,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             Uladar_borisov: "Крупнейшее зерноперерабатывающее предприятие Республики Беларусь",
 
-            backToHome: "На главную"
+            backToHome: "На главную",
+
+            company_list_title: "Компании-партнеры",
         },
         sr: {
             headerTitle: "ADRIATIC GROUP DOO",
@@ -112,7 +142,9 @@ document.addEventListener("DOMContentLoaded", function () {
             
             Uladar_borisov: "Najveće preduzeće za preradu žitarica u Republici Belorusiji",
 
-            backToHome: "Nazad na početnu"
+            backToHome: "Nazad na početnu",
+
+            company_list_title: "Partnerske kompanije",
         }
     };
     

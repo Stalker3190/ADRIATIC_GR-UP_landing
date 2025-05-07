@@ -91,80 +91,7 @@ body h2 {
 }
 
 
-@media (max-width: 728px) {
 
-    .map-list {
-        display: block;
-    }
-}
-
-@media (min-width: 729px) {
-
-    .map-list {
-        display: none;
-    }
-}
-
-/* Компании */
-.company {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    display: none;
-}
-
-.company h3 {
-    margin-top: 0;
-    color: #00a651;
-}
-
-.company p {
-    margin: 5px 0;
-}
-
-.company button {
-    background-color: #00a651;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.company button:hover {
-    background-color: #007a40;
-}
-
-#company_list_title{
-    display: none;
-    text-align: center;
-}
-
-
-@media (max-width: 728px) {
-    .map-container {
-        display: none;
-    }
-
-    #country-selection{
-        display: none;
-    }
-
-    #company_list_title{
-        display: block;
-    }
-
-    #company-details {
-        display: block;
-    }
-
-    .company {
-        display: block;
-    }
-}
 
 
 
@@ -204,13 +131,12 @@ body h2 {
 
 @media (max-width: 728px) {
 
-    .mapContainer {
+    #map-section {
         display: none;
     }
 
-    .map-point {
-        width: 7px;
-        height: 7px;
+    #country-selection {
+        display: none;
     }
 }
 
