@@ -344,11 +344,14 @@ const translations = {
         aboutUsTitle: "О нас",
         aboutUsText: "Наша миссия обеспечить компаниям ответственного партнёра и посредника в бизнесе консалтинга и логистики, быстрее получать информацию и вместе решать выставленные задачи и самое главное быть главным звеном по сотрудничеству между Сербии, России и Беларуси и вместе с нашими партнёрами поднимать экономику наших историческо дружественных стран.",
         
-        servicesTitle: "Услуги",
-        service1: "Агентские услуги",
-        service2: "Экспорт импорт",
-        service3: "Поиск надёжных партнёров в Сербии",
-        service4: "Консультационные услуги поставки товаров на Сербию и из Сербии",
+        servicesTitle: "Наши услуги",
+        service1: "Экспорт импорт",
+        service2: "Агентские услуги",
+        service3: "Поиск и подбор надёжных контрагентов в Сербии, России и Беларуси",
+        service4: "Проверка компании в Сербии, России и Беларуси",
+        service5: "Выступаем от Вашего лица в переговорах на сербском и русском языках",
+        service6: "Юридические услуги и поддержка",
+        service7: "Составление договоров",
 
         contactTitle: "Контакты",
         contactText: "ООО Адриатик Групп",
@@ -359,7 +362,7 @@ const translations = {
         advertisementCallToAction: "📢 Закажите рекламу уже сегодня!",
         advertisementContact: "Для подробной информации свяжитесь с нами:",
 
-        statsTitle: "Наши достижения за год",
+        statsTitle: "Наши достижения",
         GlassJar: "Стеклянная банка тип 720 <br> Беларусь → Сербия",
         SemiFinishedMix: "Смесь полуфабрикатов <br> Беларусь → Сербия",
         FoodPotato: "Картофель продовольственный <br> Беларусь → Сербия",
@@ -369,6 +372,44 @@ const translations = {
         Onion: "Лук репчатый <br> Россия → Сербия",
         FrozenPotatoRU: "Замороженный картофель <br> Россия → Сербия",
         
+
+
+        ProductsWeOffer: "Продукция, с которой мы работаем",
+  
+        // Категории
+        FrozenFruits: "🧊 Замороженная продукция",
+        FrozenVegetables: "🥕 Замороженные овощи",
+        FreshProducts: "🌱 Свежая продукция",
+        PackagingAndDelivery: "📦 Упаковка и поставка",
+      
+        // Замороженные фрукты
+        Raspberry9010: "Малина 90/10",
+        Raspberry905: "Малина 90/5",
+        RaspberryCrumb: "Малина грис",
+        CherryBK: "Вишня БК",
+        Blueberry: "Черника",
+        Bilberry: "Голубика",
+      
+        // Замороженные овощи
+        FriesStrips: "Картофель соломка 4x4 – 10x10",
+        PotatoCubes: "Картофель кубик 4x4 – 10x10",
+        Wedges: "Картофельные дольки",
+        CarrotStrips: "Морковь соломка 4x4 – 10x10",
+        CarrotCubes: "Морковь кубик 4x4 – 10x10",
+        CarrotDiscs: "Морковь шайба (1.5–9мм, 1–4см)",
+        BeetCubes: "Свекла кубик 4x4 – 10x10",
+      
+        // Свежая продукция
+        PotatoFresh: "Картофель продовольственный 5+",
+        CarrotFresh: "Морковь",
+        CabbageFresh: "Капуста",
+        BeetFresh: "Свекла",
+      
+        // Упаковка
+        FrozenPackaging: "Заморозка: коробки по 10 кг, 63 коробки на паллете, 20 160 кг в машине.",
+        FreshPackaging: "Свежая продукция: мешки-сетка 10 и 25 кг, Биг Беги, возможна поставка на паллетах и без.",
+
+
 
         partnersTitle: "Наши партнёры",
 
@@ -490,11 +531,14 @@ const translations = {
         aboutUsTitle: "O nama",
         aboutUsText: "Naša misija je da našim partnerima obezbedimo odgovornog partnera i posrednika u poslovima konsaltinga i logistike, brzo dobijamo informacije i rešavamo postavljene zadatke, i što je najvažnije, budemo glavna karika u saradnji Srbije,Rusije i Belorusije,i da zajedno sa našim partnerima  unapredimo ekonomski razvoj naših istorijski prijateljskih zemalja.",
         
-        servicesTitle: "Usluge",
-        service1: "Agentske usluge",
-        service2: "Uvoz i izvoz",
-        service3: "Pretraga pouzdanih partnera u Srbiji",
-        service4: "Konsultantske usluge u vezi sa isporukom roba u Srbiju i iz Srbije",
+        servicesTitle: "NAŠE USLUGE",
+        service1: "Uvoz-izvoz",
+        service2: "Posredničke usluge",
+        service3: "Pretraga i izbor pouzdanih partnera u Srbiji, Rusiji i Belorusiji",
+        service4: "Provera kompanija u Srbiji, Rusiji i Belorusiji",
+        service5: "U Vaše ime vršimo pregovore na srpskom i ruskom jeziku",
+        service6: "Pravne usluge i podrška",
+        service7: "Sastavljanje ugovora",
 
         contactTitle: "Kontakti",
         contactText: "ADRIATIC GROUP DOO",
@@ -507,7 +551,7 @@ const translations = {
         advertisementCallToAction: "📢 Postavite svoju reklamu već danas!",
         advertisementContact: "Za više informacija kontaktirajte nas:",
 
-        statsTitle: "Naša dostignuća za godinu",
+        statsTitle: "Naša dostignuća",
         GlassJar: "Staklena tegla tip 720 <br> Belorusija → Srbija",
         SemiFinishedMix: "Mešavina poluproizvoda <br> Belorusija → Srbija",
         FoodPotato: "Krompir za ishranu <br> Belorusija → Srbija",
@@ -516,6 +560,47 @@ const translations = {
         FrozenCherry: "Zamrznuta višnja <br> Srbija → Belorusija",
         Onion: "Crni luk <br> Rusija → Srbija",
         FrozenPotatoRU: "Zamrznuti krompir <br> Rusija → Srbija",
+
+
+
+
+        ProductsWeOffer: "PROIZVODI KOJE REALIZUJEMO",
+
+        // Категории
+        FrozenFruits: "🧊 ZAMRZNUTI PROIZVODI",
+        FrozenVegetables: "🥕 ZAMRZNUTO POVRĆE",
+        FreshProducts: "🌱 SVEŽI PRODUKCIJA",
+        PackagingAndDelivery: "📦 Pakovanje i isporuka",
+      
+        // Замороженные фрукты
+        Raspberry9010: "Smrznute maline 90/10",
+        Raspberry905: "Smrznute maline 90/5",
+        RaspberryCrumb: "Malina gris",
+        CherryBK: "Smrznute višnje BK",
+        Blueberry: "Smrznute šumske borovnice",
+        Bilberry: "Smrznute kultivisane borovnice",
+      
+        // Замороженные овощи
+        FriesStrips: "Smrznuti blanširani kompir slamka 4x4/6x6/8x8/10x10",
+        PotatoCubes: "Smrznuta kocka krompira 4x4/6x6/8x8/10x10",
+        Wedges: "Krompir kriške sa i bez kore",
+        CarrotStrips: "Smrznuta šargarepa slamka 4x4/6x6/8x8/10x10",
+        CarrotCubes: "Kocka smrznute šargarepe 4x4/6x6/8x8/10x10",
+        CarrotDiscs: "Smrznuta šargarepa disk reljefna od 1,5 mm do 9 mm i prečnika od 1 cm do 4 cm",
+        BeetCubes: "Smrznuta cvekla kocka 4x4/6x6/8x8/10x10",
+      
+        // Свежая продукция
+        PotatoFresh: "Krompir 5+",
+        CarrotFresh: "Sveža šargarepa",
+        CabbageFresh: "Svež kupus",
+        BeetFresh: "Sveža cvekla",
+      
+        // Упаковка
+        FrozenPackaging: "Svi smrznuti proizvodi su pakovani u kutije od 10 kg, 63 kutije na paletama, 20.160 kg u kamionu.",
+        FreshPackaging: "Sveži proizvodi se po zahtevu pakuju u džakovima od 10kg / Uglavnom u džakovima od 25 kg, u Big Beg vrećama na paletama i bez njih.",
+
+
+
 
         partnersTitle: "Naši partneri",
 
