@@ -156,7 +156,21 @@ header h1 {
 }
 
 
+.partnersTitle-btn {
+    margin: 0 3px;
+    padding: 5px 8px;
+    cursor: pointer;
+    border: none;
+    background-color: #00a651;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
 
+.partnersTitle-btn:hover {
+    background-color: #007a40;
+}
 
 
 .language-switcher {
