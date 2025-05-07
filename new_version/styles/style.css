@@ -1,4 +1,4 @@
-body {
+html body {
 	font-family: Arial, sans-serif;
 	margin: 0;
 	padding: 0;
@@ -968,7 +968,7 @@ footer {
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 1.1em;
+    font-size: 1.5em;
     font-weight: bold;
     cursor: pointer;
     display: none;
