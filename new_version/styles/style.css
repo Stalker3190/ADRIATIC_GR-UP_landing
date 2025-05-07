@@ -144,6 +144,29 @@ body h2 {
 }
 
 
+@media (max-width: 728px) {
+    .map-container {
+        display: none;
+    }
+
+    #country-selection{
+        display: none;
+    }
+
+    #company_list_title{
+        display: block;
+    }
+
+    #company-details {
+        display: block;
+    }
+
+    .company {
+        display: block;
+    }
+}
+
+
 
 
 
@@ -548,150 +571,6 @@ body h2 {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-#partners {
-    background-color: white;
-    padding: 20px;
-    margin: 20px auto;
-    border-radius: 8px;
-    max-width: 800px;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#partners h2 {
-    margin-bottom: 20px;
-}
-
-.partner-logos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.partner-logo {
-    margin: 10px;
-    transition: transform 0.3s;
-}
-
-.partner-logo img {
-    max-width: 100px;
-    max-height: 100px;
-}
-
-.partner-logo:hover {
-    transform: scale(1.1);
-}
-
-.partner-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.partner-entry {
-    margin: 20px;
-    padding: 20px;
-}
-
-.partner-entry h3 {
-    margin: 0;
-    color: #0f8b41; /* Цвет заголовка */
-}
-
-.partner-entry h3 a{
-    margin: 0;
-    color: #0f8b41; /* Цвет заголовка */
-    text-decoration: none;
-}
-
-.partner-entry img {
-    max-width: 150px;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-.partner-entry p {
-    margin: 5px 0;
-    line-height: 1.5;
-}
-
-hr {
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 20px 0;
-}
-
-
-
-
-
-
-
-#blacklist {
-    background-color: rgba(0, 0, 0, 0.9);
-    padding: 20px;
-    color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-#blacklist h2 {
-    color: #fff;
-    margin-bottom: 20px;
-    font-size: 24px;
-    border-bottom: 2px solid #00a651;
-    padding-bottom: 10px;
-}
-
-.blacklist-content {
-    display: flex;
-    flex-direction: column;
-}
-
-.blacklist-entry {
-    margin-bottom: 20px;
-}
-
-.blacklist-entry h3 {
-    margin: 0;
-    color: #d9534f; /* Цвет заголовка */
-}
-
-.blacklist-entry p {
-    margin: 5px 0;
-}
-
-.blacklist-entry ul {
-    list-style-type: disc;
-    margin-left: 20px;
-}
-
-hr {
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 20px 0;
-}
-
-
-
-
-
-
-
-
 footer {
     background-color: rgba(0, 0, 0, 0.9); /* Полупрозрачный черный фон */
     color: white;
@@ -776,28 +655,6 @@ footer {
 
 
 
-
-@media (max-width: 728px) {
-    .map-container {
-        display: none;
-    }
-
-    #country-selection{
-        display: none;
-    }
-
-    #company_list_title{
-        display: block;
-    }
-
-    #company-details {
-        display: block;
-    }
-
-    .company {
-        display: block;
-    }
-}
 
 
 

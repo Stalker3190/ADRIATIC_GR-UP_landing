@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="company-card">
                     <h2 class="company-name">${company.name}</h2>
                     <p class="company-description">${company.description[lang]}</p>
-                    <p><strong>🌍 ${translations[lang]["website"]}:</strong> <a href="${company.website}" target="_blank">${company.website}</a></p>
+                    // <p><strong>🌍 ${translations[lang]["website"]}:</strong> <a href="${company.website}" target="_blank">${company.website}</a></p>
                     <p><strong>🛒 ${translations[lang]["products"]}:</strong> ${company.products[lang].join(", ")}</p>
                 </div>
             `;
