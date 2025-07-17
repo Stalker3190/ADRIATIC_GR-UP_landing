@@ -243,7 +243,7 @@ body h2 {
 
 
 #advertisement {
-    background-color: white;
+    background-color: #d4dfff;
     padding: 20px;
     margin: 20px auto;
     border-radius: 8px;
@@ -675,6 +675,8 @@ footer {
 .container h1 {
     color: #00a651;
     margin-bottom: 30px;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .search-results {

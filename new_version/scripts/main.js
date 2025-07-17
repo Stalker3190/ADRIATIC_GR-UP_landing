@@ -382,7 +382,7 @@ const translations = {
       
         // Замороженные фрукты
         Raspberry9010: "Малина 90/10",
-        Raspberry905: "Малина 90/5",
+        Raspberry905: "Малина 95/5",
         RaspberryCrumb: "Малина грис",
         CherryBK: "Вишня БК",
         Blueberry: "Черника",
@@ -567,12 +567,12 @@ const translations = {
         // Категории
         FrozenFruits: "🧊 ZAMRZNUTI PROIZVODI",
         FrozenVegetables: "🥕 ZAMRZNUTO POVRĆE",
-        FreshProducts: "🌱 SVEŽI PRODUKCIJA",
+        FreshProducts: "🌱 SVEŽA PRODUKCIJA",
         PackagingAndDelivery: "📦 Pakovanje i isporuka",
       
         // Замороженные фрукты
         Raspberry9010: "Smrznute maline 90/10",
-        Raspberry905: "Smrznute maline 90/5",
+        Raspberry905: "Smrznute maline 95/5",
         RaspberryCrumb: "Malina gris",
         CherryBK: "Smrznute višnje BK",
         Blueberry: "Smrznute šumske borovnice",
@@ -595,7 +595,7 @@ const translations = {
       
         // Упаковка
         FrozenPackaging: "Svi smrznuti proizvodi su pakovani u kutije od 10 kg, 63 kutije na paletama, 20.160 kg u kamionu.",
-        FreshPackaging: "Sveži proizvodi se po zahtevu pakuju u džakovima od 10kg / Uglavnom u džakovima od 25 kg, u Big Beg vrećama na paletama i bez njih.",
+        FreshPackaging: "SVEŽA proizvodi se po zahtevu pakuju u džakovima od 10kg / Uglavnom u džakovima od 25 kg, u Big Beg vrećama na paletama i bez njih.",
 
 
 
@@ -637,7 +637,7 @@ const translations = {
         footerCopy: "© ADRIATIC GROUP DOO. Sva prava zadržana.",
 
         GoldenFruit: "Golden Fruit d.o.o. je vodeći proizvođač i dobavljač smrznutog bobičastog voća i voća, specijalizovan za kvalitetne borovnice i druge proizvode. Oni nude pouzdane i ekološke proizvode kupcima širom sveta.",
-        MMNFruit: "MMN Voće je veliki dobavljač voća specijalizovan za razne vrste svežih i smrznutih proizvoda. Kompanija obezbeđuje visok kvalitet i širok spektar proizvoda kako bi zadovoljila potrebe kupaca.",
+        MMNFruit: "MMN Voće je veliki dobavljač voća specijalizovan za razne vrste SVEŽAh i smrznutih proizvoda. Kompanija obezbeđuje visok kvalitet i širok spektar proizvoda kako bi zadovoljila potrebe kupaca.",
     
         MMNFruit_arile: "Kompanija MMN Fruit, osnovana 2011. godine, specijalizovana je za izvoz premium smrznutog voća klijentima u Evropi, Aziji i SAD-u.",
         GoldenFruit_arile: "Kompanija posebnu pažnju posvećuje kvalitetu i bezbednosti svojih proizvoda, sarađujući sa lokalnim proizvođačima i kontrolišući ceo proces – od berbe do isporuke. Proizvodi se izvoze u zemlje Evropske unije, uključujući Nemačku i skandinavske države, gde se koriste u proizvodnji poslastica, sladoleda, sokova i džemova.",
