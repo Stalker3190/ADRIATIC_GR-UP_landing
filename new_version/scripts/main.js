@@ -676,7 +676,192 @@ const translations = {
         website: "Vebsajt",
         products: "Proizvodi",
         noResults: "❌ Ništa nije pronađeno.",
-    }
+    },
+    en: {
+        headerTitle: "Adriatic Group LLC",
+
+        navAbout: "About Us",
+        navServices: "Services",
+        navContact: "Contact",
+
+        searchPlaceholder: "Search",
+
+        logout: "Log out",
+        login: "Log in",
+        register: "Register",
+
+        countrySelectionTitle: "Select a country",
+        countrySerb: "Serbia",
+        countryRus: "Russia",
+        countryBel: "Belarus",
+        mapTitle: "Map",
+
+        belgrade: "Belgrade",
+        moscow: "Moscow",
+        minsk: "Minsk",
+        brest: "Brest",
+        grodno: "Grodno",
+        gomel: "Gomel",
+        vitebsk: "Vitebsk",
+        mogilev: "Mogilev",
+        borisov: "Barysaw",
+        ivanovo: "Ivanovo",
+        kaliningrad: "Kaliningrad",
+        stPetersburg: "St. Petersburg",
+        novosibirsk: "Novosibirsk",
+        yekaterinburg: "Yekaterinburg",
+        nn: "Nizhny Novgorod",
+        samara: "Samara",
+        omsk: "Omsk",
+        kazan: "Kazan",
+        chelyabinsk: "Chelyabinsk",
+        rostov: "Rostov-on-Don",
+        ufa: "Ufa",
+        volgograd: "Volgograd",
+        arile: "Arilje",
+        kraljevo: "Kraljevo",
+        zrenjanin: "Zrenjanin",
+        pirot: "Pirot",
+        sombor: "Sombor",
+        knjazevac: "Knjazevac",
+        ivanica: "Ivanjica",
+        negotin: "Negotin",
+        zajecar: "Zaječar",
+        senica: "Sjenica",
+
+        companiesInCity: "Companies in the city",
+        noCompanies: "No companies in this city.",
+
+        company_list_title: "Partner Companies",
+
+        aboutUsTitle: "About Us",
+        aboutUsText: "Our mission is to provide companies with a responsible partner and intermediary in business consulting and logistics, to receive information faster and jointly solve assigned tasks, and most importantly, to be the key link for cooperation between Serbia, Russia, and Belarus, working together with our partners to boost the economies of our historically friendly countries.",
+
+        servicesTitle: "Our Services",
+        service1: "Export and Import",
+        service2: "Agency Services",
+        service3: "Search and selection of reliable contractors in Serbia, Russia, and Belarus",
+        service4: "Company verification in Serbia, Russia, and Belarus",
+        service5: "Representation on your behalf in negotiations in Serbian and Russian languages",
+        service6: "Legal services and support",
+        service7: "Contract drafting",
+
+        contactTitle: "Contact",
+        contactText: "Adriatic Group LLC",
+        contactPhone: "Contact phone Viber/WhatsApp: +375292815954",
+
+        advertisementTitle: "Advertising space available! 🚀",
+        advertisementText: "Want your company to be known? Place your advertisement here and attract new clients!",
+        advertisementCallToAction: "📢 Order advertising today!",
+        advertisementContact: "For more information, contact us:",
+
+        statsTitle: "Our Achievements",
+        GlassJar: "Glass jar type 720 <br> Belarus → Serbia",
+        SemiFinishedMix: "Semi-finished mix <br> Belarus → Serbia",
+        FoodPotato: "Food-grade potatoes <br> Belarus → Serbia",
+        FrozenPotato: "Frozen potatoes <br> Belarus → Serbia",
+        Raspberry: "Raspberry griz <br> Serbia → Belarus",
+        FrozenCherry: "Frozen cherries <br> Serbia → Belarus",
+        Onion: "Onion bulbs <br> Russia → Serbia",
+        FrozenPotatoRU: "Frozen potatoes <br> Russia → Serbia",
+        
+
+
+        ProductsWeOffer: "Products We Work With",
+  
+        // Категории
+        FrozenFruits: "🧊 Frozen Products",
+        FrozenVegetables: "🥕 Frozen Vegetables",
+        FreshProducts: "🌱 Fresh Products",
+        PackagingAndDelivery: "📦 Packaging and Delivery",
+      
+        // Замороженные фрукты
+        Raspberry9010: "Raspberry 90/10",
+        Raspberry905: "Raspberry 95/5",
+        RaspberryCrumb: "Raspberry Griz",
+        CherryBK: "Cherry BK",
+        Blueberry: "Blueberry",
+        Bilberry: "Bilberry",
+      
+        // Замороженные овощи
+        FriesStrips: "Potato fries strips 4x4 – 10x10",
+        PotatoCubes: "Potato cubes 4x4 – 10x10",
+        Wedges: "Potato wedges",
+        CarrotStrips: "Carrot strips 4x4 – 10x10",
+        CarrotCubes: "Carrot cubes 4x4 – 10x10",
+        CarrotDiscs: "Carrot discs (1.5–9mm, 1–4cm)",
+        BeetCubes: "Beet cubes 4x4 – 10x10",
+      
+        // Свежая продукция
+        PotatoFresh: "Food-grade potatoes 5+",
+        CarrotFresh: "Carrots",
+        CabbageFresh: "Cabbage",
+        BeetFresh: "Beet",
+      
+        // Упаковка
+        FrozenPackaging: "Frozen: boxes of 10 kg, 63 boxes per pallet, 20,160 kg per truck.",
+        FreshPackaging: "Fresh products: mesh bags of 10 and 25 kg, big bags, delivery possible on pallets or loose.",
+
+
+
+        partnersTitle: "Our Partners",
+
+        // Черный список
+        blacklistTitle: "Blacklist of Companies",
+        company1Name: "KFH AGROMARAFON",
+        inn: "TIN:", // Taxpayer Identification Number
+        head: "Head:",
+        address: "Legal Address:",
+        company1Head: "Borisov Evgeny Vladimirovich",
+        company1Address: "241029, Bryansk region, Bryansk city, Krasnoarmeiskaya St. 126/1 office 202a",
+        reason: "Reason not to work with this company:",
+        company1Reason: "They took money from a Serbian company for potato supply in the amount of 688,000 rubles and did not deliver the potatoes, but appropriated the money, returning only 50 thousand rubles. We recommend not to work with this company.",
+
+        company2Name: "LLC SAUL-CORP",
+        unp: "UNP:", // Unique Taxpayer Number (Belarus)
+        director: "Director:",
+        company2Director: "Miranovich Vadim Vladimirovich",
+        company2Address: "223039, Minsk region, Minsk district, Zhdanovichsky village council, area of village Tabory, administrative and economic building, room 39A",
+        otherCompanies: "This supplier has other companies, please pay attention:",
+        company2Other1: "LLC VITADIM",
+        company2Other2: "IP Miranovich Vadim Vladimirovich",
+        company2Other3: "LLC Emersis Trade",
+        company2Other4: "LLC Belorekhprom",
+        company2Other5: "LLC SV-frukt",
+        company2Reason: "They supplied low-quality goods, specifically potatoes worth 6,020€, and ultimately refused to take responsibility to refund the money for the poor goods. We recommend not to work with this company.",
+
+        footerContacts: "Contacts",
+        footerPhone: "Phone Viber/WhatsApp: +375292815954",
+        footerEmail1: "Email: jadran3110@gmail.com",
+        footerEmail2: "Email: adriatikgrupp@mail.ru",
+        footerLinks: "Useful Links",
+        footerPrivacy: "Privacy Policy",
+        footerTerms: "Terms of Service",
+        placement_rules: "Information Placement Rules",
+        footerFAQ: "Frequently Asked Questions",
+        footerCopy: "© Adriatic Group LLC. All rights reserved.",
+
+
+        MMNFruit_arile: "MMN Fruit, founded in 2011, specializes in exporting premium frozen fruits to customers in Europe, Asia, and the USA.",
+        GoldenFruit_arile: "The company pays special attention to the quality and safety of its products, cooperating with local producers and controlling the entire process from harvesting to delivery. The products are exported to European Union countries, including Germany and Scandinavian states, where they are used in the production of desserts, ice cream, juices, and jams.",
+
+        Sinagoga_sombor: "Wholesale and retail food trading, import of packaging paper, production and packaging of poppy seeds, sunflower seeds, peanuts, oat, rye, wheat, and soybean flakes.",
+
+        Uladar_borisov: "The largest grain processing enterprise in the Republic of Belarus.",
+
+        SadBerry_ivanovo: "Wholesale trade of fresh and frozen berries. Berry acceptance from the population.",
+
+        Sinagoga_sombor2: "Brief information about company 1 in Belgrade.",
+
+
+        cookie_accept: "We use cookies to improve website performance. By continuing to use the site, you agree to their use.",
+
+        searchResultsTitle: "Search Results",
+        backToHome: "🏠 Back to Home",
+        website: "Website",
+        products: "Products",
+        noResults: "❌ Nothing found.",
+    },
 };
 
 

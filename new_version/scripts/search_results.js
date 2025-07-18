@@ -34,6 +34,13 @@ document.addEventListener("DOMContentLoaded", function () {
             products: "Proizvodi",
             services: "Usluge",
             noResults: "❌ Ništa nije pronađeno."
+        },
+        en: {
+            searchResultsTitle: "Search Results",
+            backToHome: "🏠 Back to Home",
+            products: "Products",
+            services: "Services",
+            noResults: "❌ Nothing found."
         }
     };
 
@@ -47,12 +54,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const companies = [
         { 
-            name: "Golden Fruit", 
-            description: { ru: "Производитель ягод", sr: "Proizvođač bobičastog voća" },
+            name: "Golden Fruit",
+            description: {
+                ru: "Производитель ягод",
+                sr: "Proizvođač bobičastog voća",
+                en: "Berry producer"
+            },
             website: "https://goldenfruit.com",
             products: {
                 ru: ["Малина свежая", "Малина замороженная", "Ежевика культивированная"],
-                sr: ["Sveža malina", "Zamrznuta malina", "Uzgojena kupina"]
+                sr: ["Sveža malina", "Zamrznuta malina", "Uzgojena kupina"],
+                en: ["Fresh raspberry", "Frozen raspberry", "Cultivated blackberry"]
             },
             services: {
                 ru: [
@@ -70,16 +82,29 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Savremene IQF tehnologije zamrzavanja",
                     "Individualno pakovanje i logistika",
                     "Garancija kontrole kvaliteta u svim fazama"
+                ],
+                en: [
+                    "Production and freezing of high-quality berries",
+                    "Wholesale of fresh and frozen berries",
+                    "Environmentally friendly cultivation and processing methods",
+                    "Modern IQF freezing technologies",
+                    "Custom packaging and logistics",
+                    "Quality control guarantee at all stages"
                 ]
-            }
+            },
         },
         { 
-            name: "MMN Fruit", 
-            description: { ru: "Поставщик свежих фруктов", sr: "Dobavljač svežeg voća" },
+            name: "MMN Fruit",
+            description: {
+                ru: "Поставщик свежих фруктов",
+                sr: "Dobavljač svežeg voća",
+                en: "Fresh fruit supplier"
+            },
             website: "https://mmnfruit.com",
             products: {
                 ru: ["Малина замороженная", "Клубника замороженная", "Черника замороженная"],
-                sr: ["Zamrznuta malina", "Zamrznuta jagoda", "Zamrznuta borovnica"]
+                sr: ["Zamrznuta malina", "Zamrznuta jagoda", "Zamrznuta borovnica"],
+                en: ["Frozen raspberry", "Frozen strawberry", "Frozen blueberry"]
             },
             services: {
                 ru: [
@@ -97,16 +122,29 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Logistika i organizacija isporuke",
                     "Konsultacije o asortimanu i skladištenju proizvoda",
                     "Nabavka voća i bobica od proizvođača"
+                ],
+                en: [
+                    "Wholesale supply of fresh and frozen berries and fruits",
+                    "Quality control at all production stages",
+                    "Custom packaging and labeling",
+                    "Logistics and delivery organization",
+                    "Consultations on product assortment and storage",
+                    "Purchasing berries and fruits from producers"
                 ]
             }
         },
         {
             name: "Sinagoga doo",
-            description: { ru: "Оптовая торговля, упаковка, производство хлопьев и орехов.", sr: "Veleprodaja, pakovanje, proizvodnja pahuljica i orašastih plodova." },
+            description: {
+                ru: "Оптовая торговля, упаковка, производство хлопьев и орехов.",
+                sr: "Veleprodaja, pakovanje, proizvodnja pahuljica i orašastih plodova.",
+                en: "Wholesale trade, packaging, production of flakes and nuts."
+            },
             website: "https://www.sinagoga.co.rs/",
             products: {
                 ru: ["Мак", "Подсолнечник", "Арахис", "Овсяные хлопья", "Ржаные хлопья", "Пшеничные хлопья", "Соевые хлопья"],
-                sr: ["Mak", "Suncokret", "Kikiriki", "Ovsene pahuljice", "Ražene pahuljice", "Pšenične pahuljice", "Sojine pahuljice"]
+                sr: ["Mak", "Suncokret", "Kikiriki", "Ovsene pahuljice", "Ražene pahuljice", "Pšenične pahuljice", "Sojine pahuljice"],
+                en: ["Poppy seeds", "Sunflower", "Peanuts", "Oat flakes", "Rye flakes", "Wheat flakes", "Soy flakes"]
             },
             services: {
                 ru: [
@@ -124,16 +162,29 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Kontrola kvaliteta sirovina i gotovih proizvoda",
                     "Logistika i transport",
                     "Konsultacije o izboru proizvoda i saradnji"
+                ],
+                en: [
+                    "Wholesale of agricultural products",
+                    "Packaging and packing of products",
+                    "Production and processing of flakes",
+                    "Quality control of raw materials and finished products",
+                    "Logistics and transportation",
+                    "Consultations on product selection and cooperation"
                 ]
             }
         },
         {
             name: "Уладар",
-            description: { ru: "Крупнейшее зерноперерабатывающее предприятие Республики Беларусь", sr: "Najveće preduzeće za preradu žitarica u Republici Belorusiji" },
+            description: {
+                ru: "Крупнейшее зерноперерабатывающее предприятие Республики Беларусь",
+                sr: "Najveće preduzeće za preradu žitarica u Republici Belorusiji",
+                en: "The largest grain processing enterprise in the Republic of Belarus"
+            },
             website: "https://uladar.by/",
             products: {
                 ru: ["Мука пшеничная", "Макаронные изделия", "Крупы", "Комбикорм", "Мясные полуфабрикаты", "Молочная продукция"],
-                sr: ["Pšenično brašno", "Testenine", "Žitarice", "Stočna hrana", "Mesni poluproizvodi", "Mlečni proizvodi"]
+                sr: ["Pšenično brašno", "Testenine", "Žitarice", "Stočna hrana", "Mesni poluproizvodi", "Mlečni proizvodi"],
+                en: ["Wheat flour", "Pasta products", "Groats", "Compound feed", "Meat semi-finished products", "Dairy products"]
             },
             services: {
                 ru: [
@@ -151,16 +202,47 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Konsultacije o ishrani i optimizaciji hranidbenih programa",
                     "Transport i logistika poljoprivrednih proizvoda",
                     "Kontrola kvaliteta proizvoda u svim fazama proizvodnje"
+                ],
+                en: [
+                    "Production and sale of compound feed for farm animals",
+                    "Supply of grains and feed additives",
+                    "Analysis and development of animal nutrition rations",
+                    "Consultations on feeding and optimization of feeding programs",
+                    "Transportation and logistics of agricultural products",
+                    "Quality control of products at all stages of production"
                 ]
             }
         },
         {
             name: "SadBerry",
-            description: { ru: "Оптовая торговля свежими и замороженными ягодами. Прием ягод у населения", sr: "Veleprodaja svežeg i zamrznutog bobičastog voća. Otkupljivanje voća od stanovništva" },
+            description: {
+                ru: "Оптовая торговля свежими и замороженными ягодами. Прием ягод у населения",
+                sr: "Veleprodaja svežeg i zamrznutog bobičastog voća. Otkupljivanje voća od stanovništva",
+                en: "Wholesale trade of fresh and frozen berries. Berry procurement from the population"
+            },
             website: "https://sadberry.by/",
             products: {
-                ru: ["Свежие ягоды", "Замороженные ягоды", "Замороженная вишня без косточки", "Овощи для заморозки", "Полуфабрикаты из ягод"],
-                sr: ["Sveže bobice", "Zamrznute bobice", "Zamrznuta višnja bez koštica", "Povrće za zamrzavanje", "Poluproizvodi od bobičastog voća"]
+                ru: [
+                    "Свежие ягоды",
+                    "Замороженные ягоды",
+                    "Замороженная вишня без косточки",
+                    "Овощи для заморозки",
+                    "Полуфабрикаты из ягод"
+                ],
+                sr: [
+                    "Sveže bobice",
+                    "Zamrznute bobice",
+                    "Zamrznuta višnja bez koštica",
+                    "Povrće za zamrzavanje",
+                    "Poluproizvodi od bobičastog voća"
+                ],
+                en: [
+                    "Fresh berries",
+                    "Frozen berries",
+                    "Frozen pitted cherries",
+                    "Vegetables for freezing",
+                    "Berry semi-finished products"
+                ]
             },
             services: {
                 ru: [
@@ -178,6 +260,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Savremene tehnologije zamrzavanja IQF",
                     "Stroga kontrola kvaliteta na svim fazama",
                     "Fleksibilni uslovi saradnje"
+                ],
+                en: [
+                    "Wholesale trade of fresh and frozen berries",
+                    "Berry procurement from the population and farms",
+                    "Pitting services for cherries",
+                    "Modern IQF freezing technologies",
+                    "Strict quality control at all stages",
+                    "Flexible cooperation terms"
                 ]
             }
         }

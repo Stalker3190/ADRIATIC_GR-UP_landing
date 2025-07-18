@@ -135,7 +135,55 @@ document.addEventListener("DOMContentLoaded", function () {
             backToHome: "Nazad na početnu",
 
             company_list_title: "Partnerske kompanije",
-        }
+        },
+        en: {
+            headerTitle: "Adriatic Group LLC",
+
+            partnersTitle: "Our Partners",
+
+            // Blacklist
+            blacklistTitle: "Company Blacklist",
+            company1Name: "KFH AGROMARAFON",
+            inn: "TIN:",
+            head: "Head:",
+            address: "Legal address:",
+            company1Head: "Evgeny Vladimirovich Borisov",
+            company1Address: "241029, Bryansk region, Bryansk, Krasnoarmeyskaya St., 126/1 office 202a",
+            reason: "Reason not to work with this company:",
+            company1Reason: "They took money from a Serbian company for a potato supply in the amount of 688,000 rubles but did not deliver the potatoes and kept the money, returning only 50,000 rubles. We recommend not working with this company.",
+
+            company2Name: "Saul-Corp LLC",
+            unp: "UNP:",
+            director: "Director:",
+            company2Director: "Vadim Vladimirovich Miranovich",
+            company2Address: "223039, Minsk region, Minsk district, Zhdanovichsky village council, Tabory village area, administrative building, room 39A",
+            otherCompanies: "This supplier also has other companies; please pay attention:",
+            company2Other1: "Vitadim LLC",
+            company2Other2: "Individual entrepreneur Vadim Vladimirovich Miranovich",
+            company2Other3: "Emersis Trade LLC",
+            company2Other4: "Belorekhprom LLC",
+            company2Other5: "SV-frukt LLC",
+            company2Reason: "Supplied low-quality goods, specifically potatoes worth €6,020, and refused to accept responsibility or refund for the poor goods. We recommend not working with this company.",
+
+            footerContacts: "Contacts",
+            footerPhone: "Phone Viber/WhatsApp: +375292815954",
+            footerEmail1: "Email: jadran3110@gmail.com",
+            footerEmail2: "Email: adriatikgrupp@mail.ru",
+            footerLinks: "Useful Links",
+            footerPrivacy: "Privacy Policy",
+            footerTerms: "Terms of Service",
+            placement_rules: "Information Placement Rules",
+            footerFAQ: "Frequently Asked Questions",
+            footerCopy: "© Adriatic Group LLC. All rights reserved.",
+
+            GoldenFruit: "Golden Fruit d.o.o. is a leading producer and supplier of frozen berries and fruits, specializing in high-quality blueberries and other products. They offer reliable and eco-friendly products to customers worldwide.",
+            MMNFruit: "MMN Fruit is a major fruit supplier specializing in various fresh and frozen products. The company ensures high quality and a wide range of products to meet customer needs.",
+            SadBerry: "SadBerry is the largest berry freezing company in Belarus. It is a market leader in berry exports from Belarus, being number one in Serbia and Russia. SadBerry is the only company in Belarus producing pitted frozen cherries, making it a unique and reliable partner for clients.",
+
+            backToHome: "Back to Home",
+
+            company_list_title: "Partner Companies",
+        },
     };
     
 
@@ -178,7 +226,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // Обработчик нажатия на кнопки смены языка
     document.querySelectorAll('.language-switcher button').forEach(button => {
         button.addEventListener('click', function () {
-            switchLanguage(button.textContent === 'Русский' ? 'ru' : 'sr');
+            const langMap = {
+                'Русский': 'ru',
+                'Srpski': 'sr',
+                'English': 'en'
+            };
+            const selectedLang = langMap[button.textContent] || 'ru';  // дефолт 'ru' если не нашли
+            switchLanguage(selectedLang);
         });
     });
 

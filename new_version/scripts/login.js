@@ -31,6 +31,17 @@ document.addEventListener("DOMContentLoaded", function () {
             registerText: "Još nemate nalog?",
             registerLink: "Registrujte se",
             backToHome: "Nazad na početnu"
+        },
+        en: {
+            loginTitle: "Login",
+            loginLabel: "Username:",
+            loginPlaceholder: "Enter username",
+            passwordLabel: "Password:",
+            passwordPlaceholder: "Enter password",
+            loginButton: "Sign In",
+            registerText: "Don't have an account yet?",
+            registerLink: "Register",
+            backToHome: "Back to Home"
         }
     };
     
@@ -57,7 +68,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 🔹 Функция для локализации ошибок
     function setValidationMessages(input) {
-        const message = lang === "sr" ? "Molimo vas da popunite ovo polje!" : "Пожалуйста, заполните это поле!";
+        let message;
+        if (lang === "sr") {
+            message = "Molimo vas da popunite ovo polje!";
+        } else if (lang === "en") {
+            message = "Please fill out this field!";
+        } else {
+            message = "Пожалуйста, заполните это поле!";
+        }
         
         input.addEventListener("input", function () {
             this.setCustomValidity(""); // Сбрасываем ошибку при вводе
