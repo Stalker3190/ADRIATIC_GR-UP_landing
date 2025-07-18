@@ -82,14 +82,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             GoldenFruit: "Golden Fruit d.o.o. - ведущий производитель и поставщик замороженных ягод и фруктов, специализирующийся на высококачественной чернике и других продуктах. Они предлагают надежные и экологически чистые продукты для клиентов по всему миру.",
             MMNFruit: "MMN Fruit - крупный поставщик фруктов, специализирующийся на различных видах свежих и замороженных продуктов. Компания обеспечивает высокое качество и широкий ассортимент продукции для удовлетворения потребностей клиентов.",
-        
-            MMNFruit_arile: "Компания MMN Fruit, основанная в 2011 году, специализируется на экспорте премиальных замороженных фруктов клиентам в Европе, Азии и США.",
-            GoldenFruit_arile: "Компания уделяет особое внимание качеству и безопасности своей продукции, сотрудничая с местными производителями и контролируя весь процесс — от сбора до поставки. Продукция экспортируется в страны Европейского Союза, включая Германию и государства Скандинавии, где используется в производстве десертов, мороженого, соков и джемов.",
+            SadBerry: "SadBerry - крупнейшая компания по заморозке ягод в Беларуси. Она занимает лидирующие позиции в экспорте ягод из Беларуси, являясь номером один на рынках Сербии и России. SadBerry - единственная компания в Беларуси, производящая замороженную вишню без косточки, что делает её уникальным и надёжным партнёром для клиентов.",
+
             
-            Sinagoga_sombor: "Оптовая и розничная торговля продуктами питания, импорт упаковочной бумаги, производство и упаковка мака, подсолнечника, арахиса, овсяных, ржаных, пшеничных и соевых хлопьев",
-
-            Uladar_borisov: "Крупнейшее зерноперерабатывающее предприятие Республики Беларусь",
-
             backToHome: "На главную",
 
             company_list_title: "Компании-партнеры",
@@ -135,12 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             GoldenFruit: "Golden Fruit d.o.o. je vodeći proizvođač i dobavljač smrznutog bobičastog voća i voća, specijalizovan za kvalitetne borovnice i druge proizvode. Oni nude pouzdane i ekološke proizvode kupcima širom sveta.",
             MMNFruit: "MMN Voće je veliki dobavljač voća specijalizovan za razne vrste svežih i smrznutih proizvoda. Kompanija obezbeđuje visok kvalitet i širok spektar proizvoda kako bi zadovoljila potrebe kupaca.",
-        
-            MMNFruit_arile: "Kompanija MMN Fruit, osnovana 2011. godine, specijalizovana je za izvoz premium smrznutog voća klijentima u Evropi, Aziji i SAD-u.",
-            GoldenFruit_arile: "Kompanija posebnu pažnju posvećuje kvalitetu i bezbednosti svojih proizvoda, sarađujući sa lokalnim proizvođačima i kontrolišući ceo proces – od berbe do isporuke. Proizvodi se izvoze u zemlje Evropske unije, uključujući Nemačku i skandinavske države, gde se koriste u proizvodnji poslastica, sladoleda, sokova i džemova.",
-            Sinagoga_sombor: "Veleprodaja i maloprodaja prehrambene robe, uvoz ambalažnog papira, proizvodnja i pakovanje maka, suncokreta, kikirikija, ovsenih, raženih, pšeničnih i sojinih pahuljica",
-            
-            Uladar_borisov: "Najveće preduzeće za preradu žitarica u Republici Belorusiji",
+            SadBerry: "SadBerry je najveća kompanija za zamrzavanje bobičastog voća u Belorusiji. Kompanija zauzima vodeću poziciju u izvozu voća iz Belorusije, biti broj jedan na tržištima Srbije i Rusije. SadBerry je jedina kompanija u Belorusiji koja proizvodi zamrznute višnje bez koštica, što je čini jedinstvenim i pouzdanim partnerom za klijente.",
 
             backToHome: "Nazad na početnu",
 

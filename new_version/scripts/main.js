@@ -13,16 +13,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     const cookieBanner = document.getElementById("cookie-banner");
-        const acceptButton = document.getElementById("accept-cookies");
+    const acceptButton = document.getElementById("accept-cookies");
 
-        if (!getCookie("cookiesAccepted")) {
-            cookieBanner.classList.add("show");
-        }
+    if (!getCookie("cookiesAccepted")) {
+       cookieBanner.classList.add("show");
+    }
 
+    if (acceptButton) {
         acceptButton.addEventListener("click", function () {
             setCookie("cookiesAccepted", "true", 365);
-            cookieBanner.classList.remove("show");
+            if (cookieBanner) {
+                cookieBanner.classList.remove("show");
+            }
         });
+    }
 
     //конец куки
 
@@ -39,28 +43,36 @@ document.addEventListener('DOMContentLoaded', function() {
     switchLanguage(lang);
     
 
-    if (user && user.status.toLowerCase() === "ok") {
-        document.getElementById("partnersTitle-btn").style.display = "block";
-        
-        logoutBtn.style.display = "block";
+    const partnersBtn = document.getElementById("partnersTitle-btn");
 
-        document.getElementById("login-btn").style.display = "none";
-        document.getElementById("register-btn").style.display = "none";
+    if (user && user.status.toLowerCase() === "ok") {
+        if (partnersBtn) partnersBtn.style.display = "block";
+        
+        if (logoutBtn) logoutBtn.style.display = "block";
+
+        const loginBtn = document.getElementById("login-btn");
+        const registerBtn = document.getElementById("register-btn");
+        if (loginBtn) loginBtn.style.display = "none";
+        if (registerBtn) registerBtn.style.display = "none";
         
     } else {
-        document.getElementById("partnersTitle-btn").style.display = "none";
-        
-        logoutBtn.style.display = "none";
+        if (partnersBtn) partnersBtn.style.display = "none";
+        if (logoutBtn) logoutBtn.style.display = "none";
 
-        document.getElementById("login-btn").style.display = "block";
-        document.getElementById("register-btn").style.display = "block";
+        const loginBtn = document.getElementById("login-btn");
+        const registerBtn = document.getElementById("register-btn");
+        if (loginBtn) loginBtn.style.display = "block";
+        if (registerBtn) registerBtn.style.display = "block";
     }
 
-    logoutBtn.addEventListener("click", function () {
-        localStorage.removeItem("user"); // Удаляем пользователя
-        alert("You've logged out of your account!");
-        window.location.reload(); // Перезагружаем страницу
-    });
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", function () {
+            localStorage.removeItem("user");
+            alert("You've logged out of your account!");
+            window.location.reload();
+        });
+    }
 
     const searchInput = document.querySelector(".search-input");
 
@@ -138,9 +150,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    if (close) {
     close.addEventListener('click', function() {
         popup.style.display = 'none';
     });
+}
 
     window.addEventListener('click', function(event) {
         if (event.target == popup) {
@@ -149,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function showCompanies(city) {
-        const companyDetailsContainer = document.getElementById("company-details");
+        const companyDetailsContainer = document.getElementById("popup-company-details");
         companyDetailsContainer.style.display = "block";
 
         const companies = document.querySelectorAll(`.company[data-city='${city}']`);
@@ -238,6 +252,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const scrollBtn = document.getElementById("scrollToTop");
 
+    if (!scrollBtn) {
+        return;
+    }
+
     window.addEventListener("scroll", function () {
         if (window.scrollY > 300) {
             scrollBtn.style.display = "flex";
@@ -246,9 +264,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    scrollBtn.addEventListener("click", function () {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+    if (scrollBtn) {
+        scrollBtn.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
 
 });
 
@@ -311,6 +331,7 @@ const translations = {
         vitebsk: "Витебск",
         mogilev: "Могилёв",
         borisov: "Борисов",
+        ivanovo: "Иваново",
         kaliningrad: "Калининград",
         stPetersburg: "Санкт-Петербург",
         novosibirsk: "Новосибирск",
@@ -447,18 +468,18 @@ const translations = {
         footerFAQ: "Часто задаваемые вопросы",
         footerCopy: "© ООО Адриатик Групп. Все права защищены.",
 
-        GoldenFruit: "Golden Fruit d.o.o. - ведущий производитель и поставщик замороженных ягод и фруктов, специализирующийся на высококачественной чернике и других продуктах. Они предлагают надежные и экологически чистые продукты для клиентов по всему миру.",
-        MMNFruit: "MMN Fruit - крупный поставщик фруктов, специализирующийся на различных видах свежих и замороженных продуктов. Компания обеспечивает высокое качество и широкий ассортимент продукции для удовлетворения потребностей клиентов.",
-    
+
         MMNFruit_arile: "Компания MMN Fruit, основанная в 2011 году, специализируется на экспорте премиальных замороженных фруктов клиентам в Европе, Азии и США.",
-        GoldenFruit_arile: "Компания уделяет особое внимание качеству и безопасности своей продукции, сотрудничая с местными производителями и контролируя весь процесс — от сбора до поставки. Продукция экспортируется в страны Европейского Союза, включая Германию и государства Скандинавии, где используется в производстве десертов, мороженого, соков и джемов.",
+        GoldenFruit_arile: "Компания уделяет особое внимание качеству и безопасности своей продукции, сотрудничая с местными производителями и контролируя весь процесс - от сбора до поставки. Продукция экспортируется в страны Европейского Союза, включая Германию и государства Скандинавии, где используется в производстве десертов, мороженого, соков и джемов.",
         
         Sinagoga_sombor: "Оптовая и розничная торговля продуктами питания, импорт упаковочной бумаги, производство и упаковка мака, подсолнечника, арахиса, овсяных, ржаных, пшеничных и соевых хлопьев",
 
         Uladar_borisov: "Крупнейшее зерноперерабатывающее предприятие Республики Беларусь",
 
-        Sinagoga_sombor1: "Kratke informacije o kompaniji 1 u Beogradu.",
+        SadBerry_ivanovo: "Оптовая торговля свежими и замороженными ягодами. Прием ягод у населения",
+        
         Sinagoga_sombor2: "Kratke informacije o kompaniji 1 u Beogradu.",
+
 
 
         cookie_accept: "Мы используем файлы cookie для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с их использованием.",
@@ -498,6 +519,7 @@ const translations = {
         vitebsk: "Vitebsk",
         mogilev: "Mogilev",
         borisov: "Borisov",
+        ivanovo: "Ivanovo",
         kaliningrad: "Kaliningrad",
         stPetersburg: "Sankt Peterburg",
         novosibirsk: "Novosibirsk",
@@ -636,16 +658,14 @@ const translations = {
         footerFAQ: "Često postavljana pitanja",
         footerCopy: "© ADRIATIC GROUP DOO. Sva prava zadržana.",
 
-        GoldenFruit: "Golden Fruit d.o.o. je vodeći proizvođač i dobavljač smrznutog bobičastog voća i voća, specijalizovan za kvalitetne borovnice i druge proizvode. Oni nude pouzdane i ekološke proizvode kupcima širom sveta.",
-        MMNFruit: "MMN Voće je veliki dobavljač voća specijalizovan za razne vrste SVEŽAh i smrznutih proizvoda. Kompanija obezbeđuje visok kvalitet i širok spektar proizvoda kako bi zadovoljila potrebe kupaca.",
-    
         MMNFruit_arile: "Kompanija MMN Fruit, osnovana 2011. godine, specijalizovana je za izvoz premium smrznutog voća klijentima u Evropi, Aziji i SAD-u.",
         GoldenFruit_arile: "Kompanija posebnu pažnju posvećuje kvalitetu i bezbednosti svojih proizvoda, sarađujući sa lokalnim proizvođačima i kontrolišući ceo proces – od berbe do isporuke. Proizvodi se izvoze u zemlje Evropske unije, uključujući Nemačku i skandinavske države, gde se koriste u proizvodnji poslastica, sladoleda, sokova i džemova.",
         Sinagoga_sombor: "Veleprodaja i maloprodaja prehrambene robe, uvoz ambalažnog papira, proizvodnja i pakovanje maka, suncokreta, kikirikija, ovsenih, raženih, pšeničnih i sojinih pahuljica",
         
         Uladar_borisov: "Najveće preduzeće za preradu žitarica u Republici Belorusiji",
 
-        Sinagoga_sombor1: "Kratke informacije o kompaniji 1 u Beogradu.",
+        SadBerry_ivanovo: "Veleprodaja svežeg i zamrznutog bobičastog voća. Otkupljivanje voća od stanovništva",
+
         Sinagoga_sombor2: "Kratke informacije o kompaniji 1 u Beogradu.",
 
 
