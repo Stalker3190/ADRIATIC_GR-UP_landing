@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             GoldenFruit: "Golden Fruit d.o.o. je vodeći proizvođač i dobavljač smrznutog bobičastog voća i voća, specijalizovan za kvalitetne borovnice i druge proizvode. Oni nude pouzdane i ekološke proizvode kupcima širom sveta.",
             MMNFruit: "MMN Voće je veliki dobavljač voća specijalizovan za razne vrste svežih i smrznutih proizvoda. Kompanija obezbeđuje visok kvalitet i širok spektar proizvoda kako bi zadovoljila potrebe kupaca.",
-            SadBerry: "SadBerry je najveća kompanija za zamrzavanje bobičastog voća u Belorusiji. Kompanija zauzima vodeću poziciju u izvozu voća iz Belorusije, biti broj jedan na tržištima Srbije i Rusije. SadBerry je jedina kompanija u Belorusiji koja proizvodi zamrznute višnje bez koštica, što je čini jedinstvenim i pouzdanim partnerom za klijente.",
+            SadBerry: "SadBerry je najveća kompanija za zamrzavanje bobičastog voća u Belorusiji. Kompanija zauzima vodeću poziciju u izvozu voća iz Belorusije, broj jedan na tržištima Srbije i Rusije. SadBerry je jedina kompanija u Belorusiji koja proizvodi zamrznute višnje bez koštica, što je čini jedinstvenim i pouzdanim partnerom za klijente.",
 
             backToHome: "Nazad na početnu",
 
