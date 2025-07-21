@@ -452,7 +452,7 @@ body h2 {
 @media (min-width: 901px) {
     .product-images {
         overflow-y: auto; /* Добавляем вертикальный скролл на десктопе */
-        height: 1120px;
+        height: 1160px;
     }
 
     .product-media {

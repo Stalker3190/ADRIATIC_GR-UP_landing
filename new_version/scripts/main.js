@@ -270,6 +270,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+
+    // Video carousel
+    const carousel = document.getElementById('videoCarousel');
+
+    if (carousel) {
+        carousel.addEventListener('slide.bs.carousel', function () {
+            const videos = carousel.querySelectorAll('video');
+
+            videos.forEach(video => {
+                video.pause();           
+            });
+        });
+    }
+
 });
 
 function saveSearchQuery() {
@@ -301,6 +315,7 @@ function switchLanguage(language) {
         searchInput.placeholder = translations[language]["searchPlaceholder"];
     }
 }
+
 
 
 const translations = {
@@ -805,6 +820,8 @@ const translations = {
 
 
         partnersTitle: "Our Partners",
+        
+
 
         // Черный список
         blacklistTitle: "Blacklist of Companies",

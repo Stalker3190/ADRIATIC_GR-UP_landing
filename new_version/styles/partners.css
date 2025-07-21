@@ -37,7 +37,9 @@
 }
 
 .partner-logo {
-    margin: 10px;
+    max-width: 150px;
+    display: block;
+    margin: 1em 0;
     transition: transform 0.3s;
 }
 
@@ -58,8 +60,11 @@
 }
 
 .partner-entry {
-    margin: 20px;
-    padding: 20px;
+    border: 1px solid #ddd;
+    padding: 1em;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin: 0.5em;
 }
 
 .partner-entry h3 {
@@ -82,6 +87,7 @@
 .partner-entry p {
     margin: 5px 0;
     line-height: 1.5;
+    text-align: left;
 }
 
 hr {
@@ -91,8 +97,26 @@ hr {
 }
 
 
+.partner-photo {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1em;
+    border-radius: 8px;
+}
 
+.toggle-details-btn {
+    margin: 0.2em;
+    padding: 0.4em 1em;
+    background-color: #00a651;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
+.partner-extra {
+    text-align: left;
+}
 
 
 

@@ -46,13 +46,75 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const h1Element = document.querySelector("h1");
 
-    // Меняем заголовок только если в URL есть параметр "q" (поисковый запрос)
-    if (urlParams.has("q")) {
+    if (urlParams.has("q") && h1Element) {
         h1Element.textContent = translations[lang]["searchResultsTitle"];
     }
-    document.querySelector(".back-button").textContent = translations[lang]["backToHome"];
+
+    const backButton = document.querySelector(".back-button");
+    if (backButton) {
+        backButton.textContent = translations[lang]["backToHome"];
+    }
+
 
     const companies = [
+        {
+            name: "SadBerry",
+            description: {
+                ru: "Оптовая торговля замороженными ягодами. Прием ягод у населения",
+                sr: "Veleprodaja zamrznutog bobičastog voća. Otkupljivanje voća od stanovništva",
+                en: "Wholesale trade of frozen berries. Berry procurement from the population"
+            },
+            website: "https://sadberry.by/",
+            products: {
+                ru: [
+                    "Замороженная малина",
+                    "Замороженная черника",
+                    "Замороженная смородина",
+                    "Замороженная вишня без косточки",
+                    "Полуфабрикаты из ягод"
+                ],
+                sr: [
+                    "Zamrznuta malina",
+                    "Zamrznuta borovnica",
+                    "Zamrznuta ribizla",
+                    "Zamrznuta višnja bez koštica",
+                    "Poluproizvodi od bobičastog voća"
+                ],
+                en: [
+                    "Frozen raspberry",
+                    "Frozen blueberry",
+                    "Frozen currant",
+                    "Frozen pitted cherries",
+                    "Berry semi-finished products"
+                ]
+            },
+            services: {
+                ru: [
+                    "Оптовая торговля замороженными ягодами",
+                    "Прием ягод у населения и фермерских хозяйств",
+                    "Услуги по удалению косточки из вишни",
+                    "Современные технологии заморозки IQF",
+                    "Строгий контроль качества на всех этапах",
+                    "Гибкие условия сотрудничества"
+                ],
+                sr: [
+                    "Veleprodaja zamrznutog bobičastog voća",
+                    "Prijem bobica od stanovništva i poljoprivrednih gazdinstava",
+                    "Usluge uklanjanja koštica iz višanja",
+                    "Savremene tehnologije zamrzavanja IQF",
+                    "Stroga kontrola kvaliteta na svim fazama",
+                    "Fleksibilni uslovi saradnje"
+                ],
+                en: [
+                    "Wholesale trade of frozen berries",
+                    "Berry procurement from the population and farms",
+                    "Pitting services for cherries",
+                    "Modern IQF freezing technologies",
+                    "Strict quality control at all stages",
+                    "Flexible cooperation terms"
+                ]
+            }
+        },
         { 
             name: "Golden Fruit",
             description: {
@@ -213,64 +275,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 ]
             }
         },
-        {
-            name: "SadBerry",
-            description: {
-                ru: "Оптовая торговля свежими и замороженными ягодами. Прием ягод у населения",
-                sr: "Veleprodaja svežeg i zamrznutog bobičastog voća. Otkupljivanje voća od stanovništva",
-                en: "Wholesale trade of fresh and frozen berries. Berry procurement from the population"
-            },
-            website: "https://sadberry.by/",
-            products: {
-                ru: [
-                    "Свежие ягоды",
-                    "Замороженные ягоды",
-                    "Замороженная вишня без косточки",
-                    "Овощи для заморозки",
-                    "Полуфабрикаты из ягод"
-                ],
-                sr: [
-                    "Sveže bobice",
-                    "Zamrznute bobice",
-                    "Zamrznuta višnja bez koštica",
-                    "Povrće za zamrzavanje",
-                    "Poluproizvodi od bobičastog voća"
-                ],
-                en: [
-                    "Fresh berries",
-                    "Frozen berries",
-                    "Frozen pitted cherries",
-                    "Vegetables for freezing",
-                    "Berry semi-finished products"
-                ]
-            },
-            services: {
-                ru: [
-                    "Оптовая торговля свежими и замороженными ягодами",
-                    "Прием ягод у населения и фермерских хозяйств",
-                    "Услуги по удалению косточки из вишни",
-                    "Современные технологии заморозки IQF",
-                    "Строгий контроль качества на всех этапах",
-                    "Гибкие условия сотрудничества"
-                ],
-                sr: [
-                    "Veleprodaja svežih i zamrznutih bobica",
-                    "Prijem bobica od stanovništva i poljoprivrednih gazdinstava",
-                    "Usluge uklanjanja koštica iz višanja",
-                    "Savremene tehnologije zamrzavanja IQF",
-                    "Stroga kontrola kvaliteta na svim fazama",
-                    "Fleksibilni uslovi saradnje"
-                ],
-                en: [
-                    "Wholesale trade of fresh and frozen berries",
-                    "Berry procurement from the population and farms",
-                    "Pitting services for cherries",
-                    "Modern IQF freezing technologies",
-                    "Strict quality control at all stages",
-                    "Flexible cooperation terms"
-                ]
-            }
-        }
     ];
 
     let filteredCompanies = companies.filter(company =>
@@ -280,28 +284,32 @@ document.addEventListener("DOMContentLoaded", function () {
         (company.services?.[lang]?.some(service => service.toLowerCase().includes(query)))
     );
 
-    resultsContainer.innerHTML = "";
+    if (resultsContainer) {
+        resultsContainer.innerHTML = "";
 
-    if (filteredCompanies.length > 0) {
-        filteredCompanies.forEach(company => {
-            const companyCard = `
-                <div class="company-card">
-                    <h2 class="company-name">${company.name}</h2>
-                    <p class="company-description">${company.description[lang]}</p>
-                    <p><strong>🛒 ${translations[lang]["products"]}:</strong> ${company.products[lang].join(", ")}</p>
-                    ${
-                        company.services && company.services[lang]?.length
-                        ? `<p><strong>🛠️ ${translations[lang]["services"]}:</strong></p>
-                        <ul class="services-list">
-                            ${company.services[lang].map(service => `<li>${service}</li>`).join("")}
-                        </ul>`
-                        : ""
-                    }
-                </div>
-            `;
-            resultsContainer.innerHTML += companyCard;
-        });
+        if (filteredCompanies.length > 0) {
+            filteredCompanies.forEach(company => {
+                const companyCard = `
+                    <div class="company-card">
+                        <h2 class="company-name">${company.name}</h2>
+                        <p class="company-description">${company.description[lang]}</p>
+                        <p><strong>🛒 ${translations[lang]["products"]}:</strong> ${company.products[lang].join(", ")}</p>
+                        ${
+                            company.services && company.services[lang]?.length
+                            ? `<p><strong>🛠️ ${translations[lang]["services"]}:</strong></p>
+                            <ul class="services-list">
+                                ${company.services[lang].map(service => `<li>${service}</li>`).join("")}
+                            </ul>`
+                            : ""
+                        }
+                    </div>
+                `;
+                resultsContainer.innerHTML += companyCard;
+            });
+        } else {
+            resultsContainer.innerHTML = `<p class="no-results">${translations[lang]["noResults"]}</p>`;
+        }
     } else {
-        resultsContainer.innerHTML = `<p class="no-results">${translations[lang]["noResults"]}</p>`;
+        console.warn("Элемент с результатами (resultsContainer) не найден в DOM.");
     }
 });

@@ -44,6 +44,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
             partnersTitle: "Наши партнёры",
 
+            more: "Подробнее",
+            less: "Скрыть",
+            productsTitle: "🛒 Продукты:",
+            servicesTitle: "🛠️ Услуги:",
+
+
+
+            SadBerryProducts: "Замороженная малина, Замороженная черника, Замороженная смородина, Замороженная вишня без косточки, Полуфабрикаты из ягод",
+            SadBerryService1: "Оптовая торговля замороженными ягодами",
+            SadBerryService2: "Прием ягод у населения и фермерских хозяйств",
+            SadBerryService3: "Услуги по удалению косточки из вишни",
+            SadBerryService4: "Современные технологии заморозки IQF",
+            SadBerryService5: "Строгий контроль качества на всех этапах",
+            SadBerryService6: "Гибкие условия сотрудничества",
+
+            GoldenFruitProducts: "Малина свежая, Малина замороженная, Ежевика культивированная",
+            GoldenFruitService1: "Производство и заморозка ягод высокого качества",
+            GoldenFruitService2: "Оптовая продажа свежих и замороженных ягод",
+            GoldenFruitService3: "Экологически чистые методы выращивания и обработки",
+            GoldenFruitService4: "Современные технологии IQF заморозки",
+            GoldenFruitService5: "Индивидуальная упаковка и логистика",
+            GoldenFruitService6: "Гарантия контроля качества на всех этапах",
+
+            MMNFruitProducts: "Малина замороженная, Клубника замороженная, Черника замороженная",
+            MMNFruitService1: "Оптовая поставка свежих и замороженных ягод и фруктов",
+            MMNFruitService2: "Контроль качества продукции на всех этапах",
+            MMNFruitService3: "Индивидуальная упаковка и маркировка под заказ",
+            MMNFruitService4: "Логистика и организация доставки",
+            MMNFruitService5: "Консультации по ассортименту и хранению продукции",
+            MMNFruitService6: "Закупка ягод и фруктов у производителей",
+
+
+
             // Черный список
             blacklistTitle: "Черный список компаний",
             company1Name: "КФХ АГРОМАРАФОН",
@@ -94,6 +127,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
             partnersTitle: "Naši partneri",
 
+            more: "Više detalja",
+            less: "Sakrij",
+            productsTitle: "🛒 Proizvodi:",
+            servicesTitle: "🛠️ Usluge:",
+
+
+            SadBerryProducts: "Zamrznuta malina, Zamrznuta borovnica, Zamrznuta ribizla, Zamrznuta višnja bez koštica, Poluproizvodi od bobičastog voća",
+            SadBerryService1: "Veleprodaja zamrznutog bobičastog voća",
+            SadBerryService2: "Prijem bobica od stanovništva i poljoprivrednih gazdinstava",
+            SadBerryService3: "Usluge uklanjanja koštica iz višanja",
+            SadBerryService4: "Savremene tehnologije zamrzavanja IQF",
+            SadBerryService5: "Stroga kontrola kvaliteta na svim fazama",
+            SadBerryService6: "Fleksibilni uslovi saradnje",
+
+            GoldenFruitProducts: "Sveža malina, Zamrznuta malina, Uzgojena kupina",
+            GoldenFruitService1: "Proizvodnja i zamrzavanje visokokvalitetnog voća",
+            GoldenFruitService2: "Veleprodaja svežeg i zamrznutog bobičastog voća",
+            GoldenFruitService3: "Ekološki čiste metode uzgoja i obrade",
+            GoldenFruitService4: "Savremene IQF tehnologije zamrzavanja",
+            GoldenFruitService5: "Individualno pakovanje i logistika",
+            GoldenFruitService6: "Garancija kontrole kvaliteta u svim fazama",
+
+            MMNFruitProducts: "Zamrznuta malina, Zamrznuta jagoda, Zamrznuta borovnica",
+            MMNFruitService1: "Veleprodaja svežeg i zamrznutog voća i bobičastog voća",
+            MMNFruitService2: "Kontrola kvaliteta proizvoda u svim fazama",
+            MMNFruitService3: "Individualno pakovanje i označavanje po narudžbini",
+            MMNFruitService4: "Logistika i organizacija isporuke",
+            MMNFruitService5: "Konsultacije o asortimanu i skladištenju proizvoda",
+            MMNFruitService6: "Nabavka voća i bobica od proizvođača",
+
+
             // Crna lista
             blacklistTitle: "Crna lista kompanija",
             company1Name: "KFH AGROMARAFON",
@@ -140,6 +204,39 @@ document.addEventListener("DOMContentLoaded", function () {
             headerTitle: "Adriatic Group LLC",
 
             partnersTitle: "Our Partners",
+
+            more: "More details",
+            less: "Hide",
+            productsTitle: "🛒 Products:",
+            servicesTitle: "🛠️ Services:",
+
+
+            SadBerryProducts: "Frozen raspberry, Frozen blueberry, Frozen currant, Frozen pitted cherries, Berry semi-finished products",
+            SadBerryService1: "Wholesale trade of frozen berries",
+            SadBerryService2: "Berry procurement from the population and farms",
+            SadBerryService3: "Pitting services for cherries",
+            SadBerryService4: "Modern IQF freezing technologies",
+            SadBerryService5: "Strict quality control at all stages",
+            SadBerryService6: "Flexible cooperation terms",
+
+            GoldenFruitProducts: "Fresh raspberry, Frozen raspberry, Cultivated blackberry",
+            GoldenFruitService1: "Production and freezing of high-quality berries",
+            GoldenFruitService2: "Wholesale of fresh and frozen berries",
+            GoldenFruitService3: "Environmentally friendly cultivation and processing methods",
+            GoldenFruitService4: "Modern IQF freezing technologies",
+            GoldenFruitService5: "Custom packaging and logistics",
+            GoldenFruitService6: "Quality control guarantee at all stages",
+
+            MMNFruitProducts: "Frozen raspberry, Frozen strawberry, Frozen blueberry",
+            MMNFruitService1: "Wholesale supply of fresh and frozen berries and fruits",
+            MMNFruitService2: "Quality control at all production stages",
+            MMNFruitService3: "Custom packaging and labeling",
+            MMNFruitService4: "Logistics and delivery organization",
+            MMNFruitService5: "Consultations on product assortment and storage",
+            MMNFruitService6: "Purchasing berries and fruits from producers",
+
+
+
 
             // Blacklist
             blacklistTitle: "Company Blacklist",
@@ -241,4 +338,24 @@ document.addEventListener("DOMContentLoaded", function () {
         let lang = localStorage.getItem("selectedLanguage") || "ru";
         window.location.href = `index.html?lang=${lang}`;
     });
+
+
+    document.querySelectorAll(".toggle-details-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const details = btn.nextElementSibling;
+            const isHidden = details.hasAttribute("hidden");
+
+            document.querySelectorAll(".partner-extra").forEach(el => el.setAttribute("hidden", ""));
+            document.querySelectorAll(".toggle-details-btn").forEach(b => {
+                b.textContent = translations[lang]["more"];
+            });
+
+            if (isHidden) {
+                details.removeAttribute("hidden");
+                btn.textContent = translations[lang]["less"] || "Скрыть";
+            }
+        });
+    });
+
 });
+
